@@ -51,7 +51,7 @@ static void clock_indicate(watch_indicator_t indicator, bool on) {
 }
 
 static void clock_indicate_alarm() {
-    clock_indicate(WATCH_INDICATOR_SIGNAL, movement_alarm_enabled());
+    clock_indicate(WATCH_INDICATOR_BELL, movement_alarm_enabled());
 }
 
 static void clock_indicate_24h() {
@@ -79,7 +79,7 @@ static void clock_indicate_low_available_power(clock_state_t *state) {
 }
 
 static void clock_indicate_time_signal() {
-    clock_indicate(WATCH_INDICATOR_BELL, movement_time_signal_enabled());
+    clock_indicate(WATCH_INDICATOR_SIGNAL, movement_time_signal_enabled());
 }
 
 static void clock_toggle_time_signal(void) {
