@@ -54,10 +54,6 @@ static void clock_indicate_alarm() {
     clock_indicate(WATCH_INDICATOR_SIGNAL, movement_alarm_enabled());
 }
 
-static void clock_indicate_time_signal(clock_state_t *state) {
-    clock_indicate(WATCH_INDICATOR_BELL, state->time_signal_enabled);
-}
-
 static void clock_indicate_24h() {
     clock_indicate(WATCH_INDICATOR_24H, !!movement_clock_mode_24h());
 }
@@ -82,6 +78,15 @@ static void clock_indicate_low_available_power(clock_state_t *state) {
     }
 }
 
+static void clock_indicate_time_signal() {
+    clock_indicate(WATCH_INDICATOR_BELL, movement_time_signal_enabled());
+}
+
+static void clock_toggle_time_signal(void) {
+    movement_set_time_signal_enabled(!movement_time_signal_enabled());
+    clock_indicate_time_signal();
+}
+
 static watch_date_time_t clock_24h_to_12h(watch_date_time_t date_time) {
     date_time.unit.hour %= 12;
 
@@ -103,11 +108,6 @@ static void clock_check_battery_periodically(clock_state_t *state, watch_date_ti
     state->battery_low = voltage < CLOCK_FACE_LOW_BATTERY_VOLTAGE_THRESHOLD;
 
     clock_indicate_low_available_power(state);
-}
-
-static void clock_toggle_time_signal(clock_state_t *state) {
-    state->time_signal_enabled = !state->time_signal_enabled;
-    clock_indicate_time_signal(state);
 }
 
 static void clock_display_all(watch_date_time_t date_time) {
@@ -212,7 +212,6 @@ void clock_face_setup(uint8_t watch_face_index, void ** context_ptr) {
     if (*context_ptr == NULL) {
         *context_ptr = malloc(sizeof(clock_state_t));
         clock_state_t *state = (clock_state_t *) *context_ptr;
-        state->time_signal_enabled = false;
         state->watch_face_index = watch_face_index;
     }
 }
@@ -222,7 +221,7 @@ void clock_face_activate(void *context) {
 
     clock_stop_tick_tock_animation();
 
-    clock_indicate_time_signal(state);
+    clock_indicate_time_signal();
     clock_indicate_alarm();
     clock_indicate_24h();
 
@@ -253,7 +252,7 @@ bool clock_face_loop(movement_event_t event, void *context) {
 
             break;
         case EVENT_ALARM_LONG_PRESS:
-            clock_toggle_time_signal(state);
+            clock_toggle_time_signal();
             break;
         case EVENT_BACKGROUND_TASK:
             // uncomment this line to snap back to the clock face when the hour signal sounds:
@@ -272,10 +271,10 @@ void clock_face_resign(void *context) {
 }
 
 movement_watch_face_advisory_t clock_face_advise(void *context) {
+    (void) context;
     movement_watch_face_advisory_t retval = { 0 };
-    clock_state_t *state = (clock_state_t *) context;
 
-    if (state->time_signal_enabled) {
+    if (movement_time_signal_enabled()) {
         watch_date_time_t date_time = movement_get_local_date_time();
         retval.wants_background_task = date_time.unit.minute == 0;
     }
