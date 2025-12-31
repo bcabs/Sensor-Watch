@@ -17,4 +17,3 @@ movement_watch_face_advisory_t special_day_face_advise(void *context);
     special_day_face_advise, \
 })
 #endif // SPECIAL_DAY_FACE_H_
-

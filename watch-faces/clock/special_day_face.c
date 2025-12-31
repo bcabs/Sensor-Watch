@@ -5,16 +5,18 @@
 #include "watch_utility.h"
 
 typedef struct {
+    uint16_t year;
     uint8_t month;
     uint8_t day;
     const char *text;
 } SpecialDay;
 
 static const SpecialDay special_days[] = {
-    {1, 1, "New Year's"},
-    {7, 4, "July 4th"},
-    {12, 25, "Christmas"},
-    {4, 1, "April Fools"},
+    {0, 1, 1, "New Year's"},
+    {0, 7, 4, "July 4th"},
+    {0, 12, 25, "Christmas"},
+    {2024, 4, 1, "April Fools"},
+    {2025, 1, 19, "My Birthday"},
 };
 
 void special_day_face_setup(uint8_t watch_face_index, void ** context_ptr) {
@@ -39,8 +41,10 @@ bool special_day_face_loop(movement_event_t event, void *context) {
             date_time = movement_get_local_date_time();
             for (size_t i = 0; i < sizeof(special_days) / sizeof(special_days[0]); i++) {
                 if (date_time.unit.month == special_days[i].month && date_time.unit.day == special_days[i].day) {
-                    display_text = special_days[i].text;
-                    break;
+                    if (special_days[i].year == 0 || special_days[i].year == (date_time.unit.year + WATCH_RTC_REFERENCE_YEAR)) {
+                        display_text = special_days[i].text;
+                        break;
+                    }
                 }
             }
             watch_display_text((watch_position_t)WATCH_POSITION_FULL, display_text);
