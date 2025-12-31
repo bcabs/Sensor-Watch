@@ -99,37 +99,45 @@ void special_day_face_activate(void *context) {
     clock_indicate_alarm();
 }
 
+void lookup_day(bool isActivated) {
 
+
+    watch_date_time_t date_time = movement_get_local_date_time();
+    const char *display_text = "Just a day";
+
+    for (size_t i = 0; i < sizeof(special_days) / sizeof(special_days[0]); i++) {
+        if (date_time.unit.month == special_days[i].month && 
+            date_time.unit.day == special_days[i].day) {
+        
+            if (special_days[i].year == 0 || 
+                special_days[i].year == (date_time.unit.year + WATCH_RTC_REFERENCE_YEAR)) {
+
+                if (isActivated) {
+                    display_text = special_days[i].text;
+                    watch_display_text((watch_position_t)WATCH_POSITION_FULL, display_text);
+                }
+                
+                movement_set_alarm_enabled(special_days[i].alarm);
+                clock_indicate_alarm();
+
+                printf("foo");
+                
+                break;
+            }
+        }
+    }
+}
 
 
 bool special_day_face_loop(movement_event_t event, void *context) {
     (void) context;
-    watch_date_time_t date_time;
-    const char *display_text = "Just a day";
-
     switch (event.event_type) {
         case EVENT_TICK:
         case EVENT_ACTIVATE:
-            date_time = movement_get_local_date_time();
-            
-            for (size_t i = 0; i < sizeof(special_days) / sizeof(special_days[0]); i++) {
-
-                if (date_time.unit.month == special_days[i].month && 
-                    date_time.unit.day == special_days[i].day) {
-                
-                    if (special_days[i].year == 0 || 
-                        special_days[i].year == (date_time.unit.year + WATCH_RTC_REFERENCE_YEAR)) {
-                        display_text = special_days[i].text;
-                        movement_set_alarm_enabled(special_days[i].alarm);
-                        clock_indicate_alarm();
-                        break;
-                    }
-                }
-            }
-            watch_display_text((watch_position_t)WATCH_POSITION_FULL, display_text);
+            lookup_day(true);
             break;
-        case EVENT_LOW_ENERGY_UPDATE:
-            // do nothing
+        case EVENT_BACKGROUND_TASK:
+            lookup_day(false); // TODO : test
             break;
         default:
             return movement_default_loop_handler(event);
@@ -144,6 +152,12 @@ void special_day_face_resign(void *context) {
 
 movement_watch_face_advisory_t special_day_face_advise(void *context) {
     (void) context;
-    movement_watch_face_advisory_t advisory = {0};
-    return advisory;
+    movement_watch_face_advisory_t retval = { 0 };
+
+    // schedule every hour
+    watch_date_time_t date_time = movement_get_local_date_time();
+    retval.wants_background_task = date_time.unit.second == 0;
+
+
+    return retval;
 }

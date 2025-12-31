@@ -224,7 +224,6 @@ void clock_face_activate(void *context) {
     clock_indicate_time_signal();
     clock_indicate_alarm();
     clock_indicate_24h();
-
     watch_set_colon();
 
     // this ensures that none of the timestamp fields will match, so we can re-render them all.
@@ -248,6 +247,12 @@ bool clock_face_loop(movement_event_t event, void *context) {
 
             clock_check_battery_periodically(state, current);
 
+            // redraw indicators as things change - maybe too much
+            clock_indicate_time_signal();
+            clock_indicate_alarm();
+            clock_indicate_24h();
+            watch_set_colon();
+
             state->date_time.previous = current;
 
             break;
@@ -255,9 +260,6 @@ bool clock_face_loop(movement_event_t event, void *context) {
             clock_toggle_time_signal();
             break;
         case EVENT_BACKGROUND_TASK:
-            // uncomment this line to snap back to the clock face when the hour signal sounds:
-            // movement_move_to_face(state->watch_face_index);
-            movement_play_signal();
             break;
         default:
             return movement_default_loop_handler(event);
