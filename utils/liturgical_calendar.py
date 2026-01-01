@@ -1,21 +1,6 @@
 import requests
 import json
-from datetime import datetime
-import os
-
-import requests
-import json
-from datetime import datetime
-import os
-
-import requests
-import json
-from datetime import datetime
-import os
-
-import requests
-import json
-from datetime import datetime
+from datetime import datetime, date
 import os
 import argparse
 
@@ -54,7 +39,7 @@ def get_liturgical_calendar(year):
             current_season = None
             
             for item in data["litcal"]:
-                date = item.get("date", "No date provided").split("T")[0]
+                date_str = item.get("date", "No date provided").split("T")[0]
                 
                 event_key = item.get("event_key", "N/A")
 
@@ -77,15 +62,13 @@ def get_liturgical_calendar(year):
                 
                 name = item.get("name", "No name provided")
                 
-                # Check if it's a Holy Day of Obligation based on predefined keys
                 is_holy_day = event_key in holy_days_of_obligation_keys
                 
-                # Additionally, mark all Sundays as Holy Days of Obligation
                 if item.get("day_of_the_week_long", "") == "Sunday":
                     is_holy_day = True
 
-                if date not in calendar_data:
-                    calendar_data[date] = {
+                if date_str not in calendar_data:
+                    calendar_data[date_str] = {
                         "season": season,
                         "day_of_week": item.get("day_of_the_week_long", ""),
                         "week_of_season": season_weeks.get(current_season, 1),
@@ -93,10 +76,9 @@ def get_liturgical_calendar(year):
                         "holy_day_of_obligation": is_holy_day
                     }
                 else:
-                    calendar_data[date]["events"].append((event_key, name))
-                    # If any event on the day is a holy day, the day is a holy day
+                    calendar_data[date_str]["events"].append((event_key, name))
                     if is_holy_day:
-                        calendar_data[date]["holy_day_of_obligation"] = True
+                        calendar_data[date_str]["holy_day_of_obligation"] = True
         else:
             print("Could not find 'litcal' key or it's not a list in the response.")
 
@@ -106,6 +88,65 @@ def get_liturgical_calendar(year):
         print("Error parsing JSON response.")
         
     return calendar_data
+
+def generate_c_struct_output(calendar_data):
+    """
+    Generates C code for the special_days array.
+    """
+    start_date = date(2025, 1, 1)
+    
+    # Create a dictionary to hold the C struct data, indexed by days since start_date
+    c_struct_data = {}
+
+    season_map = {
+        "Advent": "SEASON_ADVENT",
+        "Christmas": "SEASON_CHRISTMAS",
+        "Ordinary Time": "SEASON_ORDINARY_TIME",
+        "Lent": "SEASON_LENT",
+        "Easter Triduum": "SEASON_EASTER_TRIDUUM",
+        "Easter": "SEASON_EASTER",
+    }
+    
+    for date_str, entry in calendar_data.items():
+        d = datetime.strptime(date_str, "%Y-%m-%d").date()
+        days_since = (d - start_date).days
+        
+        if days_since < 0:
+            continue
+
+        season_enum = season_map.get(entry['season'], "SEASON_UNKNOWN")
+        week = entry['week_of_season']
+        hdo = "true" if entry['holy_day_of_obligation'] else "false"
+        
+        # For simplicity, we take the first event's name. This can be refined.
+        text = entry['events'][0][1].replace('"', '\\"') if entry['events'] else ""
+
+        c_struct_data[days_since] = f"{{ {season_enum}, {week}, {hdo}, \"{text}\" }}"
+
+    print("typedef enum {")
+    print("    SEASON_ADVENT,")
+    print("    SEASON_CHRISTMAS,")
+    print("    SEASON_ORDINARY_TIME,")
+    print("    SEASON_LENT,")
+    print("    SEASON_EASTER_TRIDUUM,")
+    print("    SEASON_EASTER,")
+    print("    SEASON_UNKNOWN // for initialization or error")
+    print("} LiturgicalSeason;")
+    print("")
+    print("static const SpecialDay special_days[] = {")
+
+    # Assuming the C code can handle a large array. Let's find the max day.
+    max_day = 0
+    if c_struct_data:
+        max_day = max(c_struct_data.keys())
+
+    for i in range(max_day + 1):
+        if i in c_struct_data:
+            print(f"    /* {i:03} */ {c_struct_data[i]},")
+        else:
+            print(f"    /* {i:03} */ {{ SEASON_UNKNOWN, 0, false, NULL }},")
+            
+    print("};")
 
 def print_raw_calendar_data(calendar_data, year):
     """
@@ -161,13 +202,20 @@ def print_formatted_calendar_data(calendar_data, year):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Fetch and display liturgical calendar data.")
     parser.add_argument("--raw", action="store_true", help="Display raw JSON data.")
+    parser.add_argument("--c-struct", action="store_true", help="Generate C struct array.")
     args = parser.parse_args()
 
+    full_calendar_data = {}
     current_year = datetime.now().year
     for year_offset in range(3):
         year_to_fetch = current_year + year_offset
         calendar_data = get_liturgical_calendar(year_to_fetch)
-        if args.raw:
+        if args.c_struct:
+            full_calendar_data.update(calendar_data)
+        elif args.raw:
             print_raw_calendar_data(calendar_data, year_to_fetch)
         else:
             print_formatted_calendar_data(calendar_data, year_to_fetch)
+    
+    if args.c_struct:
+        generate_c_struct_output(full_calendar_data)
