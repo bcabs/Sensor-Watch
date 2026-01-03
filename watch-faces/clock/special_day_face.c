@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 #include "special_day_face.h"
 #include "watch.h"
 #include "watch_utility.h"
@@ -34,6 +35,15 @@ static int days_since_start(uint16_t year, uint8_t month, uint8_t day) {
     return days;
 }
 
+static const SpecialDay DUMMY_DAY = { UNKNOWN, 0, false, NULL };
+
+static const SpecialDay* get_special_day(int days) {
+    if (days >= 0 && days < (int)(sizeof(special_days) / sizeof(special_days[0]))) {
+        return &special_days[days];
+    }
+    return &DUMMY_DAY;
+}
+
 void special_day_face_setup(uint8_t watch_face_index, void ** context_ptr) {
     (void) watch_face_index;
     if (*context_ptr == NULL) {
@@ -48,25 +58,63 @@ void special_day_face_activate(void *context) {
 
 void lookup_day(bool isActivated) {
     watch_date_time_t date_time = movement_get_local_date_time();
-    int days = days_since_start(date_time.unit.year + WATCH_RTC_REFERENCE_YEAR, date_time.unit.month, date_time.unit.day);
+    int days = days_since_start(date_time.unit.year + WATCH_RTC_REFERENCE_YEAR, 
+        date_time.unit.month, date_time.unit.day);
+    const SpecialDay* special_day = get_special_day(days);
 
-    if (days >= 0 && days < (int)(sizeof(special_days) / sizeof(special_days[0]))) {
-        const SpecialDay* special_day = &special_days[days];
-        if (special_day->text != NULL) {
-            if (isActivated) {
-                watch_display_text((watch_position_t)WATCH_POSITION_FULL, special_day->text);
-            }
-            movement_set_alarm_enabled(special_day->alarm);
-            clock_indicate_alarm();
-        } else {
-            if (isActivated) {
-                watch_display_text((watch_position_t)WATCH_POSITION_FULL, "Just a day");
-            }
-        }
-    } else {
+    if (!isActivated) {
+        // do background task and quit
+        movement_set_alarm_enabled(special_day->alarm);
+        clock_indicate_alarm();
+        return;
+    }
+
+    if (special_day->season == UNKNOWN) {
         if (isActivated) {
-            watch_display_text((watch_position_t)WATCH_POSITION_FULL, "Just a day");
+            watch_display_text(WATCH_POSITION_FULL, "----");
         }
+        return;
+    }
+   
+    char buf[5];
+    switch (special_day->season) {
+        case ADVENT:
+            buf[0] = 'A';
+            buf[1] = 'D';
+            break;
+        case CHRISTMAS:
+            buf[0] = 'C';
+            buf[1] = 'H';
+            break;
+        case ORDINARY_TIME:
+            buf[0] = 'O';
+            buf[1] = 'T';
+            break;
+        case LENT:
+            buf[0] = 'L';
+            buf[1] = 'N';
+            break;
+        case EASTER_TRIDUUM:
+            buf[0] = 'E';
+            buf[1] = 'T';
+            break;
+        case EASTER:
+            buf[0] = 'E';
+            buf[1] = 'A';
+            break;
+        default:
+            buf[0] = '?';
+            buf[1] = '?';
+            break;
+    }
+    
+    sprintf(&buf[2], "%02d", special_day->week_of_season);
+    watch_display_text_with_fallback(WATCH_POSITION_FULL, buf, buf);
+
+    if (special_day->text != NULL && special_day->text[0] != '\0') {
+        watch_display_text_with_fallback(WATCH_POSITION_BOTTOM, special_day->text, special_day->text);
+    } else {
+        watch_display_text_with_fallback(WATCH_POSITION_BOTTOM, "      ", "      ");
     }
 }
 
