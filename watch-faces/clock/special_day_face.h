@@ -6,13 +6,13 @@
 #include "movement.h"
 
 typedef enum {
-    SEASON_ADVENT,
-    SEASON_CHRISTMAS,
-    SEASON_ORDINARY_TIME,
-    SEASON_LENT,
-    SEASON_EASTER_TRIDUUM,
-    SEASON_EASTER,
-    SEASON_UNKNOWN // for initialization or error
+    ADVENT,
+    CHRISTMAS,
+    ORDINARY_TIME,
+    LENT,
+    EASTER_TRIDUUM,
+    EASTER,
+    UNKNOWN // for initialization or error
 } LiturgicalSeason;
 
 typedef struct {
