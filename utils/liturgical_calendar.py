@@ -4,16 +4,11 @@ from datetime import datetime, date
 import os
 import argparse
 
-def get_liturgical_calendar(year):
+def parse_liturgical_data(data):
     """
-    Fetches the liturgical calendar for the Diocese of Boston for the specified year,
-    parses the data, and stores it in a dictionary.
-    Caches the response to a file to avoid repeated requests.
+    Parses a list of liturgical event data into the required calendar_data format.
     """
-    url = f"https://litcal.johnromanodorazio.com:443/api/v5/calendar/diocese/boston_us/{year}"
-    cache_filename = f"liturgical_calendar_{year}.json"
     calendar_data = {}
-    data = None
     holy_days_of_obligation_keys = {
         "ImmaculateConception",
         "Christmas",
@@ -22,6 +17,82 @@ def get_liturgical_calendar(year):
         "Assumption",
         "AllSaints"
     }
+    
+    season_weeks = {}
+    current_season = None
+    
+    # Sort data by date to ensure correct week_of_season calculation
+    data.sort(key=lambda x: datetime.strptime(x["date"].split("T")[0], "%Y-%m-%d"))
+
+    for item in data:
+        date_str = item.get("date", "No date provided").split("T")[0]
+        if date_str == "No date provided":
+            continue
+        
+        event_key = item.get("event_key", "N/A")
+
+        # Skip vigil events and SatMem entries
+        if "vigil" in event_key or "SatMem" in event_key:
+            continue
+        
+        season = item.get("liturgical_season_lcl", "N/A")
+        name = item.get("name", "No name provided")
+        
+        is_holy_day = event_key in holy_days_of_obligation_keys
+        
+        if item.get("day_of_the_week_long", "") == "Sunday":
+            is_holy_day = True # Sundays are always holy days for our purposes
+        elif item.get("holy_day_of_obligation", False): # Directly from file data
+            is_holy_day = True
+
+        # Calculate week of season - same logic as get_liturgical_calendar
+        if season != current_season:
+            if "Ordinary Time" in season and season in season_weeks:
+                # Special handling for Ordinary Time, which can be broken up
+                # and weeks should continue numbering if it's the same Ordinary Time period
+                # This logic might need refinement if the source JSON doesn't provide enough context
+                # to differentiate between OT periods. For now, a simple increment.
+                season_weeks[season] += 1 # Increment as if a new period, then reset if first week
+            if season not in season_weeks:
+                season_weeks[season] = 1
+            current_season = season
+        elif item.get("day_of_the_week_long", "") == "Sunday":
+            if event_key != "Lent1": # Lent1 is the first Sunday, but not necessarily the first week start for calculation
+                season_weeks[season] = season_weeks.get(season, 0) + 1
+        
+        # Ensure week is at least 1, especially for non-Sunday first entries
+        if season_weeks.get(current_season, 0) == 0:
+             season_weeks[current_season] = 1
+
+        if date_str not in calendar_data:
+            calendar_data[date_str] = {
+                "season": season,
+                "day_of_week": item.get("day_of_the_week_long", ""),
+                "week_of_season": season_weeks.get(current_season, 1),
+                "events": [(event_key, name)],
+                "holy_day_of_obligation": is_holy_day
+            }
+        else:
+            calendar_data[date_str]["events"].append((event_key, name))
+            if is_holy_day:
+                calendar_data[date_str]["holy_day_of_obligation"] = True
+            # Update week of season if current entry has a more recent Sunday
+            # and thus a more accurate week number for that season.
+            calendar_data[date_str]["week_of_season"] = max(
+                calendar_data[date_str].get("week_of_season", 1), 
+                season_weeks.get(current_season, 1)
+            )
+    return calendar_data
+
+def get_liturgical_calendar(year):
+    """
+    Fetches the liturgical calendar for the Diocese of Boston for the specified year,
+    parses the data, and stores it in a dictionary.
+    Caches the response to a file to avoid repeated requests.
+    """
+    url = f"https://litcal.johnromanodorazio.com:443/api/v5/calendar/diocese/boston_us/{year}"
+    cache_filename = f"liturgical_calendar_{year}.json"
+    data = None
 
     try:
         if os.path.exists(cache_filename):
@@ -35,50 +106,7 @@ def get_liturgical_calendar(year):
                 json.dump(data, f)
 
         if data and "litcal" in data and isinstance(data["litcal"], list):
-            season_weeks = {}
-            current_season = None
-            
-            for item in data["litcal"]:
-                date_str = item.get("date", "No date provided").split("T")[0]
-                
-                event_key = item.get("event_key", "N/A")
-
-                # Skip vigil events and SatMem entries
-                if "vigil" in event_key or "SatMem" in event_key:
-                    continue
-                
-                season = item.get("liturgical_season_lcl", "N/A")
-                if season != current_season:
-                    if "Ordinary Time" in season and season in season_weeks:
-                        season_weeks[season] += 2
-                    if season not in season_weeks:
-                        season_weeks[season] = 1
-                    current_season = season
-                elif item.get("day_of_the_week_long", "") == "Sunday":
-                    # The first week of Lent is special, as it starts on Ash Wednesday.
-                    # When the Sunday after that day occurs, do not increment the week num.
-                    if event_key != "Lent1":
-                        season_weeks[season] += 1
-                
-                name = item.get("name", "No name provided")
-                
-                is_holy_day = event_key in holy_days_of_obligation_keys
-                
-                if item.get("day_of_the_week_long", "") == "Sunday":
-                    is_holy_day = True
-
-                if date_str not in calendar_data:
-                    calendar_data[date_str] = {
-                        "season": season,
-                        "day_of_week": item.get("day_of_the_week_long", ""),
-                        "week_of_season": season_weeks.get(current_season, 1),
-                        "events": [(event_key, name)],
-                        "holy_day_of_obligation": is_holy_day
-                    }
-                else:
-                    calendar_data[date_str]["events"].append((event_key, name))
-                    if is_holy_day:
-                        calendar_data[date_str]["holy_day_of_obligation"] = True
+            return parse_liturgical_data(data["litcal"])
         else:
             print("Could not find 'litcal' key or it's not a list in the response.")
 
@@ -87,24 +115,13 @@ def get_liturgical_calendar(year):
     except json.JSONDecodeError:
         print("Error parsing JSON response.")
         
-    return calendar_data
+    return {}
 
 def load_calendar_from_file(filename):
     """
     Loads liturgical calendar data from a local JSON file (all_liturgical_events.json)
     and processes it into the required calendar_data format.
     """
-    calendar_data = {}
-    
-    holy_days_of_obligation_keys = {
-        "ImmaculateConception",
-        "Christmas",
-        "MaryMotherOfGod",
-        "Ascension",
-        "Assumption",
-        "AllSaints"
-    }
-
     try:
         if not os.path.exists(filename):
             print(f"Error: File not found at {filename}")
@@ -116,71 +133,8 @@ def load_calendar_from_file(filename):
         if not isinstance(data, list):
             print("Error: Expected JSON file to contain a list of events.")
             return {}
-
-        season_weeks = {}
-        current_season = None
-        
-        # Sort data by date to ensure correct week_of_season calculation
-        data.sort(key=lambda x: datetime.strptime(x["date"].split("T")[0], "%Y-%m-%d"))
-
-        for item in data:
-            date_str = item.get("date", "No date provided").split("T")[0]
-            if date_str == "No date provided":
-                continue
             
-            event_key = item.get("event_key", "N/A")
-
-            # Skip vigil events and SatMem entries
-            if "vigil" in event_key or "SatMem" in event_key:
-                continue
-            
-            season = item.get("liturgical_season_lcl", "N/A")
-            name = item.get("name", "No name provided")
-            
-            is_holy_day = event_key in holy_days_of_obligation_keys
-            
-            if item.get("day_of_the_week_long", "") == "Sunday":
-                is_holy_day = True # Sundays are always holy days for our purposes
-            elif item.get("holy_day_of_obligation", False): # Directly from file data
-                is_holy_day = True
-
-            # Calculate week of season - same logic as get_liturgical_calendar
-            if season != current_season:
-                if "Ordinary Time" in season and season in season_weeks:
-                    # Special handling for Ordinary Time, which can be broken up
-                    # and weeks should continue numbering if it's the same Ordinary Time period
-                    # This logic might need refinement if the source JSON doesn't provide enough context
-                    # to differentiate between OT periods. For now, a simple increment.
-                    season_weeks[season] += 1 # Increment as if a new period, then reset if first week
-                if season not in season_weeks:
-                    season_weeks[season] = 1
-                current_season = season
-            elif item.get("day_of_the_week_long", "") == "Sunday":
-                if event_key != "Lent1": # Lent1 is the first Sunday, but not necessarily the first week start for calculation
-                    season_weeks[season] = season_weeks.get(season, 0) + 1
-            
-            # Ensure week is at least 1, especially for non-Sunday first entries
-            if season_weeks.get(current_season, 0) == 0:
-                 season_weeks[current_season] = 1
-
-            if date_str not in calendar_data:
-                calendar_data[date_str] = {
-                    "season": season,
-                    "day_of_week": item.get("day_of_the_week_long", ""),
-                    "week_of_season": season_weeks.get(current_season, 1),
-                    "events": [(event_key, name)],
-                    "holy_day_of_obligation": is_holy_day
-                }
-            else:
-                calendar_data[date_str]["events"].append((event_key, name))
-                if is_holy_day:
-                    calendar_data[date_str]["holy_day_of_obligation"] = True
-                # Update week of season if current entry has a more recent Sunday
-                # and thus a more accurate week number for that season.
-                calendar_data[date_str]["week_of_season"] = max(
-                    calendar_data[date_str].get("week_of_season", 1), 
-                    season_weeks.get(current_season, 1)
-                )
+        return parse_liturgical_data(data)
 
     except FileNotFoundError:
         print(f"Error: The file '{filename}' was not found.")
@@ -192,7 +146,7 @@ def load_calendar_from_file(filename):
         print(f"An unexpected error occurred: {e}")
         return {}
     
-    return calendar_data
+    return {}
 
 def get_display_event(events):
     event_key, name = None, None
