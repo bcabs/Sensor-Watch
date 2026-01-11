@@ -4,6 +4,7 @@ from datetime import datetime, date, timedelta
 import json
 import argparse
 import sys
+import icalendar
 
 def date_handler(obj):
     if hasattr(obj, 'isoformat'):
@@ -15,80 +16,6 @@ def fetch_ics_data(url):
     response = requests.get(url)
     response.raise_for_status()
     return response.text
-
-def unfold_lines(lines):
-    """Unfold lines as per RFC 5545 (merging continuation lines)."""
-    it = iter(lines)
-    try:
-        prev = next(it)
-    except StopIteration:
-        return
-
-    for line in it:
-        if not line:
-            continue
-        if line.startswith(' ') or line.startswith('\t'):
-            prev += line[1:]
-        else:
-            yield prev
-            prev = line
-    yield prev
-
-def unescape_text(text):
-    """Unescape special characters in ICS text values."""
-    if not text:
-        return ""
-    return text.replace('\\,', ',').replace('\\;', ';').replace('\\n', '\n').replace('\\N', '\n').replace('\\\\', '\\')
-
-def parse_ics(ics_text):
-    events = []
-    # Split by lines and remove potential empty lines
-    raw_lines = [l.rstrip('\r\n') for l in ics_text.splitlines() if l.strip()]
-    
-    current_event = {}
-    in_event = False
-    
-    for line in unfold_lines(raw_lines):
-        if line == "BEGIN:VEVENT":
-            in_event = True
-            current_event = {}
-            continue
-        elif line == "END:VEVENT":
-            in_event = False
-            if 'DTSTART' in current_event and 'SUMMARY' in current_event:
-                # Post-process date
-                dt_str = current_event['DTSTART']
-                try:
-                    if len(dt_str) == 8:
-                        d = datetime.strptime(dt_str, "%Y%m%d").date()
-                    elif 'T' in dt_str:
-                         d = datetime.strptime(dt_str.split('T')[0], "%Y%m%d").date()
-                    else:
-                        continue # Skip invalid dates
-                    
-                    current_event['date'] = d
-                    # Clean summary
-                    current_event['SUMMARY'] = unescape_text(current_event.get('SUMMARY', ''))
-                    events.append(current_event)
-                except ValueError:
-                    pass 
-            continue
-            
-        if in_event:
-            # Parse Key:Value
-            if ":" in line:
-                key_part, value = line.split(":", 1)
-                
-                # Handle parameters in key (e.g., DTSTART;VALUE=DATE)
-                if ";" in key_part:
-                    key = key_part.split(";")[0]
-                    # We could parse params here if needed
-                else:
-                    key = key_part
-                
-                current_event[key] = value
-
-    return events
 
 def get_season_and_week(summary, date_obj):
     summary_lower = summary.lower()
@@ -135,6 +62,43 @@ def sanitize_text(text):
     clean = re.sub(r'[^a-zA-Z0-9 ]', '', text)
     return clean.strip()
 
+def process_event_summary(raw_summary):
+    summary = str(raw_summary)
+    # Handle the b'...' wrapper if present
+    if summary.startswith("b'") and summary.endswith("'"):
+        summary = summary[2:-1]
+
+    # Parsing logic: everything before first '[' is trimmed. 
+    # Roman numeral is between '[' and ']'.
+    # Rest is the event name.
+    if "[" in summary and "]" in summary:
+        parts = summary.split("[", 1)
+        # Trim everything before '['
+        after_bracket = parts[1]
+        roman_parts = after_bracket.split("]", 1)
+        # roman_col = roman_parts[0].strip() # We don't need to return this for now unless needed
+        summary = roman_parts[1].strip()
+    
+    summary_lower = summary.lower()
+    
+    # Filtering Logic
+    if "feria" in summary_lower:
+        return None
+        
+    days_of_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    allowed_exceptions = [
+        "Ash Wednesday", "Good Friday", "Holy Saturday", "Palm Sunday", 
+        "Easter Sunday", "Pentecost Sunday", "Trinity Sunday", "Low Sunday"
+    ]
+    
+    has_day_name = any(day.lower() in summary_lower for day in days_of_week)
+    is_exception = any(exc.lower() in summary_lower for exc in allowed_exceptions)
+    
+    if has_day_name and not is_exception:
+        return None
+        
+    return summary
+
 def generate_c_struct(events):
     # Sort events by date
     events.sort(key=lambda x: x['date'])
@@ -153,7 +117,10 @@ def generate_c_struct(events):
         if days_since < 0:
             continue
             
-        summary = e['SUMMARY']
+        summary = process_event_summary(e['summary'])
+        if not summary:
+            continue
+
         season, week = get_season_and_week(summary, e['date'])
         
         # HDO logic (Simplified: Sundays are HDOs)
@@ -169,6 +136,8 @@ def generate_c_struct(events):
         # Quote the text
         text_str = f'"{text}"'
         
+        # Note: If multiple valid events exist for a day, this overwrites, 
+        # keeping the last one (often the most specific in many calendars).
         day_map[days_since] = f"{{ {season}, {week}, {hdo}, {text_str} }}"
 
     # Output
@@ -191,18 +160,78 @@ def generate_c_struct(events):
             print(f"    /* {i:03} {date_str} */ {{ UNKNOWN, 0, false, NULL }},")
     print("};")
 
+def generate_list_output(events):
+    # Sort events by date
+    events.sort(key=lambda x: x['date'])
+    
+    for e in events:
+        # Re-implement parsing just to extract Roman column if needed, 
+        # or just use the helper and lose the Roman column in print?
+        # User asked for Roman column in the list output.
+        # Helper 'process_event_summary' returns just the summary.
+        # Let's keep the logic inline here or modify helper to return both?
+        # For simplicity/speed, I'll modify the helper to return tuple?
+        # Or just re-do the specific list formatting here since it's UI specific.
+        
+        # Actually, let's use the helper for filtering, but we need the Roman numeral for the list.
+        # Let's dup the parsing logic slightly or accept that 'process_event_summary' is for the text content.
+        
+        summary = str(e['summary'])
+        if summary.startswith("b'") and summary.endswith("'"):
+            summary = summary[2:-1]
+
+        roman_col = ""
+        if "[" in summary and "]" in summary:
+            parts = summary.split("[", 1)
+            after_bracket = parts[1]
+            roman_parts = after_bracket.split("]", 1)
+            roman_col = roman_parts[0].strip()
+            summary = roman_parts[1].strip()
+            
+        # Check filtering on the CLEANED summary
+        filtered_summary = process_event_summary(e['summary'])
+        if not filtered_summary: 
+            continue
+            
+        # Use the filtered_summary which is already cleaned/filtered
+        d_str = e['date'].isoformat()
+        print(f"{d_str:<12} {roman_col:<6} {filtered_summary}")
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Fetch Traditional Catholic Calendar.")
     parser.add_argument("--json", action="store_true", help="Output as JSON.")
+    parser.add_argument("--list", action="store_true", help="Output as a simple date-event list.")
     args = parser.parse_args()
 
     url = "https://gcatholic.org/calendar/ics/2026-en-Extraordinary.ics?v=3"
     try:
         ics_text = fetch_ics_data(url)
-        events = parse_ics(ics_text)
         
+        cal = icalendar.Calendar.from_ical(ics_text)
+        events = []
+        
+        for component in cal.walk():
+            if component.name == "VEVENT":
+                summary = component.get('summary')
+                dtstart = component.get('dtstart')
+                
+                if summary and dtstart:
+                    dt = dtstart.dt
+                    # Convert to date object if it's a datetime
+                    if isinstance(dt, datetime):
+                        d = dt.date()
+                    else:
+                        d = dt
+                        
+                    events.append({
+                        'summary': str(summary),
+                        'date': d
+                    })
+
         if args.json:
             print(json.dumps(events, default=date_handler, indent=2))
+        elif args.list:
+            generate_list_output(events)
         else:
             generate_c_struct(events)
             

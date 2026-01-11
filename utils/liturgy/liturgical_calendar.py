@@ -90,10 +90,10 @@ def get_liturgical_calendar(year):
     parses the data, and stores it in a dictionary.
     Caches the response to a file to avoid repeated requests.
     """
-    url = f"https://litcal.johnromanodorazio.com:433/api/v5/calendar/{year}?epiphany=SUNDAY_JAN2_JAN8&ascension=THURSDAY&corpus_christi=SUNDAY&eternal_high_priest=true"
+    url = f"https://litcal.johnromanodorazio.com/api/dev/calendar/{year}?epiphany=SUNDAY_JAN2_JAN8&ascension=THURSDAY&corpus_christi=SUNDAY"
 
     # url = f"https://litcal.johnromanodorazio.com:443/api/v5/calendar/diocese/boston_us/{year}"
-    cache_filename = f"litcal_{year}.json"
+    cache_filename = f"litcal_{year}_dev.json"
     data = None
 
     try:
