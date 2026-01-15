@@ -1,4 +1,3 @@
-Reading liturgical data from all_liturgical_events.json...
 #include "special_day_face.h"
 #define SPECIAL_DAYS_START_DATE_YEAR 2026
 #define SPECIAL_DAYS_START_DATE_MONTH 1

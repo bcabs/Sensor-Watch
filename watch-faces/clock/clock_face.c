@@ -63,7 +63,7 @@ static bool clock_is_pm(watch_date_time_t date_time) {
 }
 
 static void clock_indicate_pm(watch_date_time_t date_time) {
-    if (movement_clock_mode_24h()) { return; }
+    // if (movement_clock_mode_24h()) { return; }
     clock_indicate(WATCH_INDICATOR_PM, clock_is_pm(date_time));
 }
 
@@ -82,10 +82,10 @@ static void clock_indicate_time_signal() {
     clock_indicate(WATCH_INDICATOR_SIGNAL, movement_time_signal_enabled());
 }
 
-static void clock_toggle_time_signal(void) {
-    movement_set_time_signal_enabled(!movement_time_signal_enabled());
-    clock_indicate_time_signal();
-}
+// static void clock_toggle_time_signal(void) {
+//     movement_set_time_signal_enabled(!movement_time_signal_enabled());
+//     clock_indicate_time_signal();
+// }
 
 static watch_date_time_t clock_24h_to_12h(watch_date_time_t date_time) {
     date_time.unit.hour %= 12;
@@ -116,7 +116,7 @@ static void clock_display_all(watch_date_time_t date_time) {
     snprintf(
         buf,
         sizeof(buf),
-        movement_clock_mode_24h() == MOVEMENT_CLOCK_MODE_024H ? "%02d%02d%02d%02d" : "%2d%2d%02d%02d",
+        "%2d%2d%02d%02d",
         date_time.unit.day,
         date_time.unit.hour,
         date_time.unit.minute,
@@ -163,25 +163,25 @@ static bool clock_display_some(watch_date_time_t current, watch_date_time_t prev
 
 static void clock_display_clock(clock_state_t *state, watch_date_time_t current) {
     if (!clock_display_some(current, state->date_time.previous)) {
-        if (movement_clock_mode_24h() == MOVEMENT_CLOCK_MODE_12H) {
-            clock_indicate_pm(current);
-            current = clock_24h_to_12h(current);
-        }
+        
+        clock_indicate_pm(current);
+        current = clock_24h_to_12h(current);
+        
         clock_display_all(current);
     }
 }
 
 static void clock_display_low_energy(watch_date_time_t date_time) {
-    if (movement_clock_mode_24h() == MOVEMENT_CLOCK_MODE_12H) {
-        clock_indicate_pm(date_time);
-        date_time = clock_24h_to_12h(date_time);
-    }
+    
+    clock_indicate_pm(date_time);
+    date_time = clock_24h_to_12h(date_time);
+    
     char buf[8 + 1];
 
     snprintf(
         buf,
         sizeof(buf),
-        movement_clock_mode_24h() == MOVEMENT_CLOCK_MODE_024H ? "%02d%02d%02d  " : "%2d%2d%02d  ",
+        "%2d%2d%02d  ",
         date_time.unit.day,
         date_time.unit.hour,
         date_time.unit.minute
@@ -255,9 +255,6 @@ bool clock_face_loop(movement_event_t event, void *context) {
 
             state->date_time.previous = current;
 
-            break;
-        case EVENT_ALARM_LONG_PRESS:
-            clock_toggle_time_signal();
             break;
         case EVENT_BACKGROUND_TASK:
             break;

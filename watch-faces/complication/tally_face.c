@@ -181,9 +181,6 @@ bool tally_face_loop(movement_event_t event, void *context) {
         case EVENT_ACTIVATE:
             print_tally(state, movement_button_should_sound());
             break;
-        case EVENT_TIMEOUT:
-            // ignore timeout
-            break;
         default:
             movement_default_loop_handler(event);
             break;

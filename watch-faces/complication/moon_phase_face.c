@@ -189,7 +189,7 @@ bool moon_phase_face_loop(movement_event_t event, void *context) {
             _update(state, state->offset);
 	    break;
         case EVENT_TIMEOUT:
-            // QUESTION: Should timeout reset offset to 0?
+            movement_move_to_face(0);
             break;
         default:
             return movement_default_loop_handler(event);
