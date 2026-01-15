@@ -37,7 +37,7 @@
 
 // static void clock_setting_advance(void) {
 //     movement_set_clock_mode_24h(((movement_clock_mode_24h() + 1) % MOVEMENT_NUM_CLOCK_MODES));
-}
+// }
 
 static void beep_setting_display(uint8_t subsecond) {
     watch_display_text_with_fallback(WATCH_POSITION_TOP_LEFT, "BTN", "BT");
