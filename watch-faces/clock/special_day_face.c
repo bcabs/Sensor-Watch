@@ -92,11 +92,11 @@ void lookup_day(bool isActivated) {
             break;
         case LENT:
             buf[0] = 'L';
-            buf[1] = 'N';
+            buf[1] = 'E';
             break;
         case EASTER_TRIDUUM:
-            buf[0] = 'E';
-            buf[1] = 'T';
+            buf[0] = 'T';
+            buf[1] = 'R';
             break;
         case EASTER:
             buf[0] = 'E';
