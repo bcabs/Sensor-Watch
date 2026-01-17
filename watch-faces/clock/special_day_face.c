@@ -35,7 +35,7 @@ static int days_since_start(uint16_t year, uint8_t month, uint8_t day) {
     return days;
 }
 
-static const SpecialDay DUMMY_DAY = { UNKNOWN, 0, false, NULL };
+static const SpecialDay DUMMY_DAY = { UNKNOWN, 0, false, false, NULL };
 
 static const SpecialDay* get_special_day(int days) {
     if (days >= 0 && days < (int)(sizeof(special_days) / sizeof(special_days[0]))) {
