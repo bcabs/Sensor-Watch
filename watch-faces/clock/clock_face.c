@@ -54,6 +54,10 @@ static void clock_indicate_alarm() {
     clock_indicate(WATCH_INDICATOR_BELL, movement_alarm_enabled());
 }
 
+static void clock_indicate_lap() {
+    clock_indicate(WATCH_INDICATOR_LAP, movement_lap_enabled());
+}
+
 static void clock_indicate_24h() {
     clock_indicate(WATCH_INDICATOR_24H, !!movement_clock_mode_24h());
 }
@@ -223,6 +227,7 @@ void clock_face_activate(void *context) {
 
     clock_indicate_time_signal();
     clock_indicate_alarm();
+    clock_indicate_lap();
     clock_indicate_24h();
     watch_set_colon();
 
@@ -250,6 +255,7 @@ bool clock_face_loop(movement_event_t event, void *context) {
             // redraw indicators as things change - maybe too much
             clock_indicate_time_signal();
             clock_indicate_alarm();
+            clock_indicate_lap();
             clock_indicate_24h();
             watch_set_colon();
 

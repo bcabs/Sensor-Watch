@@ -511,6 +511,14 @@ void movement_set_alarm_enabled(bool value) {
     movement_state.alarm_enabled = value;
 }
 
+bool movement_lap_enabled(void) {
+    return movement_state.lap_enabled;
+}
+
+void movement_set_lap_enabled(bool value) {
+    movement_state.lap_enabled = value;
+}
+
 bool movement_time_signal_enabled(void) {
     return movement_state.time_signal_enabled;
 }

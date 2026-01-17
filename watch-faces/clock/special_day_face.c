@@ -23,6 +23,10 @@ static void clock_indicate_alarm() {
     clock_indicate(WATCH_INDICATOR_BELL, movement_alarm_enabled());
 }
 
+static void clock_indicate_lap() {
+    clock_indicate(WATCH_INDICATOR_LAP, movement_lap_enabled());
+}
+
 static int days_since_start(uint16_t year, uint8_t month, uint8_t day) {
     uint16_t start_year_abs = HARDCODED_START_DATE.unit.year + WATCH_RTC_REFERENCE_YEAR;
     if (year < start_year_abs) return -1;
@@ -54,6 +58,7 @@ void special_day_face_setup(uint8_t watch_face_index, void ** context_ptr) {
 void special_day_face_activate(void *context) {
     (void) context;
     clock_indicate_alarm();
+    clock_indicate_lap();
 }
 
 void lookup_day(bool isActivated) {
@@ -65,9 +70,16 @@ void lookup_day(bool isActivated) {
     if (!isActivated) {
         // do background task and quit
         movement_set_alarm_enabled(special_day->alarm);
+        movement_set_lap_enabled(special_day->fast);
         clock_indicate_alarm();
+        clock_indicate_lap();
         return;
     }
+
+    movement_set_alarm_enabled(special_day->alarm);
+    movement_set_lap_enabled(special_day->fast);
+    clock_indicate_alarm();
+    clock_indicate_lap();
 
     if (special_day->season == UNKNOWN) {
         if (isActivated) {
