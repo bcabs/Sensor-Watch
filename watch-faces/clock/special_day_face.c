@@ -6,7 +6,11 @@
 #include "watch_utility.h"
 #include "special_days.h"
 
-static void lookup_day(bool isActivated);
+typedef struct {
+    int16_t scroll_step;
+} special_day_state_t;
+
+static void lookup_day(bool isActivated, special_day_state_t *state);
 static int days_since_start(uint16_t year, uint8_t month, uint8_t day);
 
 static void clock_indicate(watch_indicator_t indicator, bool on) {
@@ -62,18 +66,19 @@ static const SpecialDay* get_special_day(int days) {
 void special_day_face_setup(uint8_t watch_face_index, void ** context_ptr) {
     (void) watch_face_index;
     if (*context_ptr == NULL) {
-        *context_ptr = malloc(sizeof(uint32_t));
+        *context_ptr = malloc(sizeof(special_day_state_t));
     }
 }
 
 void special_day_face_activate(void *context) {
-    (void) context;
+    special_day_state_t *state = (special_day_state_t *)context;
+    state->scroll_step = -1; // Start with a pause (negative step implies waiting at 0)
     clock_indicate_alarm();
     clock_indicate_lap();
     clock_indicate_24h();
 }
 
-void lookup_day(bool isActivated) {
+void lookup_day(bool isActivated, special_day_state_t *state) {
     watch_date_time_t date_time = movement_get_local_date_time();
     int days = days_since_start(date_time.unit.year + WATCH_RTC_REFERENCE_YEAR, 
         date_time.unit.month, date_time.unit.day);
@@ -100,12 +105,12 @@ void lookup_day(bool isActivated) {
 
     if (special_day->season == UNKNOWN) {
         if (isActivated) {
-            watch_display_text(WATCH_POSITION_FULL, "----");
+            watch_display_text(WATCH_POSITION_FULL, "---- ");
         }
         return;
     }
    
-    char buf[5];
+    char buf[12]; // Increased buffer size for safety
     switch (special_day->season) {
         case ADVENT:
             buf[0] = 'A';
@@ -141,21 +146,41 @@ void lookup_day(bool isActivated) {
     watch_display_text_with_fallback(WATCH_POSITION_FULL, buf, buf);
 
     if (special_day->text != NULL && special_day->text[0] != '\0') {
-        watch_display_text_with_fallback(WATCH_POSITION_BOTTOM, special_day->text, special_day->text);
+        int len = strlen(special_day->text);
+        if (len <= 6) {
+            watch_display_text_with_fallback(WATCH_POSITION_BOTTOM, special_day->text, special_day->text);
+        } else {
+            // Scrolling logic
+            // scroll_step starts at -3. 
+            // Range [-3, -1]: Pause at 0
+            // Range [0, len - 6]: Scroll
+            // Range [len - 6 + 1, len - 6 + 3]: Pause at end
+            
+            int offset = state->scroll_step;
+            if (offset < 0) offset = 0;
+            if (offset > len - 6) offset = len - 6;
+            
+            watch_display_text_with_fallback(WATCH_POSITION_BOTTOM, special_day->text + offset, special_day->text + offset);
+            
+            state->scroll_step++;
+            if (state->scroll_step > (len - 6 + 2)) {
+                state->scroll_step = -1;
+            }
+        }
     } else {
         watch_display_text_with_fallback(WATCH_POSITION_BOTTOM, "      ", "      ");
     }
 }
 
 bool special_day_face_loop(movement_event_t event, void *context) {
-    (void) context;
+    special_day_state_t *state = (special_day_state_t *)context;
     switch (event.event_type) {
         case EVENT_TICK:
         case EVENT_ACTIVATE:
-            lookup_day(true);
+            lookup_day(true, state);
             break;
         case EVENT_BACKGROUND_TASK:
-            lookup_day(false);
+            lookup_day(false, state);
             break;
         default:
             return movement_default_loop_handler(event);
