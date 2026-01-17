@@ -9,11 +9,8 @@
 static void lookup_day(bool isActivated);
 static int days_since_start(uint16_t year, uint8_t month, uint8_t day);
 
-static const watch_date_time_t HARDCODED_START_DATE = { .unit = { .year = 6, .month = 1, .day = 17 } };
-
 static void clock_indicate(watch_indicator_t indicator, bool on) {
     if (on) {
-        printf("setting indicator ON");
         watch_set_indicator(indicator);
     } else {
         watch_clear_indicator(indicator);
@@ -21,30 +18,35 @@ static void clock_indicate(watch_indicator_t indicator, bool on) {
 }
 
 static void clock_indicate_alarm() {
-    printf("bell indicator");
     clock_indicate(WATCH_INDICATOR_BELL, movement_alarm_enabled());
 }
 
 static void clock_indicate_lap() {
-    printf("lap indicator");
     clock_indicate(WATCH_INDICATOR_LAP, movement_lap_enabled());
 }
 
 static void clock_indicate_24h() {
-    printf("24 indicator");
     clock_indicate(WATCH_INDICATOR_24H, movement_24h_indicator_enabled());
 }
 
 static int days_since_start(uint16_t year, uint8_t month, uint8_t day) {
-    uint16_t start_year_abs = HARDCODED_START_DATE.unit.year + WATCH_RTC_REFERENCE_YEAR;
-    if (year < start_year_abs) return -1;
-    
+    if (year < SPECIAL_DAYS_START_DATE_YEAR) return -1;
+    if (year == SPECIAL_DAYS_START_DATE_YEAR && month < SPECIAL_DAYS_START_DATE_MONTH) return -1;
+    if (year == SPECIAL_DAYS_START_DATE_YEAR && month == SPECIAL_DAYS_START_DATE_MONTH && day < SPECIAL_DAYS_START_DATE_DAY) return -1;
+
     int days = 0;
-    for (uint16_t y = start_year_abs; y < year; y++) {
+    for (uint16_t y = SPECIAL_DAYS_START_DATE_YEAR; y < year; y++) {
         days += 365 + is_leap(y);
     }
-    days += watch_utility_days_since_new_year(year, month, day) - 1;
-    printf("days is %d\n", days);
+    days += watch_utility_days_since_new_year(year, month, day);
+    days -= watch_utility_days_since_new_year(SPECIAL_DAYS_START_DATE_YEAR, SPECIAL_DAYS_START_DATE_MONTH, SPECIAL_DAYS_START_DATE_DAY);
+
+    // Debug output
+    printf("SpecialDayFace: Date %04d-%02d-%02d, Start %04d-%02d-%02d, Index %d\n", 
+           year, month, day, 
+           SPECIAL_DAYS_START_DATE_YEAR, SPECIAL_DAYS_START_DATE_MONTH, SPECIAL_DAYS_START_DATE_DAY, 
+           days);
+    
     return days;
 }
 
