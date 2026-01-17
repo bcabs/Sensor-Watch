@@ -98,4 +98,15 @@ const watch_face_t watch_faces[] = {
  */
 #define MOVEMENT_DEFAULT_LED_DURATION 1
 
+/* Set the default location for the watch
+ * These are in hundredths of a degree.
+ * Latitude is positive for North, negative for South.
+ * Longitude is positive for East, negative for West.
+ * e.g. 40.7128° N, 74.0060° W would be:
+ * #define MOVEMENT_DEFAULT_LATITUDE 4071
+ * #define MOVEMENT_DEFAULT_LONGITUDE -7401
+ */
+#define MOVEMENT_DEFAULT_LATITUDE 4233
+#define MOVEMENT_DEFAULT_LONGITUDE -8817
+
 #endif // MOVEMENT_CONFIG_H_

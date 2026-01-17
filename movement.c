@@ -689,6 +689,13 @@ void app_init(void) {
         movement_store_settings();
     }
 
+    if (!filesystem_file_exists("location.u32")) {
+        movement_location_t default_location = {0};
+        default_location.bit.latitude = MOVEMENT_DEFAULT_LATITUDE;
+        default_location.bit.longitude = MOVEMENT_DEFAULT_LONGITUDE;
+        filesystem_write_file("location.u32", (char *) &default_location.reg, sizeof(movement_location_t));
+    }
+
     watch_date_time_t date_time = watch_rtc_get_date_time();
     if (date_time.reg == 0) {
         date_time = watch_get_init_date_time();
