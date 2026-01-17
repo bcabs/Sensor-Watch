@@ -5,9 +5,10 @@ import os
 import argparse
 
 def parse_liturgical_data(data):
-    """
-    Parses a list of liturgical event data into the required calendar_data format.
-    """
+    
+    suppressed_events = data['metadata']['suppressed_events']
+    data = data['litcal']
+
     calendar_data = {}
     holy_days_of_obligation_keys = {
         "ImmaculateConception",
@@ -56,6 +57,7 @@ def parse_liturgical_data(data):
             if season not in season_weeks:
                 season_weeks[season] = 1
             current_season = season
+
         elif item.get("day_of_the_week_long", "") == "Sunday":
             if event_key != "Lent1": # Lent1 is the first Sunday, but not necessarily the first week start for calculation
                 season_weeks[season] = season_weeks.get(season, 0) + 1
@@ -74,6 +76,7 @@ def parse_liturgical_data(data):
             }
         else:
             calendar_data[date_str]["events"].append((event_key, name))
+            
             if is_holy_day:
                 calendar_data[date_str]["holy_day_of_obligation"] = True
             # Update week of season if current entry has a more recent Sunday
@@ -82,6 +85,17 @@ def parse_liturgical_data(data):
                 calendar_data[date_str].get("week_of_season", 1), 
                 season_weeks.get(current_season, 1)
             )
+
+    for suppressed in suppressed_events:
+        date_str = suppressed.get("date").split("T")[0]
+        s_key = suppressed.get("event_key")
+        s_name = suppressed.get("name", s_key)
+
+        if date_str in calendar_data: 
+            calendar_data[date_str]["events"].append((s_key, s_name))
+
+
+
     return calendar_data
 
 def get_liturgical_calendar(year):
@@ -90,10 +104,10 @@ def get_liturgical_calendar(year):
     parses the data, and stores it in a dictionary.
     Caches the response to a file to avoid repeated requests.
     """
-    url = f"https://litcal.johnromanodorazio.com/api/dev/calendar/{year}?epiphany=SUNDAY_JAN2_JAN8&ascension=THURSDAY&corpus_christi=SUNDAY"
+    url = f"https://litcal.johnromanodorazio.com/api/dev/calendar/{year}?epiphany=SUNDAY_JAN2_JAN8&ascension=THURSDAY&corpus_christi=SUNDAY&locale=en"
 
     # url = f"https://litcal.johnromanodorazio.com:443/api/v5/calendar/diocese/boston_us/{year}"
-    cache_filename = f"litcal_{year}_dev.json"
+    cache_filename = f"litcal_{year}.json"
     data = None
 
     try:
@@ -108,7 +122,7 @@ def get_liturgical_calendar(year):
                 json.dump(data, f)
 
         if data and "litcal" in data and isinstance(data["litcal"], list):
-            return parse_liturgical_data(data["litcal"])
+            return parse_liturgical_data(data)
         else:
             print("Could not find 'litcal' key or it's not a list in the response.")
 
@@ -132,11 +146,13 @@ def load_calendar_from_file(filename):
         with open(filename, 'r') as f:
             data = json.load(f)
         
-        if not isinstance(data, list):
-            print("Error: Expected JSON file to contain a list of events.")
+        if isinstance(data, list):
+            return parse_liturgical_data(data)
+        elif isinstance(data, dict) and "litcal" in data:
+            return parse_liturgical_data(data)
+        else:
+            print("Error: Expected JSON file to contain a list of events or an object with 'litcal' key.")
             return {}
-            
-        return parse_liturgical_data(data)
 
     except FileNotFoundError:
         print(f"Error: The file '{filename}' was not found.")
@@ -144,41 +160,51 @@ def load_calendar_from_file(filename):
     except json.JSONDecodeError:
         print(f"Error: Could not decode JSON from '{filename}'.")
         return {}
-    except Exception as e:
-        print(f"An unexpected error occurred: {e}")
-        return {}
     
     return {}
+
+def should_filter(event_key): 
+    # Conditional printing logic
+    for start_key in ['Easter', "Lent", "DayAfterEpiphany", "Christmas", "Advent"]:
+        if (event_key.startswith(start_key) and event_key[-1].isdigit()):
+            return True
+            
+    for filter_key in ["DayAfterEpiphany", "AfterAshWednesday", "Sunday", "Weekday", "HolyWeek", "OctaveEaster", "IndependenceDay", "ThanksgivingDay"]:
+        if filter_key in event_key:
+            return True
 
 def get_display_event(events):
     event_key, name = None, None
 
-    # Prioritize special events
+    # Specific overrides
     for key, n in events:
         if key in ["KateriTekakwitha", "StHildegardBingen"]:
             event_key, name = key, n
             break
     
     # If no special event, use default logic
-    if event_key is None:
-        if len(events) >= 2:
-            event_key, name = events[1]
-        elif events:
-            event_key, name = events[0]
-        else:
-            event_key, name = "", ""
-    
-    display_event_key = event_key
-    display_name = name
+    for key, name in events:
+        if not should_filter(key):
+            return key, name
 
-    # Conditional printing logic
-    
-    if "Weekday" in event_key or "Sunday" in event_key:
-        display_event_key = ""
-    if "Weekday" in name or "Sunday" in name or "Week" in name:
-        display_name = ""
+    return "", ""
 
-    return display_event_key, display_name
+
+    # if event_key is None:
+    #     if len(events) >= 2:
+    #         event_key, name = events[1]
+    #     elif events:
+    #         event_key, name = events[0]
+    #     else:
+    #         event_key, name = "", ""
+    
+    # display_event_key = event_key
+    # display_name = name
+
+    
+
+
+    # return display_event_key, display_name
 
 def generate_c_struct_output(calendar_data):
     """
