@@ -5,7 +5,7 @@ import os
 import argparse
 
 def parse_liturgical_data(data):
-    
+        
     suppressed_events = data['metadata']['suppressed_events']
     data = data['litcal']
 
@@ -25,6 +25,11 @@ def parse_liturgical_data(data):
     # Sort data by date to ensure correct week_of_season calculation
     data.sort(key=lambda x: datetime.strptime(x["date"].split("T")[0], "%Y-%m-%d"))
 
+    # Ember days logic state
+    active_ember_searches = []
+    last_date_processed = None
+    is_ember_day_calculated = False
+
     for item in data:
         date_str = item.get("date", "No date provided").split("T")[0]
         if date_str == "No date provided":
@@ -36,7 +41,47 @@ def parse_liturgical_data(data):
         if "vigil" in event_key or "SatMem" in event_key:
             continue
         
+        # --- Start Fast Logic ---
+        is_new_day = (date_str != last_date_processed)
+        
+        if is_new_day:
+            is_ember_day_calculated = False
+            day_of_week = item.get("day_of_the_week_long", "")
+            
+            # Check for Ember Day Matches (Wed/Sat after Trigger)
+            # Iterate a copy of active searches
+            for search in active_ember_searches[:]:
+                if day_of_week == "Wednesday" and not search['wed_found']:
+                    search['wed_found'] = True
+                    is_ember_day_calculated = True
+                elif day_of_week == "Saturday" and not search['sat_found']:
+                    search['sat_found'] = True
+                    is_ember_day_calculated = True
+                
+                if search['wed_found'] and search['sat_found']:
+                    active_ember_searches.remove(search)
+            
+            # Check for Fixed Date Triggers (Sept 14, Dec 13) - Only check once per day
+            if date_str.endswith("-09-14") or date_str.endswith("-12-13"):
+                active_ember_searches.append({'wed_found': False, 'sat_found': False})
+
+            last_date_processed = date_str
+
+        # Check for Event Triggers (Ash Wed, Pentecost) - Check every item
+        if event_key == "AshWednesday" or event_key == "PentecostSunday":
+             active_ember_searches.append({'wed_found': False, 'sat_found': False})
+        
         season = item.get("liturgical_season_lcl", "N/A")
+        
+        is_fast = False
+        if item.get("day_of_the_week_long", "") == "Friday":
+            is_fast = True
+        if "Lent" in season:
+            is_fast = True
+        if is_ember_day_calculated:
+            is_fast = True
+        # --- End Fast Logic ---
+
         name = item.get("name", "No name provided")
         
         is_holy_day = event_key in holy_days_of_obligation_keys
@@ -72,13 +117,18 @@ def parse_liturgical_data(data):
                 "day_of_week": item.get("day_of_the_week_long", ""),
                 "week_of_season": season_weeks.get(current_season, 1),
                 "events": [(event_key, name)],
-                "holy_day_of_obligation": is_holy_day
+                "holy_day_of_obligation": is_holy_day,
+                "fast": is_fast
             }
         else:
             calendar_data[date_str]["events"].append((event_key, name))
             
             if is_holy_day:
                 calendar_data[date_str]["holy_day_of_obligation"] = True
+                
+            if is_fast:
+                calendar_data[date_str]["fast"] = True
+            
             # Update week of season if current entry has a more recent Sunday
             # and thus a more accurate week number for that season.
             calendar_data[date_str]["week_of_season"] = max(
@@ -133,36 +183,6 @@ def get_liturgical_calendar(year):
         
     return {}
 
-def load_calendar_from_file(filename):
-    """
-    Loads liturgical calendar data from a local JSON file (all_liturgical_events.json)
-    and processes it into the required calendar_data format.
-    """
-    try:
-        if not os.path.exists(filename):
-            print(f"Error: File not found at {filename}")
-            return {}
-
-        with open(filename, 'r') as f:
-            data = json.load(f)
-        
-        if isinstance(data, list):
-            return parse_liturgical_data(data)
-        elif isinstance(data, dict) and "litcal" in data:
-            return parse_liturgical_data(data)
-        else:
-            print("Error: Expected JSON file to contain a list of events or an object with 'litcal' key.")
-            return {}
-
-    except FileNotFoundError:
-        print(f"Error: The file '{filename}' was not found.")
-        return {}
-    except json.JSONDecodeError:
-        print(f"Error: Could not decode JSON from '{filename}'.")
-        return {}
-    
-    return {}
-
 def should_filter(event_key): 
     # Conditional printing logic
     for start_key in ['Easter', "Lent", "DayAfterEpiphany", "Christmas", "Advent"]:
@@ -188,23 +208,6 @@ def get_display_event(events):
             return key, name
 
     return "", ""
-
-
-    # if event_key is None:
-    #     if len(events) >= 2:
-    #         event_key, name = events[1]
-    #     elif events:
-    #         event_key, name = events[0]
-    #     else:
-    #         event_key, name = "", ""
-    
-    # display_event_key = event_key
-    # display_name = name
-
-    
-
-
-    # return display_event_key, display_name
 
 def generate_c_struct_output(calendar_data):
     """
@@ -239,11 +242,12 @@ def generate_c_struct_output(calendar_data):
         season_enum = season_map.get(entry['season'], "UNKNOWN")
         week = entry['week_of_season']
         hdo = "true" if entry['holy_day_of_obligation'] else "false"
+        is_fast = "true" if entry.get('fast', False) else "false"
         
         event_key, _ = get_display_event(entry['events'])
         text = event_key.replace('"', '\\"')
 
-        c_struct_data[days_since] = f"{{ {season_enum}, {week}, {hdo}, \"{text}\" }}"
+        c_struct_data[days_since] = f"{{ {season_enum}, {week}, {hdo}, {is_fast}, \"{text}\" }}"
 
     print('#include "special_day_face.h"')
     print(f"#define SPECIAL_DAYS_START_DATE_YEAR {START_DATE_YEAR}")
@@ -281,18 +285,19 @@ def print_formatted_calendar_data(calendar_data, year):
     Prints the liturgical calendar data for a given year in a formatted way.
     """
     print(f"\n--- Liturgical Calendar for Year: {year} ---")
-    print(f"{'Date':<11} {'Season':<13} {'Day of Week':<15} {'Week of Season':<17} {'Event Key':<30} {'Name':<40} {'HDO':<5}")
-    print(f"{'-'*11:<11} {'-'*13:<13} {'-'*15:<15} {'-'*17:<17} {'-'*30:<30} {'-'*40:<40} {'-'*5:<5}")
+    print(f"{'Date':<11} {'Season':<13} {'Day of Week':<15} {'Week of Season':<17} {'Event Key':<30} {'Name':<40} {'HDO':<5} {'Fast':<5}")
+    print(f"{'-'*11:<11} {'-'*13:<13} {'-'*15:<15} {'-'*17:<17} {'-'*30:<30} {'-'*40:<40} {'-'*5:<5} {'-'*5:<5}")
 
     for date, entry_data in sorted(calendar_data.items()):
         hdo_column = "HDO" if entry_data["holy_day_of_obligation"] else ""
+        fast_column = "FAST" if entry_data.get("fast", False) else ""
         
         display_event_key, display_name = get_display_event(entry_data["events"])
         display_name = display_name[:40]
 
         output_line = (
             f"{date:<11} {entry_data['season']:<13} {entry_data['day_of_week']:<15} "
-            f"{entry_data['week_of_season']:<17} {display_event_key:<30} {display_name:<40} {hdo_column:<5}"
+            f"{entry_data['week_of_season']:<17} {display_event_key:<30} {display_name:<40} {hdo_column:<5} {fast_column:<5}"
         )
         print(output_line)
 
@@ -300,40 +305,20 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Fetch and display liturgical calendar data.")
     parser.add_argument("--raw", action="store_true", help="Display raw JSON data.")
     parser.add_argument("--c-struct", action="store_true", help="Generate C struct array.")
-    parser.add_argument("--from-file", action="store_true", help="Read liturgical data from all_liturgical_events.json.")
     args = parser.parse_args()
 
     full_calendar_data = {}
     
-    if args.from_file:
-        print("Reading liturgical data from all_liturgical_events.json...")
-        full_calendar_data = load_calendar_from_file("all_liturgical_events.json") # Corrected path- STOP DOING THIS - ASSUME THAT IT'S BEING INVOKED IN THE SAME DIR IT'S IN
-        if not full_calendar_data:
-            print("Failed to load data from all_liturgical_events.json. Exiting.")
-            exit(1)
-        
-        # When reading from file, assume all years are included and process once
+    current_year = datetime.now().year
+    for year_offset in range(10):
+        year_to_fetch = current_year + year_offset
+        calendar_data = get_liturgical_calendar(year_to_fetch)
         if args.c_struct:
-            generate_c_struct_output(full_calendar_data)
+            full_calendar_data.update(calendar_data)
         elif args.raw:
-            print_raw_calendar_data(full_calendar_data, "All Years (from file)")
+            print_raw_calendar_data(calendar_data, year_to_fetch)
         else:
-            # Need to iterate through years if printing formatted
-            years_in_data = sorted(list(set([datetime.strptime(d, "%Y-%m-%d").year for d in full_calendar_data.keys()])))
-            for year_to_display in years_in_data:
-                year_data = {d: data for d, data in full_calendar_data.items() if datetime.strptime(d, "%Y-%m-%d").year == year_to_display}
-                print_formatted_calendar_data(year_data, year_to_display)
-    else:
-        current_year = datetime.now().year
-        for year_offset in range(10):
-            year_to_fetch = current_year + year_offset
-            calendar_data = get_liturgical_calendar(year_to_fetch)
-            if args.c_struct:
-                full_calendar_data.update(calendar_data)
-            elif args.raw:
-                print_raw_calendar_data(calendar_data, year_to_fetch)
-            else:
-                print_formatted_calendar_data(calendar_data, year_to_fetch)
-        
-        if args.c_struct:
-            generate_c_struct_output(full_calendar_data)
+            print_formatted_calendar_data(calendar_data, year_to_fetch)
+    
+    if args.c_struct:
+        generate_c_struct_output(full_calendar_data)
