@@ -59,7 +59,7 @@ static void clock_indicate_lap() {
 }
 
 static void clock_indicate_24h() {
-    clock_indicate(WATCH_INDICATOR_24H, !!movement_clock_mode_24h());
+    clock_indicate(WATCH_INDICATOR_24H, !!movement_clock_mode_24h() || movement_24h_indicator_enabled());
 }
 
 static bool clock_is_pm(watch_date_time_t date_time) {

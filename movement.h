@@ -287,6 +287,7 @@ typedef struct {
     // temporary alarm enabled boolean, until we implement this in advisories
     bool alarm_enabled;
     bool lap_enabled;
+    bool indicator_24h_enabled;
     bool time_signal_enabled;
 
     // boolean set if thermistor is detected
@@ -378,6 +379,9 @@ void movement_set_alarm_enabled(bool value);
 
 bool movement_lap_enabled(void);
 void movement_set_lap_enabled(bool value);
+
+bool movement_24h_indicator_enabled(void);
+void movement_set_24h_indicator_enabled(bool value);
 
 bool movement_time_signal_enabled(void);
 void movement_set_time_signal_enabled(bool value);

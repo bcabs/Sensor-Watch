@@ -519,6 +519,14 @@ void movement_set_lap_enabled(bool value) {
     movement_state.lap_enabled = value;
 }
 
+bool movement_24h_indicator_enabled(void) {
+    return movement_state.indicator_24h_enabled;
+}
+
+void movement_set_24h_indicator_enabled(bool value) {
+    movement_state.indicator_24h_enabled = value;
+}
+
 bool movement_time_signal_enabled(void) {
     return movement_state.time_signal_enabled;
 }
