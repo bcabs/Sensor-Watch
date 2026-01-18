@@ -8,6 +8,7 @@
 
 typedef struct {
     int16_t scroll_step;
+    int16_t manual_offset;
 } special_day_state_t;
 
 static void lookup_day(bool isActivated, special_day_state_t *state);
@@ -19,18 +20,6 @@ static void clock_indicate(watch_indicator_t indicator, bool on) {
     } else {
         watch_clear_indicator(indicator);
     }
-}
-
-static void clock_indicate_alarm() {
-    clock_indicate(WATCH_INDICATOR_BELL, movement_alarm_enabled());
-}
-
-static void clock_indicate_lap() {
-    clock_indicate(WATCH_INDICATOR_LAP, movement_lap_enabled());
-}
-
-static void clock_indicate_24h() {
-    clock_indicate(WATCH_INDICATOR_24H, movement_24h_indicator_enabled());
 }
 
 static int days_since_start(uint16_t year, uint8_t month, uint8_t day) {
@@ -67,51 +56,58 @@ void special_day_face_setup(uint8_t watch_face_index, void ** context_ptr) {
     (void) watch_face_index;
     if (*context_ptr == NULL) {
         *context_ptr = malloc(sizeof(special_day_state_t));
+        special_day_state_t *state = (special_day_state_t *)*context_ptr;
+        state->manual_offset = 0;
     }
 }
 
 void special_day_face_activate(void *context) {
     special_day_state_t *state = (special_day_state_t *)context;
     state->scroll_step = -1; // Start with a pause (negative step implies waiting at 0)
-    clock_indicate_alarm();
-    clock_indicate_lap();
-    clock_indicate_24h();
+    state->manual_offset = 0;
+    // Activate triggers lookup_day(true) immediately via loop event, so no need to call indicators here manually if loop runs
+    // But loop runs after activate.
+    // However, we can just let loop handle it.
 }
 
 void lookup_day(bool isActivated, special_day_state_t *state) {
     watch_date_time_t date_time = movement_get_local_date_time();
-    int days = days_since_start(date_time.unit.year + WATCH_RTC_REFERENCE_YEAR, 
+    int actual_days = days_since_start(date_time.unit.year + WATCH_RTC_REFERENCE_YEAR, 
         date_time.unit.month, date_time.unit.day);
-    const SpecialDay* special_day = get_special_day(days);
-    const SpecialDay* next_day = get_special_day(days + 1);
+    
+    // Always update global state based on ACTUAL day
+    const SpecialDay* actual_day = get_special_day(actual_days);
+    const SpecialDay* actual_next_day = get_special_day(actual_days + 1);
+    
+    movement_set_alarm_enabled(actual_day->alarm);
+    movement_set_lap_enabled(actual_day->fast);
+    movement_set_24h_indicator_enabled(actual_next_day->alarm);
 
     if (!isActivated) {
-        // do background task and quit
-        movement_set_alarm_enabled(special_day->alarm);
-        movement_set_lap_enabled(special_day->fast);
-        movement_set_24h_indicator_enabled(next_day->alarm);
-        clock_indicate_alarm();
-        clock_indicate_lap();
-        clock_indicate_24h();
+        // Background task: Just ensure global state is set (done above) and return.
+        // We might want to set indicators if we are the active face but in background? 
+        // Assuming clock_face isn't active overwriting them.
+        // The original code set indicators here. We'll stick to updating global state.
         return;
     }
 
-    movement_set_alarm_enabled(special_day->alarm);
-    movement_set_lap_enabled(special_day->fast);
-    movement_set_24h_indicator_enabled(next_day->alarm);
-    clock_indicate_alarm();
-    clock_indicate_lap();
-    clock_indicate_24h();
+    // Foreground: Use manual offset
+    int target_days = actual_days + state->manual_offset;
+    const SpecialDay* display_day = get_special_day(target_days);
+    const SpecialDay* display_next_day = get_special_day(target_days + 1);
 
-    if (special_day->season == UNKNOWN) {
-        if (isActivated) {
-            watch_display_text(WATCH_POSITION_FULL, "---- ");
-        }
+    // Update indicators locally to reflect the DISPLAYED day
+    clock_indicate(WATCH_INDICATOR_BELL, display_day->alarm);
+    clock_indicate(WATCH_INDICATOR_LAP, display_day->fast);
+    clock_indicate(WATCH_INDICATOR_24H, display_next_day->alarm);
+
+    if (display_day->season == UNKNOWN) {
+        watch_display_text(WATCH_POSITION_FULL, "---- ");
         return;
     }
    
     char buf[12]; // Increased buffer size for safety
-    switch (special_day->season) {
+    switch (display_day->season) {
         case ADVENT:
             buf[0] = 'A';
             buf[1] = 'D';
@@ -142,25 +138,22 @@ void lookup_day(bool isActivated, special_day_state_t *state) {
             break;
     }
     
-    sprintf(&buf[2], "%02d", special_day->week_of_season);
+    sprintf(&buf[2], "%02d", display_day->week_of_season);
     watch_display_text_with_fallback(WATCH_POSITION_FULL, buf, buf);
 
-    if (special_day->text != NULL && special_day->text[0] != '\0') {
-        int len = strlen(special_day->text);
+    if (display_day->text != NULL && display_day->text[0] != '\0') {
+        int len = strlen(display_day->text);
         if (len <= 6) {
-            watch_display_text_with_fallback(WATCH_POSITION_BOTTOM, special_day->text, special_day->text);
+            watch_display_text_with_fallback(WATCH_POSITION_BOTTOM, display_day->text, display_day->text);
         } else {
             // Scrolling logic
-            // scroll_step starts at -3. 
-            // Range [-3, -1]: Pause at 0
-            // Range [0, len - 6]: Scroll
-            // Range [len - 6 + 1, len - 6 + 3]: Pause at end
+            // scroll_step starts at -1. 
             
             int offset = state->scroll_step;
             if (offset < 0) offset = 0;
             if (offset > len - 6) offset = len - 6;
             
-            watch_display_text_with_fallback(WATCH_POSITION_BOTTOM, special_day->text + offset, special_day->text + offset);
+            watch_display_text_with_fallback(WATCH_POSITION_BOTTOM, display_day->text + offset, display_day->text + offset);
             
             state->scroll_step++;
             if (state->scroll_step > (len - 6 + 2)) {
@@ -175,6 +168,11 @@ void lookup_day(bool isActivated, special_day_state_t *state) {
 bool special_day_face_loop(movement_event_t event, void *context) {
     special_day_state_t *state = (special_day_state_t *)context;
     switch (event.event_type) {
+        case EVENT_ALARM_BUTTON_UP:
+            state->manual_offset++;
+            state->scroll_step = -1; // Reset scrolling when changing day
+            lookup_day(true, state);
+            break;
         case EVENT_TICK:
         case EVENT_ACTIVATE:
             lookup_day(true, state);

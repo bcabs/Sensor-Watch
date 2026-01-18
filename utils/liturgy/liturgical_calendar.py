@@ -103,7 +103,7 @@ def parse_liturgical_data(data):
                 season_weeks[season] = 1
             current_season = season
 
-        elif item.get("day_of_the_week_long", "") == "Sunday":
+        elif item.get("day_of_the_week_long", "") == "Sunday" and is_new_day:
             if event_key != "Lent1": # Lent1 is the first Sunday, but not necessarily the first week start for calculation
                 season_weeks[season] = season_weeks.get(season, 0) + 1
         

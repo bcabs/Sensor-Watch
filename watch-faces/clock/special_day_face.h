@@ -16,10 +16,10 @@ typedef enum {
 } LiturgicalSeason;
 
 typedef struct {
-    uint16_t season : 3;
-    uint16_t week_of_season : 6;
-    uint16_t alarm : 1;
-    uint16_t fast : 1;
+    uint8_t season;
+    uint8_t week_of_season;
+    bool alarm;
+    bool fast;
     const char *text;
 } SpecialDay;
 
