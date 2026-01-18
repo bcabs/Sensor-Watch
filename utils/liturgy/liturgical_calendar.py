@@ -215,6 +215,7 @@ def generate_c_struct_output(calendar_data):
     """
     # Create a dictionary to hold the C struct data, indexed by days since start_date
     c_struct_data = {}
+    unique_strings = set()
 
     season_map = {
         "Advent": "ADVENT",
@@ -245,14 +246,25 @@ def generate_c_struct_output(calendar_data):
         is_fast = "true" if entry.get('fast', False) else "false"
         
         event_key, _ = get_display_event(entry['events'])
-        text = event_key.replace('"', '\\"')
+        
+        if event_key:
+            unique_strings.add(event_key)
+            text_ref = f"text_{event_key}"
+        else:
+            text_ref = "NULL"
 
-        c_struct_data[days_since] = f"{{ {season_enum}, {week}, {hdo}, {is_fast}, \"{text}\" }}"
+        c_struct_data[days_since] = f"{{ {season_enum}, {week}, {hdo}, {is_fast}, {text_ref} }}"
 
     print('#include "special_day_face.h"')
     print(f"#define SPECIAL_DAYS_START_DATE_YEAR {START_DATE_YEAR}")
     print(f"#define SPECIAL_DAYS_START_DATE_MONTH {START_DATE_MONTH}")
     print(f"#define SPECIAL_DAYS_START_DATE_DAY {START_DATE_DAY}")
+    print("")
+    
+    for s in sorted(list(unique_strings)):
+        safe_s = s.replace('"', '\\"')
+        print(f"static const char text_{s}[] = \"{safe_s}\";")
+        
     print("")
     print("static const SpecialDay special_days[] = {")
 
@@ -269,7 +281,7 @@ def generate_c_struct_output(calendar_data):
         if i in c_struct_data:
             print(f"    /* {i:03} {current_date_str} */ {c_struct_data[i]},")
         else:
-            print(f"    /* {i:03} {current_date_str} */ {{ UNKNOWN, 0, false, NULL }},")
+            print(f"    /* {i:03} {current_date_str} */ {{ UNKNOWN, 0, false, false, NULL }},")
             
     print("};")
 
