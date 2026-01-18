@@ -138,7 +138,7 @@ void lookup_day(bool isActivated, special_day_state_t *state) {
             break;
     }
     
-    sprintf(&buf[2], "%02d", display_day->week_of_season);
+    sprintf(&buf[2], "%2d", display_day->week_of_season);
     watch_display_text_with_fallback(WATCH_POSITION_FULL, buf, buf);
 
     if (display_day->text != NULL && display_day->text[0] != '\0') {
