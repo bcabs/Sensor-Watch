@@ -142,9 +142,24 @@ void lookup_day(bool isActivated, special_day_state_t *state) {
     watch_display_text_with_fallback(WATCH_POSITION_FULL, buf, buf);
 
     if (display_day->text != NULL && display_day->text[0] != '\0') {
-        int len = strlen(display_day->text);
+        char text_buf[48];
+        int j = 0;
+        for (int i = 0; display_day->text[i] != '\0' && j < (int)sizeof(text_buf) - 1; i++) {
+            char c = display_day->text[i];
+            if (i > 0 && c >= 'A' && c <= 'Z') {
+                text_buf[j++] = ' ';
+                if (j >= (int)sizeof(text_buf) - 1) break;
+            }
+            if (c >= 'a' && c <= 'z') {
+                c -= 32; // to upper
+            }
+            text_buf[j++] = c;
+        }
+        text_buf[j] = '\0';
+
+        int len = strlen(text_buf);
         if (len <= 6) {
-            watch_display_text_with_fallback(WATCH_POSITION_BOTTOM, display_day->text, display_day->text);
+            watch_display_text_with_fallback(WATCH_POSITION_BOTTOM, text_buf, text_buf);
         } else {
             // Scrolling logic
             // scroll_step starts at -1. 
@@ -153,7 +168,7 @@ void lookup_day(bool isActivated, special_day_state_t *state) {
             if (offset < 0) offset = 0;
             if (offset > len - 6) offset = len - 6;
             
-            watch_display_text_with_fallback(WATCH_POSITION_BOTTOM, display_day->text + offset, display_day->text + offset);
+            watch_display_text_with_fallback(WATCH_POSITION_BOTTOM, text_buf + offset, text_buf + offset);
             
             state->scroll_step++;
             if (state->scroll_step > (len - 6 + 2)) {
