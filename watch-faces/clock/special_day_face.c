@@ -205,6 +205,9 @@ bool special_day_face_loop(movement_event_t event, void *context) {
             // On ACTIVATE, we want to display initial state (advance=false).
             lookup_day(true, state, !SPECIAL_DAY_FACE_MANUAL_SCROLL && event.event_type == EVENT_TICK);
             break;
+        case EVENT_LOW_ENERGY_UPDATE:
+            lookup_day(true, state, false);
+            break;
         case EVENT_BACKGROUND_TASK:
             lookup_day(false, state, false);
             break;

@@ -243,6 +243,11 @@ bool clock_face_loop(movement_event_t event, void *context) {
         case EVENT_LOW_ENERGY_UPDATE:
             clock_start_tick_tock_animation();
             clock_display_low_energy(movement_get_local_date_time());
+            clock_indicate_time_signal();
+            clock_indicate_alarm();
+            clock_indicate_lap();
+            clock_indicate_24h();
+            clock_indicate_low_available_power(state);
             break;
         case EVENT_TICK:
         case EVENT_ACTIVATE:
