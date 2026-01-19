@@ -5,13 +5,16 @@
 #include "watch.h"
 #include "watch_utility.h"
 #include "special_days.h"
+#include "movement.h"
+
+#define SPECIAL_DAY_FACE_MANUAL_SCROLL true
 
 typedef struct {
     int16_t scroll_step;
     int16_t manual_offset;
 } special_day_state_t;
 
-static void lookup_day(bool isActivated, special_day_state_t *state);
+static void lookup_day(bool isActivated, special_day_state_t *state, bool advance);
 static int days_since_start(uint16_t year, uint8_t month, uint8_t day);
 
 static void clock_indicate(watch_indicator_t indicator, bool on) {
@@ -63,14 +66,11 @@ void special_day_face_setup(uint8_t watch_face_index, void ** context_ptr) {
 
 void special_day_face_activate(void *context) {
     special_day_state_t *state = (special_day_state_t *)context;
-    state->scroll_step = -1; // Start with a pause (negative step implies waiting at 0)
+    state->scroll_step = SPECIAL_DAY_FACE_MANUAL_SCROLL ? 0 : -2; 
     state->manual_offset = 0;
-    // Activate triggers lookup_day(true) immediately via loop event, so no need to call indicators here manually if loop runs
-    // But loop runs after activate.
-    // However, we can just let loop handle it.
 }
 
-void lookup_day(bool isActivated, special_day_state_t *state) {
+void lookup_day(bool isActivated, special_day_state_t *state, bool advance) {
     watch_date_time_t date_time = movement_get_local_date_time();
     int actual_days = days_since_start(date_time.unit.year + WATCH_RTC_REFERENCE_YEAR, 
         date_time.unit.month, date_time.unit.day);
@@ -84,10 +84,6 @@ void lookup_day(bool isActivated, special_day_state_t *state) {
     movement_set_24h_indicator_enabled(actual_next_day->alarm);
 
     if (!isActivated) {
-        // Background task: Just ensure global state is set (done above) and return.
-        // We might want to set indicators if we are the active face but in background? 
-        // Assuming clock_face isn't active overwriting them.
-        // The original code set indicators here. We'll stick to updating global state.
         return;
     }
 
@@ -158,23 +154,31 @@ void lookup_day(bool isActivated, special_day_state_t *state) {
         text_buf[j] = '\0';
 
         int len = strlen(text_buf);
-        if (len <= 6) {
-            watch_display_text_with_fallback(WATCH_POSITION_BOTTOM, text_buf, text_buf);
-        } else {
+        int offset = 0;
+        if (len > 6) {
             // Scrolling logic
-            // scroll_step starts at -1. 
-            
-            int offset = state->scroll_step;
+            if (advance) {
+                state->scroll_step++;
+                int reset_val = SPECIAL_DAY_FACE_MANUAL_SCROLL ? 0 : -2;
+                if (state->scroll_step > (len - 6 + 2)) {
+                    state->scroll_step = reset_val;
+                }
+            }
+
+            offset = state->scroll_step;
             if (offset < 0) offset = 0;
             if (offset > len - 6) offset = len - 6;
-            
-            watch_display_text_with_fallback(WATCH_POSITION_BOTTOM, text_buf + offset, text_buf + offset);
-            
-            state->scroll_step++;
-            if (state->scroll_step > (len - 6 + 2)) {
-                state->scroll_step = -1;
-            }
         }
+
+        char display_buf[7];
+        memset(display_buf, ' ', 6);
+        display_buf[6] = '\0';
+        int to_copy = len - offset;
+        if (to_copy > 6) to_copy = 6;
+        if (to_copy > 0) memcpy(display_buf, text_buf + offset, to_copy);
+        
+        printf("SpecialDayFace: Displaying '%s' (len %d, offset %d)\n", display_buf, len, offset);
+        watch_display_text_with_fallback(WATCH_POSITION_BOTTOM, display_buf, display_buf);
     } else {
         watch_display_text_with_fallback(WATCH_POSITION_BOTTOM, "      ", "      ");
     }
@@ -185,15 +189,24 @@ bool special_day_face_loop(movement_event_t event, void *context) {
     switch (event.event_type) {
         case EVENT_ALARM_BUTTON_UP:
             state->manual_offset++;
-            state->scroll_step = -1; // Reset scrolling when changing day
-            lookup_day(true, state);
+            state->scroll_step = SPECIAL_DAY_FACE_MANUAL_SCROLL ? 0 : -2; // Reset scrolling when changing day
+            lookup_day(true, state, false);
+            break;
+        case EVENT_LIGHT_BUTTON_UP:
+            if (SPECIAL_DAY_FACE_MANUAL_SCROLL) {
+                lookup_day(true, state, true);
+                movement_illuminate_led();
+                return true;
+            }
             break;
         case EVENT_TICK:
         case EVENT_ACTIVATE:
-            lookup_day(true, state);
+            // Advance on tick only if NOT manual scroll (auto mode) AND event is TICK.
+            // On ACTIVATE, we want to display initial state (advance=false).
+            lookup_day(true, state, !SPECIAL_DAY_FACE_MANUAL_SCROLL && event.event_type == EVENT_TICK);
             break;
         case EVENT_BACKGROUND_TASK:
-            lookup_day(false, state);
+            lookup_day(false, state, false);
             break;
         default:
             return movement_default_loop_handler(event);
