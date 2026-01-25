@@ -6,12 +6,8 @@
 #include "watch_utility.h"
 #include "movement.h"
 #include "movement_config.h"
-
-#if MOVEMENT_USE_TRADITIONAL_CALENDAR
-#include "special_days_alt.h"
-#else
 #include "special_days.h"
-#endif
+#include "special_days_alt.h"
 
 #define SPECIAL_DAY_FACE_MANUAL_SCROLL false
 #define SPECIAL_DAY_FACE_SCROLL_PAUSE_TICKS 2
@@ -21,10 +17,12 @@ typedef struct {
     int16_t scroll_step;
     int16_t manual_offset;
     uint8_t tick_count;
+    bool use_alt_calendar;
+    uint8_t mode_display_ticks;
 } special_day_state_t;
 
 static void lookup_day(bool isActivated, special_day_state_t *state, bool advance);
-static int days_since_start(uint16_t year, uint8_t month, uint8_t day);
+static int days_since_start(uint16_t year, uint8_t month, uint8_t day, bool use_alt);
 
 static void clock_indicate(watch_indicator_t indicator, bool on) {
     if (on) {
@@ -34,26 +32,36 @@ static void clock_indicate(watch_indicator_t indicator, bool on) {
     }
 }
 
-static int days_since_start(uint16_t year, uint8_t month, uint8_t day) {
-    if (year < SPECIAL_DAYS_START_DATE_YEAR) return -1;
-    if (year == SPECIAL_DAYS_START_DATE_YEAR && month < SPECIAL_DAYS_START_DATE_MONTH) return -1;
-    if (year == SPECIAL_DAYS_START_DATE_YEAR && month == SPECIAL_DAYS_START_DATE_MONTH && day < SPECIAL_DAYS_START_DATE_DAY) return -1;
+static int days_since_start(uint16_t year, uint8_t month, uint8_t day, bool use_alt) {
+    uint16_t start_year = use_alt ? SPECIAL_DAYS_ALT_START_DATE_YEAR : SPECIAL_DAYS_NORMAL_START_DATE_YEAR;
+    uint8_t start_month = use_alt ? SPECIAL_DAYS_ALT_START_DATE_MONTH : SPECIAL_DAYS_NORMAL_START_DATE_MONTH;
+    uint8_t start_day = use_alt ? SPECIAL_DAYS_ALT_START_DATE_DAY : SPECIAL_DAYS_NORMAL_START_DATE_DAY;
+
+    if (year < start_year) return -1;
+    if (year == start_year && month < start_month) return -1;
+    if (year == start_year && month == start_month && day < start_day) return -1;
 
     int days = 0;
-    for (uint16_t y = SPECIAL_DAYS_START_DATE_YEAR; y < year; y++) {
+    for (uint16_t y = start_year; y < year; y++) {
         days += 365 + is_leap(y);
     }
     days += watch_utility_days_since_new_year(year, month, day);
-    days -= watch_utility_days_since_new_year(SPECIAL_DAYS_START_DATE_YEAR, SPECIAL_DAYS_START_DATE_MONTH, SPECIAL_DAYS_START_DATE_DAY);
+    days -= watch_utility_days_since_new_year(start_year, start_month, start_day);
 
     return days;
 }
 
 static const SpecialDay DUMMY_DAY = { UNKNOWN, 0, false, false, NULL };
 
-static const SpecialDay* get_special_day(int days) {
-    if (days >= 0 && days < (int)(sizeof(special_days) / sizeof(special_days[0]))) {
-        return &special_days[days];
+static const SpecialDay* get_special_day(int days, bool use_alt) {
+    if (use_alt) {
+        if (days >= 0 && days < (int)(sizeof(special_days_alt) / sizeof(special_days_alt[0]))) {
+            return &special_days_alt[days];
+        }
+    } else {
+        if (days >= 0 && days < (int)(sizeof(special_days_normal) / sizeof(special_days_normal[0]))) {
+            return &special_days_normal[days];
+        }
     }
     return &DUMMY_DAY;
 }
@@ -65,24 +73,30 @@ void special_day_face_setup(uint8_t watch_face_index, void ** context_ptr) {
         special_day_state_t *state = (special_day_state_t *)*context_ptr;
         state->manual_offset = 0;
         state->tick_count = 0;
+        state->use_alt_calendar = false; // Default to Normal
+        #if defined(MOVEMENT_USE_TRADITIONAL_CALENDAR) && MOVEMENT_USE_TRADITIONAL_CALENDAR
+        state->use_alt_calendar = true;
+        #endif
+        state->mode_display_ticks = 0;
     }
 }
 
 void special_day_face_activate(void *context) {
-        special_day_state_t *state = (special_day_state_t *)context;
-        state->scroll_step = SPECIAL_DAY_FACE_MANUAL_SCROLL ? 0 : -SPECIAL_DAY_FACE_SCROLL_PAUSE_TICKS; 
-        state->manual_offset = 0;
-        state->tick_count = 0;
-    }
+    special_day_state_t *state = (special_day_state_t *)context;
+    state->scroll_step = SPECIAL_DAY_FACE_MANUAL_SCROLL ? 0 : -SPECIAL_DAY_FACE_SCROLL_PAUSE_TICKS; 
+    state->manual_offset = 0;
+    state->tick_count = 0;
+    state->mode_display_ticks = 0;
+}
 
 void lookup_day(bool isActivated, special_day_state_t *state, bool advance) {
     watch_date_time_t date_time = movement_get_local_date_time();
     int actual_days = days_since_start(date_time.unit.year + WATCH_RTC_REFERENCE_YEAR, 
-        date_time.unit.month, date_time.unit.day);
+        date_time.unit.month, date_time.unit.day, state->use_alt_calendar);
     
-    // Always update global state based on ACTUAL day
-    const SpecialDay* actual_day = get_special_day(actual_days);
-    const SpecialDay* actual_next_day = get_special_day(actual_days + 1);
+    // Always update global state based on ACTUAL day and CURRENT mode
+    const SpecialDay* actual_day = get_special_day(actual_days, state->use_alt_calendar);
+    const SpecialDay* actual_next_day = get_special_day(actual_days + 1, state->use_alt_calendar);
     
     movement_set_alarm_enabled(actual_day->alarm);
     movement_set_lap_enabled(actual_day->fast);
@@ -91,11 +105,25 @@ void lookup_day(bool isActivated, special_day_state_t *state, bool advance) {
     if (!isActivated) {
         return;
     }
+    
+    // Handle mode switch display
+    if (state->mode_display_ticks > 0) {
+        watch_clear_display();
+        if (state->use_alt_calendar) {
+            watch_display_text(WATCH_POSITION_BOTTOM, " trad ");
+        } else {
+            watch_display_text(WATCH_POSITION_BOTTOM, "normal");
+        }
+        if (advance) { // Count down ticks
+             state->mode_display_ticks--;
+        }
+        return;
+    }
 
     // Foreground: Use manual offset
     int target_days = actual_days + state->manual_offset;
-    const SpecialDay* display_day = get_special_day(target_days);
-    const SpecialDay* display_next_day = get_special_day(target_days + 1);
+    const SpecialDay* display_day = get_special_day(target_days, state->use_alt_calendar);
+    const SpecialDay* display_next_day = get_special_day(target_days + 1, state->use_alt_calendar);
 
     // Update indicators locally to reflect the DISPLAYED day
     clock_indicate(WATCH_INDICATOR_BELL, display_day->alarm);
@@ -219,6 +247,15 @@ bool special_day_face_loop(movement_event_t event, void *context) {
                 return true;
             }
             break;
+        case EVENT_MODE_LONG_PRESS:
+            // Toggle calendar mode
+            state->use_alt_calendar = !state->use_alt_calendar;
+            // Set display timer (e.g. 2 seconds = 2 ticks at 1Hz)
+            state->mode_display_ticks = 2; // Adjusted for 1Hz
+            state->scroll_step = SPECIAL_DAY_FACE_MANUAL_SCROLL ? 0 : -SPECIAL_DAY_FACE_SCROLL_PAUSE_TICKS;
+            lookup_day(true, state, false);
+            // Inhibit default mode switch behavior
+            break;
         case EVENT_TICK:
             if (!SPECIAL_DAY_FACE_MANUAL_SCROLL) {
                 state->tick_count++;
@@ -231,7 +268,9 @@ bool special_day_face_loop(movement_event_t event, void *context) {
             }
             break;
         case EVENT_ACTIVATE:
-            lookup_day(true, state, false);
+            // Advance on tick only if NOT manual scroll (auto mode) AND event is TICK.
+            // On ACTIVATE, we want to display initial state (advance=false).
+            lookup_day(true, state, !SPECIAL_DAY_FACE_MANUAL_SCROLL && event.event_type == EVENT_TICK);
             break;
         case EVENT_LOW_ENERGY_UPDATE:
             lookup_day(true, state, false);

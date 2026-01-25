@@ -113,11 +113,17 @@ def fetch_traditional_calendar(year):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Fetch Traditional Catholic Calendar from gcatholic.org")
-    parser.add_argument("--year", type=int, default=datetime.now().year, help="Year to fetch")
+    parser.add_argument("--year", type=int, default=datetime.now().year, help="Year to fetch (or start year)")
+    parser.add_argument("--end-year", type=int, help="End year (inclusive) for range fetch")
     parser.add_argument("--json", action="store_true", help="Output as JSON (default)")
     
     args = parser.parse_args()
     
-    # We always output JSON for the other script to consume
-    events = fetch_traditional_calendar(args.year)
-    print(json.dumps(events, indent=2))
+    all_events = []
+    end_year = args.end_year if args.end_year else args.year
+    
+    for y in range(args.year, end_year + 1):
+        events = fetch_traditional_calendar(y)
+        all_events.extend(events)
+        
+    print(json.dumps(all_events, indent=2))

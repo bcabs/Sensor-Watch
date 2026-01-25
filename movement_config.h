@@ -27,6 +27,7 @@
 
 #include "movement_faces.h"
 
+#ifdef MOVEMENT_C_
 const watch_face_t watch_faces[] = {
     clock_face,
     special_day_face,
@@ -40,6 +41,7 @@ const watch_face_t watch_faces[] = {
 };
 
 #define MOVEMENT_NUM_FACES (sizeof(watch_faces) / sizeof(watch_face_t))
+#endif
 
 /* Determines what face to go to from the first face on long press of the Mode button.
  * Also excludes these faces from the normal rotation.

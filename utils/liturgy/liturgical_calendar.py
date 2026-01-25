@@ -368,7 +368,7 @@ def get_display_event(events):
 
     return "", ""
 
-def generate_c_struct_output(calendar_data):
+def generate_c_struct_output(calendar_data, prefix=""):
     """
     Generates C code for the special_days array.
     """
@@ -395,6 +395,11 @@ def generate_c_struct_output(calendar_data):
     START_DATE_DAY = now.day
     start_date = date(START_DATE_YEAR, START_DATE_MONTH, START_DATE_DAY)
 
+    # Prepare prefix strings
+    p_upper = f"{prefix.upper()}_" if prefix else ""
+    p_lower = f"{prefix.lower()}_" if prefix else ""
+    array_name = f"special_days_{prefix.lower()}" if prefix else "special_days"
+
     for date_str, entry in calendar_data.items():
         d = datetime.strptime(date_str, "%Y-%m-%d").date()
         days_since = (d - start_date).days
@@ -412,24 +417,24 @@ def generate_c_struct_output(calendar_data):
         
         if event_key:
             unique_strings.add(event_key)
-            text_ref = f"text_{event_key}"
+            text_ref = f"text_{p_lower}{event_key}"
         else:
             text_ref = "NULL"
 
         c_struct_data[days_since] = f"{{ {season_enum}, {week}, {hdo}, {is_fast}, {text_ref} }}"
 
     print('#include "special_day_face.h"')
-    print(f"#define SPECIAL_DAYS_START_DATE_YEAR {START_DATE_YEAR}")
-    print(f"#define SPECIAL_DAYS_START_DATE_MONTH {START_DATE_MONTH}")
-    print(f"#define SPECIAL_DAYS_START_DATE_DAY {START_DATE_DAY}")
+    print(f"#define SPECIAL_DAYS_{p_upper}START_DATE_YEAR {START_DATE_YEAR}")
+    print(f"#define SPECIAL_DAYS_{p_upper}START_DATE_MONTH {START_DATE_MONTH}")
+    print(f"#define SPECIAL_DAYS_{p_upper}START_DATE_DAY {START_DATE_DAY}")
     print("")
     
     for s in sorted(list(unique_strings)):
         safe_s = s.replace('"', '\\"')
-        print(f"static const char text_{s}[] = \"{safe_s}\";")
+        print(f"static const char text_{p_lower}{s}[] = \"{safe_s}\";")
         
     print("")
-    print("static const SpecialDay special_days[] = {")
+    print(f"static const SpecialDay {array_name}[] = {{")
 
     # Assuming the C code can handle a large array. Let's find the max day.
     max_day = 0
@@ -481,6 +486,7 @@ if __name__ == "__main__":
     parser.add_argument("--raw", action="store_true", help="Display raw JSON data.")
     parser.add_argument("--c-struct", action="store_true", help="Generate C struct array.")
     parser.add_argument("--traditional", action="store_true", help="Use traditional calendar data from utils/liturgy/traditional/out.json")
+    parser.add_argument("--name-prefix", type=str, default="", help="Prefix for C variables and defines (e.g. 'normal' -> special_days_normal)")
     args = parser.parse_args()
 
     full_calendar_data = {}
@@ -506,7 +512,7 @@ if __name__ == "__main__":
                 print_formatted_calendar_data(calendar_data, year_to_fetch)
     
     if args.c_struct:
-        generate_c_struct_output(full_calendar_data)
+        generate_c_struct_output(full_calendar_data, args.name_prefix)
     elif args.traditional and args.raw: # Handle raw print for traditional
          print(json.dumps(full_calendar_data, indent=2))
     elif args.traditional:
