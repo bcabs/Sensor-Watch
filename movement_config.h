@@ -30,7 +30,7 @@
 #ifdef MOVEMENT_C_
 const watch_face_t watch_faces[] = {
     clock_face,
-    special_day_face,
+    liturgical_calendar_face,
     moon_phase_face,
     sunrise_sunset_face,
     fast_stopwatch_face,
@@ -111,8 +111,8 @@ const watch_face_t watch_faces[] = {
 #define MOVEMENT_DEFAULT_LATITUDE 4233
 #define MOVEMENT_DEFAULT_LONGITUDE -8817
 
-/* Set to true to use the traditional liturgical calendar (special_days_alt.h)
- * instead of the standard one (special_days.h).
+/* Set to true to use the traditional liturgical calendar (liturgical_calendar_alt.h)
+ * instead of the standard one (liturgical_calendar.h).
  */
 #define MOVEMENT_USE_TRADITIONAL_CALENDAR false
 

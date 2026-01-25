@@ -62,5 +62,5 @@
 #include "tally_face.h"
 #include "probability_face.h"
 #include "ke_decimal_time_face.h"
-#include "special_day_face.h"
+#include "liturgical_calendar_face.h"
 // New includes go above this line.

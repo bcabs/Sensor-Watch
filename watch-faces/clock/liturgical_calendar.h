@@ -1,7 +1,7 @@
-#include "special_day_face.h"
-#define SPECIAL_DAYS_NORMAL_START_DATE_YEAR 2026
-#define SPECIAL_DAYS_NORMAL_START_DATE_MONTH 1
-#define SPECIAL_DAYS_NORMAL_START_DATE_DAY 24
+#include "liturgical_calendar_face.h"
+#define LITURGICAL_CALENDAR_NORMAL_START_DATE_YEAR 2026
+#define LITURGICAL_CALENDAR_NORMAL_START_DATE_MONTH 1
+#define LITURGICAL_CALENDAR_NORMAL_START_DATE_DAY 24
 
 static const char text_normal_AllSaints[] = "AllSaints";
 static const char text_normal_AllSouls[] = "AllSouls";
@@ -222,7 +222,7 @@ static const char text_normal_Transfiguration[] = "Transfiguration";
 static const char text_normal_Trinity[] = "Trinity";
 static const char text_normal_Visitation[] = "Visitation";
 
-static const SpecialDay special_days_normal[] = {
+static const LiturgicalDay liturgical_calendar_normal[] = {
     /* 000 2026-01-24 */ { ORDINARY_TIME, 2, false, false, text_normal_StFrancisDeSales },
     /* 001 2026-01-25 */ { ORDINARY_TIME, 3, true, false, text_normal_ConversionStPaul },
     /* 002 2026-01-26 */ { ORDINARY_TIME, 3, false, false, text_normal_StsTimothyTitus },

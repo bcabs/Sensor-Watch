@@ -1,7 +1,7 @@
-#include "special_day_face.h"
-#define SPECIAL_DAYS_ALT_START_DATE_YEAR 2026
-#define SPECIAL_DAYS_ALT_START_DATE_MONTH 1
-#define SPECIAL_DAYS_ALT_START_DATE_DAY 24
+#include "liturgical_calendar_face.h"
+#define LITURGICAL_CALENDAR_ALT_START_DATE_YEAR 2026
+#define LITURGICAL_CALENDAR_ALT_START_DATE_MONTH 1
+#define LITURGICAL_CALENDAR_ALT_START_DATE_DAY 24
 
 static const char text_alt_AllSaints[] = "AllSaints";
 static const char text_alt_AshWednesday[] = "AshWednesday";
@@ -294,7 +294,7 @@ static const char text_alt_VigilOfTheAscensionOfTheLord[] = "VigilOfTheAscension
 static const char text_alt_VigilOfTheNativityOfSaintJohnTheBaptist[] = "VigilOfTheNativityOfSaintJohnTheBaptist";
 static const char text_alt_VigilOfTheNativityOfTheLord[] = "VigilOfTheNativityOfTheLord";
 
-static const SpecialDay special_days_alt[] = {
+static const LiturgicalDay liturgical_calendar_alt[] = {
     /* 000 2026-01-24 */ { AFTER_EPIPHANY, 1, false, false, text_alt_SaintTimothyBishopAndMartyr },
     /* 001 2026-01-25 */ { AFTER_EPIPHANY, 1, true, false, NULL },
     /* 002 2026-01-26 */ { AFTER_EPIPHANY, 1, false, false, text_alt_SaintPolycarpBishopAndMartyr },
