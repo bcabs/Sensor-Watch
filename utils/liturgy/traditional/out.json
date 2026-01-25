@@ -1,1638 +1,3230 @@
 [
   {
-    "summary": "\u00e2\u009a\u00aa [I] The Octave-Day of the Nativity of the Lord",
-    "date": "2026-01-01"
+    "date": "2026-01-01",
+    "summary": "The Octave-Day of the Nativity of the Lord",
+    "season": "Christmas",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] Feria: The Octave-Day of the Nativity of the Lord",
-    "date": "2026-01-02"
+    "date": "2026-01-02",
+    "summary": "Feria: The Octave-Day of the Nativity of the Lord",
+    "season": "Christmas",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] The Blessed Virgin Mary on Saturday",
-    "date": "2026-01-03"
+    "date": "2026-01-03",
+    "summary": "The Blessed Virgin Mary on Saturday",
+    "season": "Christmas",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [II] The Most Holy Name of Jesus",
-    "date": "2026-01-04"
+    "date": "2026-01-04",
+    "summary": "The Most Holy Name of Jesus",
+    "season": "Christmas",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] Feria: The Octave-Day of the Nativity of the Lord",
-    "date": "2026-01-05"
+    "date": "2026-01-05",
+    "summary": "Feria: The Octave-Day of the Nativity of the Lord",
+    "season": "Christmas",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [IV] Saint Telesphorus, pope and martyr",
-    "date": "2026-01-05"
+    "date": "2026-01-05",
+    "summary": "Saint Telesphorus, pope and martyr",
+    "season": "Christmas",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [I] The Epiphany of the Lord",
-    "date": "2026-01-06"
+    "date": "2026-01-05",
+    "summary": "Saint Telesphorus, pope and martyr",
+    "season": "Christmas",
+    "color": "red"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] Feria: The Epiphany of the Lord",
-    "date": "2026-01-07"
+    "date": "2026-01-06",
+    "summary": "The Epiphany of the Lord",
+    "season": "Christmas",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] Feria: The Epiphany of the Lord",
-    "date": "2026-01-08"
+    "date": "2026-01-07",
+    "summary": "Feria: The Epiphany of the Lord",
+    "season": "Christmas",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] Feria: The Epiphany of the Lord",
-    "date": "2026-01-09"
+    "date": "2026-01-08",
+    "summary": "Feria: The Epiphany of the Lord",
+    "season": "Christmas",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] The Blessed Virgin Mary on Saturday",
-    "date": "2026-01-10"
+    "date": "2026-01-09",
+    "summary": "Feria: The Epiphany of the Lord",
+    "season": "Christmas",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [II] The Holy Family of Jesus, Mary and Joseph",
-    "date": "2026-01-11"
+    "date": "2026-01-10",
+    "summary": "The Blessed Virgin Mary on Saturday",
+    "season": "Christmas",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] Feria: 1\u00cb\u00a2\u00e1\u00b5\u0097 Sunday after Epiphany",
-    "date": "2026-01-12"
+    "date": "2026-01-11",
+    "summary": "The Holy Family of Jesus, Mary and Joseph",
+    "season": "Christmas",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [II] The Baptism of Our Lord Jesus Christ",
-    "date": "2026-01-13"
+    "date": "2026-01-12",
+    "summary": "Feria: 1\u02e2\u1d57 Sunday after Epiphany",
+    "season": "Christmas",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Hilary, bishop, confessor and doctor of the Church",
-    "date": "2026-01-14"
+    "date": "2026-01-13",
+    "summary": "The Baptism of Our Lord Jesus Christ",
+    "season": "Christmas",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Paul the First Hermit, confessor",
-    "date": "2026-01-15"
+    "date": "2026-01-14",
+    "summary": "Saint Hilary, bishop, confessor and doctor of the Church",
+    "season": "After Epiphany",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saint Marcellus I, pope and martyr",
-    "date": "2026-01-16"
+    "date": "2026-01-14",
+    "summary": "Saint Felix, priest and martyr",
+    "season": "After Epiphany",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Anthony, abbot",
-    "date": "2026-01-17"
+    "date": "2026-01-15",
+    "summary": "Saint Paul the First Hermit, confessor",
+    "season": "After Epiphany",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [II] 2\u00e2\u0081\u00bf\u00e1\u00b5\u0088 Sunday after Epiphany",
-    "date": "2026-01-18"
+    "date": "2026-01-15",
+    "summary": "Saint Maurus, abbot",
+    "season": "After Epiphany",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 2\u00e2\u0081\u00bf\u00e1\u00b5\u0088 Sunday after Epiphany",
-    "date": "2026-01-19"
+    "date": "2026-01-16",
+    "summary": "Saint Marcellus I, pope and martyr",
+    "season": "After Epiphany",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [IV] Saints Marius, Martha, Audifax and Abachum, martyrs",
-    "date": "2026-01-19"
+    "date": "2026-01-17",
+    "summary": "Saint Anthony, abbot",
+    "season": "After Epiphany",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [IV] Saint Canute, king and martyr",
-    "date": "2026-01-19"
+    "date": "2026-01-18",
+    "summary": "2\u207f\u1d48 Sunday after Epiphany",
+    "season": "After Epiphany",
+    "color": "green"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saints Fabian, pope, and Sebastian, martyrs",
-    "date": "2026-01-20"
+    "date": "2026-01-19",
+    "summary": "Feria: 2\u207f\u1d48 Sunday after Epiphany",
+    "season": "After Epiphany",
+    "color": "green"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saint Agnes, virgin and martyr",
-    "date": "2026-01-21"
+    "date": "2026-01-19",
+    "summary": "Saints Marius, Martha, Audifax and Abachum, martyrs",
+    "season": "After Epiphany",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saints Vincent and Anastasius, martyrs",
-    "date": "2026-01-22"
+    "date": "2026-01-19",
+    "summary": "Saint Canute, king and martyr",
+    "season": "After Epiphany",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Raymond of Pennafort, confessor",
-    "date": "2026-01-23"
+    "date": "2026-01-19",
+    "summary": "Saints Marius, Martha, Audifax and Abachum, martyrs",
+    "season": "After Epiphany",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saint Timothy, bishop and martyr",
-    "date": "2026-01-24"
+    "date": "2026-01-19",
+    "summary": "Saint Canute, king and martyr",
+    "season": "After Epiphany",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [II] 3\u00ca\u00b3\u00e1\u00b5\u0088 Sunday after Epiphany",
-    "date": "2026-01-25"
+    "date": "2026-01-19",
+    "summary": "Saint Canute, king and martyr",
+    "season": "After Epiphany",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saint Polycarp, bishop and martyr",
-    "date": "2026-01-26"
+    "date": "2026-01-19",
+    "summary": "Saints Marius, Martha, Audifax and Abachum, martyrs",
+    "season": "After Epiphany",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint John Chrysostom, bishop, confessor and doctor of the Church",
-    "date": "2026-01-27"
+    "date": "2026-01-20",
+    "summary": "Saints Fabian, pope, and Sebastian, martyrs",
+    "season": "After Epiphany",
+    "color": "red"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Peter Nolasco, confessor",
-    "date": "2026-01-28"
+    "date": "2026-01-21",
+    "summary": "Saint Agnes, virgin and martyr",
+    "season": "After Epiphany",
+    "color": "red"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Francis de Sales, bishop, confessor and doctor of the Church",
-    "date": "2026-01-29"
+    "date": "2026-01-22",
+    "summary": "Saints Vincent and Anastasius, martyrs",
+    "season": "After Epiphany",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saint Martina, virgin and martyr",
-    "date": "2026-01-30"
+    "date": "2026-01-23",
+    "summary": "Saint Raymond of Pennafort, confessor",
+    "season": "After Epiphany",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint John Bosco, confessor",
-    "date": "2026-01-31"
+    "date": "2026-01-23",
+    "summary": "Saint Emerentiana, virgin and martyr",
+    "season": "After Epiphany",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [II] Septuagesima Sunday",
-    "date": "2026-02-01"
+    "date": "2026-01-24",
+    "summary": "Saint Timothy, bishop and martyr",
+    "season": "After Epiphany",
+    "color": "red"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [II] The Purification of the Blessed Virgin Mary",
-    "date": "2026-02-02"
+    "date": "2026-01-25",
+    "summary": "3\u02b3\u1d48 Sunday after Epiphany",
+    "season": "After Epiphany",
+    "color": "green"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [IV] Feria: Septuagesima Sunday",
-    "date": "2026-02-03"
+    "date": "2026-01-26",
+    "summary": "Saint Polycarp, bishop and martyr",
+    "season": "After Epiphany",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [IV] Saint Blaise, bishop and martyr",
-    "date": "2026-02-03"
+    "date": "2026-01-27",
+    "summary": "Saint John Chrysostom, bishop, confessor and doctor of the Church",
+    "season": "After Epiphany",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Andrew Corsini, bishop and confessor",
-    "date": "2026-02-04"
+    "date": "2026-01-28",
+    "summary": "Saint Peter Nolasco, confessor",
+    "season": "After Epiphany",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saint Agatha, virgin and martyr",
-    "date": "2026-02-05"
+    "date": "2026-01-28",
+    "summary": "Saint Agnes, virgin and martyr",
+    "season": "After Epiphany",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Titus, bishop and confessor",
-    "date": "2026-02-06"
+    "date": "2026-01-29",
+    "summary": "Saint Francis de Sales, bishop, confessor and doctor of the Church",
+    "season": "After Epiphany",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Romuald, abbot",
-    "date": "2026-02-07"
+    "date": "2026-01-30",
+    "summary": "Saint Martina, virgin and martyr",
+    "season": "After Epiphany",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [II] Sexagesima Sunday",
-    "date": "2026-02-08"
+    "date": "2026-01-31",
+    "summary": "Saint John Bosco, confessor",
+    "season": "After Epiphany",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Cyril, bishop of Alexandria, confessor and doctor of the Church",
-    "date": "2026-02-09"
+    "date": "2026-02-01",
+    "summary": "Septuagesima Sunday",
+    "season": "Septuagesima",
+    "color": "violet"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Scholastica, virgin",
-    "date": "2026-02-10"
+    "date": "2026-02-02",
+    "summary": "The Purification of the Blessed Virgin Mary",
+    "season": "Septuagesima",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] The Apparition of the Immaculate Virgin Mary",
-    "date": "2026-02-11"
+    "date": "2026-02-03",
+    "summary": "Feria: Septuagesima Sunday",
+    "season": "Septuagesima",
+    "color": "violet"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] The Seven Holy Founders of the Servite Order, confessors",
-    "date": "2026-02-12"
+    "date": "2026-02-03",
+    "summary": "Saint Blaise, bishop and martyr",
+    "season": "Septuagesima",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [IV] Feria: Sexagesima Sunday",
-    "date": "2026-02-13"
+    "date": "2026-02-03",
+    "summary": "Saint Blaise, bishop and martyr",
+    "season": "Septuagesima",
+    "color": "red"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] The Blessed Virgin Mary on Saturday",
-    "date": "2026-02-14"
+    "date": "2026-02-04",
+    "summary": "Saint Andrew Corsini, bishop and confessor",
+    "season": "Septuagesima",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [IV] Saint Valentine, priest and martyr",
-    "date": "2026-02-14"
+    "date": "2026-02-05",
+    "summary": "Saint Agatha, virgin and martyr",
+    "season": "Septuagesima",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [II] Quinquagesima Sunday",
-    "date": "2026-02-15"
+    "date": "2026-02-06",
+    "summary": "Saint Titus, bishop and confessor",
+    "season": "Septuagesima",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [IV] Feria: Quinquagesima Sunday",
-    "date": "2026-02-16"
+    "date": "2026-02-06",
+    "summary": "Saint Dorothy, virgin and martyr",
+    "season": "Septuagesima",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [IV] Feria: Quinquagesima Sunday",
-    "date": "2026-02-17"
+    "date": "2026-02-07",
+    "summary": "Saint Romuald, abbot",
+    "season": "Septuagesima",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [I] Ash Wednesday",
-    "date": "2026-02-18"
+    "date": "2026-02-08",
+    "summary": "Sexagesima Sunday",
+    "season": "Septuagesima",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Thursday after Ash Wednesday",
-    "date": "2026-02-19"
+    "date": "2026-02-09",
+    "summary": "Saint Cyril, bishop of Alexandria, confessor and doctor of the Church",
+    "season": "Septuagesima",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Friday after Ash Wednesday",
-    "date": "2026-02-20"
+    "date": "2026-02-09",
+    "summary": "Saint Apollonia, virgin and martyr",
+    "season": "Septuagesima",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Saturday after Ash Wednesday",
-    "date": "2026-02-21"
+    "date": "2026-02-10",
+    "summary": "Saint Scholastica, virgin",
+    "season": "Septuagesima",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [I] 1\u00cb\u00a2\u00e1\u00b5\u0097 Sunday of Lent",
-    "date": "2026-02-22"
+    "date": "2026-02-11",
+    "summary": "The Apparition of the Immaculate Virgin Mary",
+    "season": "Septuagesima",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Monday in the 1\u00cb\u00a2\u00e1\u00b5\u0097 Week of Lent",
-    "date": "2026-02-23"
+    "date": "2026-02-12",
+    "summary": "The Seven Holy Founders of the Servite Order, confessors",
+    "season": "Septuagesima",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [II] Saint Matthias, apostle",
-    "date": "2026-02-24"
+    "date": "2026-02-13",
+    "summary": "Feria: Sexagesima Sunday",
+    "season": "Septuagesima",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [II] Ember Wednesday of Lent",
-    "date": "2026-02-25"
+    "date": "2026-02-14",
+    "summary": "The Blessed Virgin Mary on Saturday",
+    "season": "Septuagesima",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Thursday in the 1\u00cb\u00a2\u00e1\u00b5\u0097 Week of Lent",
-    "date": "2026-02-26"
+    "date": "2026-02-14",
+    "summary": "Saint Valentine, priest and martyr",
+    "season": "Septuagesima",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [II] Ember Friday of Lent",
-    "date": "2026-02-27"
+    "date": "2026-02-14",
+    "summary": "Saint Valentine, priest and martyr",
+    "season": "Septuagesima",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [II] Ember Saturday of Lent",
-    "date": "2026-02-28"
+    "date": "2026-02-15",
+    "summary": "Quinquagesima Sunday",
+    "season": "Septuagesima",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [I] 2\u00e2\u0081\u00bf\u00e1\u00b5\u0088 Sunday of Lent",
-    "date": "2026-03-01"
+    "date": "2026-02-16",
+    "summary": "Feria: Quinquagesima Sunday",
+    "season": "Septuagesima",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Monday in the 2\u00e2\u0081\u00bf\u00e1\u00b5\u0088 Week of Lent",
-    "date": "2026-03-02"
+    "date": "2026-02-17",
+    "summary": "Feria: Quinquagesima Sunday",
+    "season": "Septuagesima",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Tuesday in the 2\u00e2\u0081\u00bf\u00e1\u00b5\u0088 Week of Lent",
-    "date": "2026-03-03"
+    "date": "2026-02-18",
+    "summary": "Ash Wednesday",
+    "season": "Lent",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Wednesday in the 2\u00e2\u0081\u00bf\u00e1\u00b5\u0088 Week of Lent",
-    "date": "2026-03-04"
+    "date": "2026-02-19",
+    "summary": "Thursday after Ash Wednesday",
+    "season": "Lent",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Thursday in the 2\u00e2\u0081\u00bf\u00e1\u00b5\u0088 Week of Lent",
-    "date": "2026-03-05"
+    "date": "2026-02-20",
+    "summary": "Friday after Ash Wednesday",
+    "season": "Lent",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Friday in the 2\u00e2\u0081\u00bf\u00e1\u00b5\u0088 Week of Lent",
-    "date": "2026-03-06"
+    "date": "2026-02-21",
+    "summary": "Saturday after Ash Wednesday",
+    "season": "Lent",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Saturday in the 2\u00e2\u0081\u00bf\u00e1\u00b5\u0088 Week of Lent",
-    "date": "2026-03-07"
+    "date": "2026-02-22",
+    "summary": "1\u02e2\u1d57 Sunday of Lent",
+    "season": "Lent",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [I] 3\u00ca\u00b3\u00e1\u00b5\u0088 Sunday of Lent",
-    "date": "2026-03-08"
+    "date": "2026-02-23",
+    "summary": "Monday in the 1\u02e2\u1d57 Week of Lent",
+    "season": "Lent",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Monday in the 3\u00ca\u00b3\u00e1\u00b5\u0088 Week of Lent",
-    "date": "2026-03-09"
+    "date": "2026-02-23",
+    "summary": "Saint Peter Damian, bishop, confessor and doctor of the Church",
+    "season": "Lent",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Tuesday in the 3\u00ca\u00b3\u00e1\u00b5\u0088 Week of Lent",
-    "date": "2026-03-10"
+    "date": "2026-02-24",
+    "summary": "Saint Matthias, apostle",
+    "season": "Lent",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Wednesday in the 3\u00ca\u00b3\u00e1\u00b5\u0088 Week of Lent",
-    "date": "2026-03-11"
+    "date": "2026-02-24",
+    "summary": "Tuesday in the 1\u02e2\u1d57 Week of Lent",
+    "season": "Lent",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Thursday in the 3\u00ca\u00b3\u00e1\u00b5\u0088 Week of Lent",
-    "date": "2026-03-12"
+    "date": "2026-02-25",
+    "summary": "Ember Wednesday of Lent",
+    "season": "Lent",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Friday in the 3\u00ca\u00b3\u00e1\u00b5\u0088 Week of Lent",
-    "date": "2026-03-13"
+    "date": "2026-02-26",
+    "summary": "Thursday in the 1\u02e2\u1d57 Week of Lent",
+    "season": "Lent",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Saturday in the 3\u00ca\u00b3\u00e1\u00b5\u0088 Week of Lent",
-    "date": "2026-03-14"
+    "date": "2026-02-27",
+    "summary": "Ember Friday of Lent",
+    "season": "Lent",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [I] 4\u00e1\u00b5\u0097\u00ca\u00b0 Sunday of Lent (Laetare)",
-    "date": "2026-03-15"
+    "date": "2026-02-27",
+    "summary": "Saint Gabriel of Our Lady of Sorrows, confessor",
+    "season": "Lent",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Monday in the 4\u00e1\u00b5\u0097\u00ca\u00b0 Week of Lent",
-    "date": "2026-03-16"
+    "date": "2026-02-28",
+    "summary": "Ember Saturday of Lent",
+    "season": "Lent",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Tuesday in the 4\u00e1\u00b5\u0097\u00ca\u00b0 Week of Lent",
-    "date": "2026-03-17"
+    "date": "2026-03-01",
+    "summary": "2\u207f\u1d48 Sunday of Lent",
+    "season": "Lent",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Wednesday in the 4\u00e1\u00b5\u0097\u00ca\u00b0 Week of Lent",
-    "date": "2026-03-18"
+    "date": "2026-03-02",
+    "summary": "Monday in the 2\u207f\u1d48 Week of Lent",
+    "season": "Lent",
+    "color": "violet"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [I] Saint Joseph, spouse of the Blessed Virgin Mary, confessor",
-    "date": "2026-03-19"
+    "date": "2026-03-03",
+    "summary": "Tuesday in the 2\u207f\u1d48 Week of Lent",
+    "season": "Lent",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Friday in the 4\u00e1\u00b5\u0097\u00ca\u00b0 Week of Lent",
-    "date": "2026-03-20"
+    "date": "2026-03-04",
+    "summary": "Wednesday in the 2\u207f\u1d48 Week of Lent",
+    "season": "Lent",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Saturday in the 4\u00e1\u00b5\u0097\u00ca\u00b0 Week of Lent",
-    "date": "2026-03-21"
+    "date": "2026-03-04",
+    "summary": "Saint Casimir, confessor",
+    "season": "Lent",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [I] Passion Sunday",
-    "date": "2026-03-22"
+    "date": "2026-03-04",
+    "summary": "Saint Lucius I, pope and martyr",
+    "season": "Lent",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Monday of Passion Week",
-    "date": "2026-03-23"
+    "date": "2026-03-05",
+    "summary": "Thursday in the 2\u207f\u1d48 Week of Lent",
+    "season": "Lent",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Tuesday of Passion Week",
-    "date": "2026-03-24"
+    "date": "2026-03-06",
+    "summary": "Friday in the 2\u207f\u1d48 Week of Lent",
+    "season": "Lent",
+    "color": "violet"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [I] The Annunciation of the Blessed Virgin Mary",
-    "date": "2026-03-25"
+    "date": "2026-03-06",
+    "summary": "Saints Perpetua and Felicity, martyrs",
+    "season": "Lent",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Thursday of Passion Week",
-    "date": "2026-03-26"
+    "date": "2026-03-07",
+    "summary": "Saturday in the 2\u207f\u1d48 Week of Lent",
+    "season": "Lent",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Friday of Passion Week",
-    "date": "2026-03-27"
+    "date": "2026-03-07",
+    "summary": "Saint Thomas Aquinas, confessor and doctor of the Church",
+    "season": "Lent",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Saturday of Passion Week",
-    "date": "2026-03-28"
+    "date": "2026-03-08",
+    "summary": "3\u02b3\u1d48 Sunday of Lent",
+    "season": "Lent",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [I] Palm Sunday",
-    "date": "2026-03-29"
+    "date": "2026-03-09",
+    "summary": "Monday in the 3\u02b3\u1d48 Week of Lent",
+    "season": "Lent",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [I] Monday of Holy Week",
-    "date": "2026-03-30"
+    "date": "2026-03-09",
+    "summary": "Saint Frances of Rome, widow",
+    "season": "Lent",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [I] Tuesday of Holy Week",
-    "date": "2026-03-31"
+    "date": "2026-03-10",
+    "summary": "Tuesday in the 3\u02b3\u1d48 Week of Lent",
+    "season": "Lent",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [I] Wednesday of Holy Week",
-    "date": "2026-04-01"
+    "date": "2026-03-10",
+    "summary": "The Forty Holy Martyrs",
+    "season": "Lent",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [I] Holy Thursday",
-    "date": "2026-04-02"
+    "date": "2026-03-11",
+    "summary": "Wednesday in the 3\u02b3\u1d48 Week of Lent",
+    "season": "Lent",
+    "color": "violet"
   },
   {
-    "summary": "\u00e2\u009a\u00ab [I] Good Friday",
-    "date": "2026-04-03"
+    "date": "2026-03-12",
+    "summary": "Thursday in the 3\u02b3\u1d48 Week of Lent",
+    "season": "Lent",
+    "color": "violet"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [I] Easter Vigil",
-    "date": "2026-04-04"
+    "date": "2026-03-12",
+    "summary": "Saint Gregory I, pope, confessor and doctor of the Church",
+    "season": "Lent",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [I] Easter Sunday",
-    "date": "2026-04-05"
+    "date": "2026-03-13",
+    "summary": "Friday in the 3\u02b3\u1d48 Week of Lent",
+    "season": "Lent",
+    "color": "violet"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [I] Monday in the Octave of Easter",
-    "date": "2026-04-06"
+    "date": "2026-03-14",
+    "summary": "Saturday in the 3\u02b3\u1d48 Week of Lent",
+    "season": "Lent",
+    "color": "violet"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [I] Tuesday in the Octave of Easter",
-    "date": "2026-04-07"
+    "date": "2026-03-15",
+    "summary": "4\u1d57\u02b0 Sunday of Lent (Laetare)",
+    "season": "Lent",
+    "color": "rose"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [I] Wednesday in the Octave of Easter",
-    "date": "2026-04-08"
+    "date": "2026-03-16",
+    "summary": "Monday in the 4\u1d57\u02b0 Week of Lent",
+    "season": "Lent",
+    "color": "violet"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [I] Thursday in the Octave of Easter",
-    "date": "2026-04-09"
+    "date": "2026-03-17",
+    "summary": "Tuesday in the 4\u1d57\u02b0 Week of Lent",
+    "season": "Lent",
+    "color": "violet"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [I] Friday in the Octave of Easter",
-    "date": "2026-04-10"
+    "date": "2026-03-17",
+    "summary": "Saint Patrick, bishop and confessor",
+    "season": "Lent",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [I] Saturday in the Octave of Easter",
-    "date": "2026-04-11"
+    "date": "2026-03-18",
+    "summary": "Wednesday in the 4\u1d57\u02b0 Week of Lent",
+    "season": "Lent",
+    "color": "violet"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [I] Low Sunday",
-    "date": "2026-04-12"
+    "date": "2026-03-18",
+    "summary": "Saint Cyril, bishop of Jerusalem, confessor and doctor of the Church",
+    "season": "Lent",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saint Hermenegild, martyr",
-    "date": "2026-04-13"
+    "date": "2026-03-19",
+    "summary": "Saint Joseph, spouse of the Blessed Virgin Mary, confessor",
+    "season": "Lent",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saint Justin, martyr",
-    "date": "2026-04-14"
+    "date": "2026-03-19",
+    "summary": "Thursday in the 4\u1d57\u02b0 Week of Lent",
+    "season": "Lent",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] Feria: Low Sunday",
-    "date": "2026-04-15"
+    "date": "2026-03-20",
+    "summary": "Friday in the 4\u1d57\u02b0 Week of Lent",
+    "season": "Lent",
+    "color": "violet"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] Feria: Low Sunday",
-    "date": "2026-04-16"
+    "date": "2026-03-21",
+    "summary": "Saturday in the 4\u1d57\u02b0 Week of Lent",
+    "season": "Lent",
+    "color": "violet"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] Feria: Low Sunday",
-    "date": "2026-04-17"
+    "date": "2026-03-21",
+    "summary": "Saint Benedict, abbot",
+    "season": "Lent",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [IV] Saint Anicetus, pope and martyr",
-    "date": "2026-04-17"
+    "date": "2026-03-22",
+    "summary": "Passion Sunday",
+    "season": "Passiontide",
+    "color": "violet"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] The Blessed Virgin Mary on Saturday",
-    "date": "2026-04-18"
+    "date": "2026-03-23",
+    "summary": "Monday of Passion Week",
+    "season": "Passiontide",
+    "color": "violet"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [II] 2\u00e2\u0081\u00bf\u00e1\u00b5\u0088 Sunday after Easter",
-    "date": "2026-04-19"
+    "date": "2026-03-24",
+    "summary": "Tuesday of Passion Week",
+    "season": "Passiontide",
+    "color": "violet"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] Feria: 2\u00e2\u0081\u00bf\u00e1\u00b5\u0088 Sunday after Easter",
-    "date": "2026-04-20"
+    "date": "2026-03-24",
+    "summary": "Saint Gabriel, archangel",
+    "season": "Passiontide",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Anselm, bishop, confessor and doctor of the Church",
-    "date": "2026-04-21"
+    "date": "2026-03-25",
+    "summary": "The Annunciation of the Blessed Virgin Mary",
+    "season": "Passiontide",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saints Soter and Cajus, popes and martyrs",
-    "date": "2026-04-22"
+    "date": "2026-03-25",
+    "summary": "Wednesday of Passion Week",
+    "season": "Passiontide",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] Feria: 2\u00e2\u0081\u00bf\u00e1\u00b5\u0088 Sunday after Easter",
-    "date": "2026-04-23"
+    "date": "2026-03-26",
+    "summary": "Thursday of Passion Week",
+    "season": "Passiontide",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [IV] Saint George, martyr",
-    "date": "2026-04-23"
+    "date": "2026-03-27",
+    "summary": "Friday of Passion Week",
+    "season": "Passiontide",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saint Fidelis of Sigmaringen, martyr",
-    "date": "2026-04-24"
+    "date": "2026-03-27",
+    "summary": "The Seven Sorrows of the Blessed Virgin Mary",
+    "season": "Passiontide",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [II] Saint Mark, evangelist",
-    "date": "2026-04-25"
+    "date": "2026-03-27",
+    "summary": "Saint John Damascene, confessor and doctor of the Church",
+    "season": "Passiontide",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [II] Rogation Day",
-    "date": "2026-04-25"
+    "date": "2026-03-28",
+    "summary": "Saturday of Passion Week",
+    "season": "Passiontide",
+    "color": "violet"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [II] 3\u00ca\u00b3\u00e1\u00b5\u0088 Sunday after Easter",
-    "date": "2026-04-26"
+    "date": "2026-03-28",
+    "summary": "Saint John Capistran, confessor",
+    "season": "Passiontide",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Peter Canisius, confessor and doctor of the Church",
-    "date": "2026-04-27"
+    "date": "2026-03-29",
+    "summary": "Palm Sunday",
+    "season": "Passiontide",
+    "color": "violet"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Paul of the Cross, confessor",
-    "date": "2026-04-28"
+    "date": "2026-03-30",
+    "summary": "Monday of Holy Week",
+    "season": "Passiontide",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saint Peter, martyr",
-    "date": "2026-04-29"
+    "date": "2026-03-31",
+    "summary": "Tuesday of Holy Week",
+    "season": "Passiontide",
+    "color": "violet"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Catherine of Siena, virgin",
-    "date": "2026-04-30"
+    "date": "2026-04-01",
+    "summary": "Wednesday of Holy Week",
+    "season": "Passiontide",
+    "color": "violet"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [I] Saint Joseph the Worker, spouse of the Blessed Virgin Mary, confessor",
-    "date": "2026-05-01"
+    "date": "2026-04-02",
+    "summary": "Holy Thursday",
+    "season": "Passiontide",
+    "color": "violet"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Athanasius, bishop, confessor and doctor of the Church",
-    "date": "2026-05-02"
+    "date": "2026-04-03",
+    "summary": "Good Friday",
+    "season": "Passiontide",
+    "color": "violet"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [II] 4\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Easter",
-    "date": "2026-05-03"
+    "date": "2026-04-04",
+    "summary": "Easter Vigil",
+    "season": "Passiontide",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Monica, widow",
-    "date": "2026-05-04"
+    "date": "2026-04-05",
+    "summary": "Easter Sunday",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Pius V, pope and confessor",
-    "date": "2026-05-05"
+    "date": "2026-04-06",
+    "summary": "Monday in the Octave of Easter",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] Feria: 4\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Easter",
-    "date": "2026-05-06"
+    "date": "2026-04-07",
+    "summary": "Tuesday in the Octave of Easter",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saint Stanislaus, bishop and martyr",
-    "date": "2026-05-07"
+    "date": "2026-04-08",
+    "summary": "Wednesday in the Octave of Easter",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] Feria: 4\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Easter",
-    "date": "2026-05-08"
+    "date": "2026-04-09",
+    "summary": "Thursday in the Octave of Easter",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Gregory Nazianzen, bishop, confessor and Doctor of the Church",
-    "date": "2026-05-09"
+    "date": "2026-04-10",
+    "summary": "Friday in the Octave of Easter",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [II] 5\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Easter",
-    "date": "2026-05-10"
+    "date": "2026-04-11",
+    "summary": "Saturday in the Octave of Easter",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [II] Saints Philip and James, apostles",
-    "date": "2026-05-11"
+    "date": "2026-04-12",
+    "summary": "Low Sunday",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [II] Rogation Day",
-    "date": "2026-05-11"
+    "date": "2026-04-13",
+    "summary": "Saint Hermenegild, martyr",
+    "season": "Easter",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saints Nereus, Achilleus, Domitilla, virgin, and Pancras, martyrs",
-    "date": "2026-05-12"
+    "date": "2026-04-14",
+    "summary": "Saint Justin, martyr",
+    "season": "Easter",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [II] Rogation Day",
-    "date": "2026-05-12"
+    "date": "2026-04-14",
+    "summary": "Saints Tiburtius, Valerian and Maximus, martyrs",
+    "season": "Easter",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [II] Vigil of the Ascension of the Lord",
-    "date": "2026-05-13"
+    "date": "2026-04-15",
+    "summary": "Feria: Low Sunday",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [II] Rogation Day",
-    "date": "2026-05-13"
+    "date": "2026-04-16",
+    "summary": "Feria: Low Sunday",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [I] The Ascension of the Lord",
-    "date": "2026-05-14"
+    "date": "2026-04-17",
+    "summary": "Feria: Low Sunday",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint John Baptist de la Salle, confessor",
-    "date": "2026-05-15"
+    "date": "2026-04-17",
+    "summary": "Saint Anicetus, pope and martyr",
+    "season": "Easter",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Ubald, bishop and confessor",
-    "date": "2026-05-16"
+    "date": "2026-04-17",
+    "summary": "Saint Anicetus, pope and martyr",
+    "season": "Easter",
+    "color": "red"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [II] Sunday after the Ascension",
-    "date": "2026-05-17"
+    "date": "2026-04-18",
+    "summary": "The Blessed Virgin Mary on Saturday",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saint Venantius, martyr",
-    "date": "2026-05-18"
+    "date": "2026-04-19",
+    "summary": "2\u207f\u1d48 Sunday after Easter",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Peter Celestine, pope and confessor",
-    "date": "2026-05-19"
+    "date": "2026-04-20",
+    "summary": "Feria: 2\u207f\u1d48 Sunday after Easter",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Bernardine of Siena, confessor",
-    "date": "2026-05-20"
+    "date": "2026-04-21",
+    "summary": "Saint Anselm, bishop, confessor and doctor of the Church",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] Feria: Sunday after the Ascension",
-    "date": "2026-05-21"
+    "date": "2026-04-22",
+    "summary": "Saints Soter and Cajus, popes and martyrs",
+    "season": "Easter",
+    "color": "red"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] Feria: Sunday after the Ascension",
-    "date": "2026-05-22"
+    "date": "2026-04-23",
+    "summary": "Feria: 2\u207f\u1d48 Sunday after Easter",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [I] Pentecost Vigil",
-    "date": "2026-05-23"
+    "date": "2026-04-23",
+    "summary": "Saint George, martyr",
+    "season": "Easter",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [I] Pentecost Sunday",
-    "date": "2026-05-24"
+    "date": "2026-04-23",
+    "summary": "Saint George, martyr",
+    "season": "Easter",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [I] Pentecost Monday",
-    "date": "2026-05-25"
+    "date": "2026-04-24",
+    "summary": "Saint Fidelis of Sigmaringen, martyr",
+    "season": "Easter",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [I] Pentecost Tuesday",
-    "date": "2026-05-26"
+    "date": "2026-04-25",
+    "summary": "Saint Mark, evangelist",
+    "season": "Easter",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [I] Ember Wednesday of Pentecost",
-    "date": "2026-05-27"
+    "date": "2026-04-25",
+    "summary": "The Greater Litanies",
+    "season": "Easter",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [I] Pentecost Thursday",
-    "date": "2026-05-28"
+    "date": "2026-04-25",
+    "summary": "Rogation Day",
+    "season": "Easter",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [I] Ember Friday of Pentecost",
-    "date": "2026-05-29"
+    "date": "2026-04-25",
+    "summary": "Saint Mark, evangelist",
+    "season": "Easter",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [I] Ember Saturday of Pentecost",
-    "date": "2026-05-30"
+    "date": "2026-04-26",
+    "summary": "3\u02b3\u1d48 Sunday after Easter",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [I] The Most Holy Trinity",
-    "date": "2026-05-31"
+    "date": "2026-04-27",
+    "summary": "Saint Peter Canisius, confessor and doctor of the Church",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Angela Merici, virgin",
-    "date": "2026-06-01"
+    "date": "2026-04-28",
+    "summary": "Saint Paul of the Cross, confessor",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 1\u00cb\u00a2\u00e1\u00b5\u0097 Sunday after Pentecost",
-    "date": "2026-06-02"
+    "date": "2026-04-29",
+    "summary": "Saint Peter, martyr",
+    "season": "Easter",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [IV] Saints Marcellinus, Peter, and Erasmus, bishop, martyrs",
-    "date": "2026-06-02"
+    "date": "2026-04-30",
+    "summary": "Saint Catherine of Siena, virgin",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 1\u00cb\u00a2\u00e1\u00b5\u0097 Sunday after Pentecost",
-    "date": "2026-06-03"
+    "date": "2026-05-01",
+    "summary": "Saint Joseph the Worker, spouse of the Blessed Virgin Mary, confessor",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [I] Corpus Christi",
-    "date": "2026-06-04"
+    "date": "2026-05-02",
+    "summary": "Saint Athanasius, bishop, confessor and doctor of the Church",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saint Boniface, bishop and martyr",
-    "date": "2026-06-05"
+    "date": "2026-05-03",
+    "summary": "4\u1d57\u02b0 Sunday after Easter",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Norbert, bishop",
-    "date": "2026-06-06"
+    "date": "2026-05-04",
+    "summary": "Saint Monica, widow",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [II] 2\u00e2\u0081\u00bf\u00e1\u00b5\u0088 Sunday after Pentecost",
-    "date": "2026-06-07"
+    "date": "2026-05-05",
+    "summary": "Saint Pius V, pope and confessor",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 2\u00e2\u0081\u00bf\u00e1\u00b5\u0088 Sunday after Pentecost",
-    "date": "2026-06-08"
+    "date": "2026-05-06",
+    "summary": "Feria: 4\u1d57\u02b0 Sunday after Easter",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 2\u00e2\u0081\u00bf\u00e1\u00b5\u0088 Sunday after Pentecost",
-    "date": "2026-06-09"
+    "date": "2026-05-07",
+    "summary": "Saint Stanislaus, bishop and martyr",
+    "season": "Easter",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [IV] Saints Primus and Felician, martyrs",
-    "date": "2026-06-09"
+    "date": "2026-05-08",
+    "summary": "Feria: 4\u1d57\u02b0 Sunday after Easter",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Margaret, queen and widow",
-    "date": "2026-06-10"
+    "date": "2026-05-09",
+    "summary": "Saint Gregory Nazianzen, bishop, confessor and Doctor of the Church",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saint Barnabas, apostle",
-    "date": "2026-06-11"
+    "date": "2026-05-10",
+    "summary": "5\u1d57\u02b0 Sunday after Easter",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [I] The Most Sacred Heart of Jesus",
-    "date": "2026-06-12"
+    "date": "2026-05-11",
+    "summary": "Saints Philip and James, apostles",
+    "season": "Easter",
+    "color": "red"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Anthony of Padua, confessor and doctor of the Church",
-    "date": "2026-06-13"
+    "date": "2026-05-11",
+    "summary": "Rogation Day",
+    "season": "Easter",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [II] 3\u00ca\u00b3\u00e1\u00b5\u0088 Sunday after Pentecost",
-    "date": "2026-06-14"
+    "date": "2026-05-11",
+    "summary": "Saints Philip and James, apostles",
+    "season": "Easter",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 3\u00ca\u00b3\u00e1\u00b5\u0088 Sunday after Pentecost",
-    "date": "2026-06-15"
+    "date": "2026-05-12",
+    "summary": "Saints Nereus, Achilleus, Domitilla, virgin, and Pancras, martyrs",
+    "season": "Easter",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [IV] Saints Vitus, Modestus and Crescentia, martyrs",
-    "date": "2026-06-15"
+    "date": "2026-05-12",
+    "summary": "Rogation Day",
+    "season": "Easter",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 3\u00ca\u00b3\u00e1\u00b5\u0088 Sunday after Pentecost",
-    "date": "2026-06-16"
+    "date": "2026-05-12",
+    "summary": "Saints Nereus, Achilleus, Domitilla, virgin, and Pancras, martyrs",
+    "season": "Easter",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Gregory Barbarigo, bishop and confessor",
-    "date": "2026-06-17"
+    "date": "2026-05-13",
+    "summary": "Vigil of the Ascension of the Lord",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Ephraem, deacon, confessor and doctor of the Church",
-    "date": "2026-06-18"
+    "date": "2026-05-13",
+    "summary": "Saint Robert Bellarmine, bishop, confessor and doctor of the Church",
+    "season": "Easter",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Juliana Falconieri, virgin",
-    "date": "2026-06-19"
+    "date": "2026-05-13",
+    "summary": "Rogation Day",
+    "season": "Easter",
+    "color": "violet"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] The Blessed Virgin Mary on Saturday",
-    "date": "2026-06-20"
+    "date": "2026-05-13",
+    "summary": "Vigil of the Ascension of the Lord",
+    "season": "Easter",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [IV] Saint Silverius, pope and martyr",
-    "date": "2026-06-20"
+    "date": "2026-05-14",
+    "summary": "The Ascension of the Lord",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [II] 4\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-06-21"
+    "date": "2026-05-15",
+    "summary": "Saint John Baptist de la Salle, confessor",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Paulinus, bishop and confessor",
-    "date": "2026-06-22"
+    "date": "2026-05-16",
+    "summary": "Saint Ubald, bishop and confessor",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [II] Vigil of the Nativity of Saint John the Baptist",
-    "date": "2026-06-23"
+    "date": "2026-05-17",
+    "summary": "Sunday after the Ascension",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [I] The Nativity of Saint John the Baptist",
-    "date": "2026-06-24"
+    "date": "2026-05-18",
+    "summary": "Saint Venantius, martyr",
+    "season": "Easter",
+    "color": "red"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint William, abbot",
-    "date": "2026-06-25"
+    "date": "2026-05-19",
+    "summary": "Saint Peter Celestine, pope and confessor",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saints John and Paul, martyrs",
-    "date": "2026-06-26"
+    "date": "2026-05-19",
+    "summary": "Saint Pudentiana, virgin",
+    "season": "Easter",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] The Blessed Virgin Mary on Saturday",
-    "date": "2026-06-27"
+    "date": "2026-05-20",
+    "summary": "Saint Bernardine of Siena, confessor",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [II] 5\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-06-28"
+    "date": "2026-05-21",
+    "summary": "Feria: Sunday after the Ascension",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [I] Saints Peter and Paul, apostles",
-    "date": "2026-06-29"
+    "date": "2026-05-22",
+    "summary": "Feria: Sunday after the Ascension",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saint Paul, apostle",
-    "date": "2026-06-30"
+    "date": "2026-05-23",
+    "summary": "Pentecost Vigil",
+    "season": "Easter",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [I] The Most Precious Blood of Our Lord Jesus Christ",
-    "date": "2026-07-01"
+    "date": "2026-05-24",
+    "summary": "Pentecost Sunday",
+    "season": "Easter",
+    "color": "red"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [II] The Visitation of the Blessed Virgin Mary",
-    "date": "2026-07-02"
+    "date": "2026-05-25",
+    "summary": "Pentecost Monday",
+    "season": "Easter",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saint Irenaeus, bishop and martyr",
-    "date": "2026-07-03"
+    "date": "2026-05-26",
+    "summary": "Pentecost Tuesday",
+    "season": "Easter",
+    "color": "red"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] The Blessed Virgin Mary on Saturday",
-    "date": "2026-07-04"
+    "date": "2026-05-27",
+    "summary": "Ember Wednesday of Pentecost",
+    "season": "Easter",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [II] 6\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-07-05"
+    "date": "2026-05-28",
+    "summary": "Pentecost Thursday",
+    "season": "Easter",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 6\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-07-06"
+    "date": "2026-05-29",
+    "summary": "Ember Friday of Pentecost",
+    "season": "Easter",
+    "color": "red"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saints Cyril and Methodius, bishops and confessors",
-    "date": "2026-07-07"
+    "date": "2026-05-30",
+    "summary": "Ember Saturday of Pentecost",
+    "season": "Easter",
+    "color": "red"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Elizabeth, queen and widow",
-    "date": "2026-07-08"
+    "date": "2026-05-31",
+    "summary": "The Most Holy Trinity",
+    "season": "Easter",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 6\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-07-09"
+    "date": "2026-06-01",
+    "summary": "Saint Angela Merici, virgin",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] The Seven Holy Brothers, martyrs, and Saints Rufina and Secunda, virgins and martyrs",
-    "date": "2026-07-10"
+    "date": "2026-06-02",
+    "summary": "Feria: 1\u02e2\u1d57 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] The Blessed Virgin Mary on Saturday",
-    "date": "2026-07-11"
+    "date": "2026-06-02",
+    "summary": "Saints Marcellinus, Peter, and Erasmus, bishop, martyrs",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [IV] Saint Pius I, pope and martyr",
-    "date": "2026-07-11"
+    "date": "2026-06-02",
+    "summary": "Saints Marcellinus, Peter, and Erasmus, bishop, martyrs",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [II] 7\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-07-12"
+    "date": "2026-06-03",
+    "summary": "Feria: 1\u02e2\u1d57 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 7\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-07-13"
+    "date": "2026-06-04",
+    "summary": "Corpus Christi",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Bonaventure, bishop, confessor and doctor of the Church",
-    "date": "2026-07-14"
+    "date": "2026-06-05",
+    "summary": "Saint Boniface, bishop and martyr",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Henry, emperor and confessor",
-    "date": "2026-07-15"
+    "date": "2026-06-06",
+    "summary": "Saint Norbert, bishop",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 7\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-07-16"
+    "date": "2026-06-07",
+    "summary": "2\u207f\u1d48 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] Our Lady of Mount Carmel",
-    "date": "2026-07-16"
+    "date": "2026-06-08",
+    "summary": "Feria: 2\u207f\u1d48 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 7\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-07-17"
+    "date": "2026-06-09",
+    "summary": "Feria: 2\u207f\u1d48 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] Saint Alexius, confessor",
-    "date": "2026-07-17"
+    "date": "2026-06-09",
+    "summary": "Saints Primus and Felician, martyrs",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Camillus de Lellis, confessor",
-    "date": "2026-07-18"
+    "date": "2026-06-09",
+    "summary": "Saints Primus and Felician, martyrs",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [II] 8\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-07-19"
+    "date": "2026-06-10",
+    "summary": "Saint Margaret, queen and widow",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Jerome Emiliani, confessor",
-    "date": "2026-07-20"
+    "date": "2026-06-11",
+    "summary": "Saint Barnabas, apostle",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Lawrence of Brindisi, confessor and doctor of the Church",
-    "date": "2026-07-21"
+    "date": "2026-06-12",
+    "summary": "The Most Sacred Heart of Jesus",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Mary Magdalene, penitent",
-    "date": "2026-07-22"
+    "date": "2026-06-13",
+    "summary": "Saint Anthony of Padua, confessor and doctor of the Church",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saint Apollinaris, bishop and martyr",
-    "date": "2026-07-23"
+    "date": "2026-06-14",
+    "summary": "3\u02b3\u1d48 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 8\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-07-24"
+    "date": "2026-06-15",
+    "summary": "Feria: 3\u02b3\u1d48 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [IV] Saint Christina, virgin and martyr",
-    "date": "2026-07-24"
+    "date": "2026-06-15",
+    "summary": "Saints Vitus, Modestus and Crescentia, martyrs",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [II] Saint James, apostle",
-    "date": "2026-07-25"
+    "date": "2026-06-15",
+    "summary": "Saints Vitus, Modestus and Crescentia, martyrs",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [II] 9\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-07-26"
+    "date": "2026-06-16",
+    "summary": "Feria: 3\u02b3\u1d48 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 9\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-07-27"
+    "date": "2026-06-17",
+    "summary": "Saint Gregory Barbarigo, bishop and confessor",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [IV] Saint Pantaleon, martyr",
-    "date": "2026-07-27"
+    "date": "2026-06-18",
+    "summary": "Saint Ephraem, deacon, confessor and doctor of the Church",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saints Nazarius and Celsus, martyrs, Victor I, pope and martyr, and Innocent I, pope and confessor",
-    "date": "2026-07-28"
+    "date": "2026-06-18",
+    "summary": "Saints Mark and Marcellian, martyrs",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Martha, virgin",
-    "date": "2026-07-29"
+    "date": "2026-06-19",
+    "summary": "Saint Juliana Falconieri, virgin",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 9\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-07-30"
+    "date": "2026-06-19",
+    "summary": "Saints Gervase and Protase, martyrs",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [IV] Saints Abdon and Sennen, martyrs",
-    "date": "2026-07-30"
+    "date": "2026-06-20",
+    "summary": "The Blessed Virgin Mary on Saturday",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Ignatius, confessor",
-    "date": "2026-07-31"
+    "date": "2026-06-20",
+    "summary": "Saint Silverius, pope and martyr",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] The Blessed Virgin Mary on Saturday",
-    "date": "2026-08-01"
+    "date": "2026-06-20",
+    "summary": "Saint Silverius, pope and martyr",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [IV] The Holy Machabees, martyrs",
-    "date": "2026-08-01"
+    "date": "2026-06-21",
+    "summary": "4\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [II] 10\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-08-02"
+    "date": "2026-06-22",
+    "summary": "Saint Paulinus, bishop and confessor",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 10\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-08-03"
+    "date": "2026-06-23",
+    "summary": "Vigil of the Nativity of Saint John the Baptist",
+    "season": "After Pentecost",
+    "color": "violet"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Dominic, confessor",
-    "date": "2026-08-04"
+    "date": "2026-06-24",
+    "summary": "The Nativity of Saint John the Baptist",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] The Dedication of Our Lady of the Snows",
-    "date": "2026-08-05"
+    "date": "2026-06-25",
+    "summary": "Saint William, abbot",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [II] The Transfiguration of Our Lord Jesus Christ",
-    "date": "2026-08-06"
+    "date": "2026-06-26",
+    "summary": "Saints John and Paul, martyrs",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Cajetan, confessor",
-    "date": "2026-08-07"
+    "date": "2026-06-27",
+    "summary": "The Blessed Virgin Mary on Saturday",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint John Mary Vianney, confessor",
-    "date": "2026-08-08"
+    "date": "2026-06-28",
+    "summary": "5\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [II] 11\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-08-09"
+    "date": "2026-06-29",
+    "summary": "Saints Peter and Paul, apostles",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [II] Saint Laurence, martyr",
-    "date": "2026-08-10"
+    "date": "2026-06-30",
+    "summary": "Saint Paul, apostle",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 11\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-08-11"
+    "date": "2026-06-30",
+    "summary": "Saint Peter, apostle",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [IV] Saints Tiburtius and Susanna, virgin, martyrs",
-    "date": "2026-08-11"
+    "date": "2026-07-01",
+    "summary": "The Most Precious Blood of Our Lord Jesus Christ",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Clare, virgin",
-    "date": "2026-08-12"
+    "date": "2026-07-02",
+    "summary": "The Visitation of the Blessed Virgin Mary",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 11\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-08-13"
+    "date": "2026-07-02",
+    "summary": "Saints Processus and Martinian, martyrs",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [IV] Saints Hippolytus and Cassian, martyrs",
-    "date": "2026-08-13"
+    "date": "2026-07-03",
+    "summary": "Saint Irenaeus, bishop and martyr",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [II] Vigil of the Assumption of the Blessed Virgin Mary",
-    "date": "2026-08-14"
+    "date": "2026-07-04",
+    "summary": "The Blessed Virgin Mary on Saturday",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [I] The Assumption of the Blessed Virgin Mary",
-    "date": "2026-08-15"
+    "date": "2026-07-05",
+    "summary": "6\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [II] 12\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-08-16"
+    "date": "2026-07-06",
+    "summary": "Feria: 6\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Hyacinth, confessor",
-    "date": "2026-08-17"
+    "date": "2026-07-07",
+    "summary": "Saints Cyril and Methodius, bishops and confessors",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 12\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-08-18"
+    "date": "2026-07-08",
+    "summary": "Saint Elizabeth, queen and widow",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [IV] Saint Agapitus, martyr",
-    "date": "2026-08-18"
+    "date": "2026-07-09",
+    "summary": "Feria: 6\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint John Eudes, confessor",
-    "date": "2026-08-19"
+    "date": "2026-07-10",
+    "summary": "The Seven Holy Brothers, martyrs, and Saints Rufina and Secunda, virgins and martyrs",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Bernard, abbot and doctor of the Church",
-    "date": "2026-08-20"
+    "date": "2026-07-11",
+    "summary": "The Blessed Virgin Mary on Saturday",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Jane Frances de Chantal, widow",
-    "date": "2026-08-21"
+    "date": "2026-07-11",
+    "summary": "Saint Pius I, pope and martyr",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [II] The Immaculate Heart of the Blessed Virgin Mary",
-    "date": "2026-08-22"
+    "date": "2026-07-11",
+    "summary": "Saint Pius I, pope and martyr",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [II] 13\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-08-23"
+    "date": "2026-07-12",
+    "summary": "7\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [II] Saint Bartholomew, apostle",
-    "date": "2026-08-24"
+    "date": "2026-07-13",
+    "summary": "Feria: 7\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Louis, king and confessor",
-    "date": "2026-08-25"
+    "date": "2026-07-14",
+    "summary": "Saint Bonaventure, bishop, confessor and doctor of the Church",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 13\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-08-26"
+    "date": "2026-07-15",
+    "summary": "Saint Henry, emperor and confessor",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [IV] Saint Zephyrinus, pope and martyr",
-    "date": "2026-08-26"
+    "date": "2026-07-16",
+    "summary": "Feria: 7\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Joseph Calasanctius, confessor",
-    "date": "2026-08-27"
+    "date": "2026-07-16",
+    "summary": "Our Lady of Mount Carmel",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Augustine, bishop, confessor and doctor of the Church",
-    "date": "2026-08-28"
+    "date": "2026-07-16",
+    "summary": "Our Lady of Mount Carmel",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] The Beheading of Saint John the Baptist",
-    "date": "2026-08-29"
+    "date": "2026-07-17",
+    "summary": "Feria: 7\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [II] 14\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-08-30"
+    "date": "2026-07-17",
+    "summary": "Saint Alexius, confessor",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Raymond Nonnatus, confessor",
-    "date": "2026-08-31"
+    "date": "2026-07-17",
+    "summary": "Saint Alexius, confessor",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 14\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-09-01"
+    "date": "2026-07-18",
+    "summary": "Saint Camillus de Lellis, confessor",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] Saint Giles, abbot",
-    "date": "2026-09-01"
+    "date": "2026-07-18",
+    "summary": "Saints Symphorosa and her Seven Sons, martyrs",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [IV] The Twelve Holy Brothers, martyrs",
-    "date": "2026-09-01"
+    "date": "2026-07-19",
+    "summary": "8\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Stephen, king and confessor",
-    "date": "2026-09-02"
+    "date": "2026-07-20",
+    "summary": "Saint Jerome Emiliani, confessor",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Pius X, pope and confessor",
-    "date": "2026-09-03"
+    "date": "2026-07-20",
+    "summary": "Saint Margaret, virgin and martyr",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 14\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-09-04"
+    "date": "2026-07-21",
+    "summary": "Saint Lawrence of Brindisi, confessor and doctor of the Church",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Laurence Justinian, bishop and confessor",
-    "date": "2026-09-05"
+    "date": "2026-07-21",
+    "summary": "Saint Praxedes, virgin",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [II] 15\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-09-06"
+    "date": "2026-07-22",
+    "summary": "Saint Mary Magdalene, penitent",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 15\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-09-07"
+    "date": "2026-07-23",
+    "summary": "Saint Apollinaris, bishop and martyr",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [II] The Nativity of the Blessed Virgin Mary",
-    "date": "2026-09-08"
+    "date": "2026-07-23",
+    "summary": "Saint Liborius, bishop and confessor",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 15\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-09-09"
+    "date": "2026-07-24",
+    "summary": "Feria: 8\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [IV] Saint Gorgonius, martyr",
-    "date": "2026-09-09"
+    "date": "2026-07-24",
+    "summary": "Saint Christina, virgin and martyr",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Nicholas of Tolentino, confessor",
-    "date": "2026-09-10"
+    "date": "2026-07-24",
+    "summary": "Saint Christina, virgin and martyr",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 15\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-09-11"
+    "date": "2026-07-25",
+    "summary": "Saint James, apostle",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [IV] Saints Protus and Hyacinth, martyrs",
-    "date": "2026-09-11"
+    "date": "2026-07-25",
+    "summary": "Saint Christopher, martyr",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] The Most Holy Name of Mary",
-    "date": "2026-09-12"
+    "date": "2026-07-26",
+    "summary": "9\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [II] 16\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-09-13"
+    "date": "2026-07-26",
+    "summary": "Saint Anne, mother of the Blessed Virgin Mary",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [II] The Exaltation of the Holy Cross",
-    "date": "2026-09-14"
+    "date": "2026-07-27",
+    "summary": "Feria: 9\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [II] The Seven Sorrows of the Blessed Virgin Mary",
-    "date": "2026-09-15"
+    "date": "2026-07-27",
+    "summary": "Saint Pantaleon, martyr",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saints Cornelius, pope, and Cyprian, bishop, martyrs",
-    "date": "2026-09-16"
+    "date": "2026-07-27",
+    "summary": "Saint Pantaleon, martyr",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 16\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-09-17"
+    "date": "2026-07-28",
+    "summary": "Saints Nazarius and Celsus, martyrs, Victor I, pope and martyr, and Innocent I, pope and confessor",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] The Imprinting of the Holy Stigmata on Saint Francis, confessor",
-    "date": "2026-09-17"
+    "date": "2026-07-29",
+    "summary": "Saint Martha, virgin",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Joseph of Cupertino, confessor",
-    "date": "2026-09-18"
+    "date": "2026-07-29",
+    "summary": "Saints Felix, pope, Simplicius, Faustinus and Beatrice, martyrs",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saint Januarius, bishop, and his companions, martyrs",
-    "date": "2026-09-19"
+    "date": "2026-07-30",
+    "summary": "Feria: 9\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [II] 17\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-09-20"
+    "date": "2026-07-30",
+    "summary": "Saints Abdon and Sennen, martyrs",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [II] Saint Matthew, apostle and evangelist",
-    "date": "2026-09-21"
+    "date": "2026-07-30",
+    "summary": "Saints Abdon and Sennen, martyrs",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Thomas of Villanova, bishop and confessor",
-    "date": "2026-09-22"
+    "date": "2026-07-31",
+    "summary": "Saint Ignatius, confessor",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [II] Ember Wednesday",
-    "date": "2026-09-23"
+    "date": "2026-08-01",
+    "summary": "The Blessed Virgin Mary on Saturday",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 17\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-09-24"
+    "date": "2026-08-01",
+    "summary": "The Holy Machabees, martyrs",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] Our Lady of Ransom",
-    "date": "2026-09-24"
+    "date": "2026-08-01",
+    "summary": "The Holy Machabees, martyrs",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [II] Ember Friday",
-    "date": "2026-09-25"
+    "date": "2026-08-02",
+    "summary": "10\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [II] Ember Saturday",
-    "date": "2026-09-26"
+    "date": "2026-08-03",
+    "summary": "Feria: 10\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [II] 18\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-09-27"
+    "date": "2026-08-04",
+    "summary": "Saint Dominic, confessor",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saint Wenceslaus, duke and martyr",
-    "date": "2026-09-28"
+    "date": "2026-08-05",
+    "summary": "The Dedication of Our Lady of the Snows",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [I] The Dedication of Saint Michael, archangel",
-    "date": "2026-09-29"
+    "date": "2026-08-06",
+    "summary": "The Transfiguration of Our Lord Jesus Christ",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Jerome, priest, confessor and doctor of the Church",
-    "date": "2026-09-30"
+    "date": "2026-08-06",
+    "summary": "Saints Sixtus II, pope, Felicissimus, and Agapitus, martyrs",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 18\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-10-01"
+    "date": "2026-08-07",
+    "summary": "Saint Cajetan, confessor",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] Saint Remigius, bishop and confessor",
-    "date": "2026-10-01"
+    "date": "2026-08-07",
+    "summary": "Saint Donatus, bishop and martyr",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] The Holy Guardian Angels",
-    "date": "2026-10-02"
+    "date": "2026-08-08",
+    "summary": "Saint John Mary Vianney, confessor",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Teresa of the Child Jesus, virgin",
-    "date": "2026-10-03"
+    "date": "2026-08-08",
+    "summary": "Saints Cyriacus, Largus and Smaragdus, martyrs",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [II] 19\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-10-04"
+    "date": "2026-08-09",
+    "summary": "11\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 19\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-10-05"
+    "date": "2026-08-10",
+    "summary": "Saint Laurence, martyr",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [IV] Saints Placid and his companions, martyrs",
-    "date": "2026-10-05"
+    "date": "2026-08-11",
+    "summary": "Feria: 11\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Bruno, confessor",
-    "date": "2026-10-06"
+    "date": "2026-08-11",
+    "summary": "Saints Tiburtius and Susanna, virgin, martyrs",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [II] Our Lady of the Rosary",
-    "date": "2026-10-07"
+    "date": "2026-08-11",
+    "summary": "Saints Tiburtius and Susanna, virgin, martyrs",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Bridget, widow",
-    "date": "2026-10-08"
+    "date": "2026-08-12",
+    "summary": "Saint Clare, virgin",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint John Leonard, confessor",
-    "date": "2026-10-09"
+    "date": "2026-08-13",
+    "summary": "Feria: 11\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Francis Borgia, confessor",
-    "date": "2026-10-10"
+    "date": "2026-08-13",
+    "summary": "Saints Hippolytus and Cassian, martyrs",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [II] 20\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-10-11"
+    "date": "2026-08-13",
+    "summary": "Saints Hippolytus and Cassian, martyrs",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 20\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Pentecost",
-    "date": "2026-10-12"
+    "date": "2026-08-14",
+    "summary": "Vigil of the Assumption of the Blessed Virgin Mary",
+    "season": "After Pentecost",
+    "color": "violet"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Edward, king and confessor",
-    "date": "2026-10-13"
+    "date": "2026-08-14",
+    "summary": "Saint Eusebius, confessor",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saint Callistus I, pope and martyr",
-    "date": "2026-10-14"
+    "date": "2026-08-15",
+    "summary": "The Assumption of the Blessed Virgin Mary",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Teresa, virgin",
-    "date": "2026-10-15"
+    "date": "2026-08-16",
+    "summary": "12\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Hedwig, widow",
-    "date": "2026-10-16"
+    "date": "2026-08-16",
+    "summary": "Saint Joachim, father of the Blessed Virgin Mary, confessor",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Margaret Mary Alacoque, virgin",
-    "date": "2026-10-17"
+    "date": "2026-08-17",
+    "summary": "Saint Hyacinth, confessor",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [II] 21\u00cb\u00a2\u00e1\u00b5\u0097 Sunday after Pentecost",
-    "date": "2026-10-18"
+    "date": "2026-08-18",
+    "summary": "Feria: 12\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Peter of Alcantara, confessor",
-    "date": "2026-10-19"
+    "date": "2026-08-18",
+    "summary": "Saint Agapitus, martyr",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint John Cantius, confessor",
-    "date": "2026-10-20"
+    "date": "2026-08-18",
+    "summary": "Saint Agapitus, martyr",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 21\u00cb\u00a2\u00e1\u00b5\u0097 Sunday after Pentecost",
-    "date": "2026-10-21"
+    "date": "2026-08-19",
+    "summary": "Saint John Eudes, confessor",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] Saint Hilarion, abbot",
-    "date": "2026-10-21"
+    "date": "2026-08-20",
+    "summary": "Saint Bernard, abbot and doctor of the Church",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [IV] Saints Ursula and her companions, virgins and martyrs",
-    "date": "2026-10-21"
+    "date": "2026-08-21",
+    "summary": "Saint Jane Frances de Chantal, widow",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 21\u00cb\u00a2\u00e1\u00b5\u0097 Sunday after Pentecost",
-    "date": "2026-10-22"
+    "date": "2026-08-22",
+    "summary": "The Immaculate Heart of the Blessed Virgin Mary",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Anthony Mary Claret, bishop and confessor",
-    "date": "2026-10-23"
+    "date": "2026-08-22",
+    "summary": "Saints Timothy, Hippolytus and Symphorian, martyrs",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Raphael, archangel",
-    "date": "2026-10-24"
+    "date": "2026-08-23",
+    "summary": "13\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [I] The Kingship of Our Lord Jesus Christ",
-    "date": "2026-10-25"
+    "date": "2026-08-24",
+    "summary": "Saint Bartholomew, apostle",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 22\u00e2\u0081\u00bf\u00e1\u00b5\u0088 Sunday after Pentecost",
-    "date": "2026-10-26"
+    "date": "2026-08-25",
+    "summary": "Saint Louis, king and confessor",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [IV] Saint Evaristus, pope and martyr",
-    "date": "2026-10-26"
+    "date": "2026-08-26",
+    "summary": "Feria: 13\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 22\u00e2\u0081\u00bf\u00e1\u00b5\u0088 Sunday after Pentecost",
-    "date": "2026-10-27"
+    "date": "2026-08-26",
+    "summary": "Saint Zephyrinus, pope and martyr",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [II] Saints Simon and Jude, apostles",
-    "date": "2026-10-28"
+    "date": "2026-08-26",
+    "summary": "Saint Zephyrinus, pope and martyr",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 22\u00e2\u0081\u00bf\u00e1\u00b5\u0088 Sunday after Pentecost",
-    "date": "2026-10-29"
+    "date": "2026-08-27",
+    "summary": "Saint Joseph Calasanctius, confessor",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 22\u00e2\u0081\u00bf\u00e1\u00b5\u0088 Sunday after Pentecost",
-    "date": "2026-10-30"
+    "date": "2026-08-28",
+    "summary": "Saint Augustine, bishop, confessor and doctor of the Church",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] The Blessed Virgin Mary on Saturday",
-    "date": "2026-10-31"
+    "date": "2026-08-28",
+    "summary": "Saint Hermes, martyr",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [I] All Saints",
-    "date": "2026-11-01"
+    "date": "2026-08-29",
+    "summary": "The Beheading of Saint John the Baptist",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00e2\u009a\u00ab [I] Commemoration of All Souls",
-    "date": "2026-11-02"
+    "date": "2026-08-29",
+    "summary": "Saint Sabina, martyr",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 23\u00ca\u00b3\u00e1\u00b5\u0088 Sunday after Pentecost",
-    "date": "2026-11-03"
+    "date": "2026-08-30",
+    "summary": "14\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00e2\u009a\u00ab [III] Daily Mass for the Dead",
-    "date": "2026-11-03"
+    "date": "2026-08-31",
+    "summary": "Saint Raymond Nonnatus, confessor",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Charles, bishop and confessor",
-    "date": "2026-11-04"
+    "date": "2026-09-01",
+    "summary": "Feria: 14\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00e2\u009a\u00ab [III] Daily Mass for the Dead",
-    "date": "2026-11-04"
+    "date": "2026-09-01",
+    "summary": "Saint Giles, abbot",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 23\u00ca\u00b3\u00e1\u00b5\u0088 Sunday after Pentecost",
-    "date": "2026-11-05"
+    "date": "2026-09-01",
+    "summary": "The Twelve Holy Brothers, martyrs",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00ab [III] Daily Mass for the Dead",
-    "date": "2026-11-05"
+    "date": "2026-09-01",
+    "summary": "Saint Giles, abbot",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: 23\u00ca\u00b3\u00e1\u00b5\u0088 Sunday after Pentecost",
-    "date": "2026-11-06"
+    "date": "2026-09-01",
+    "summary": "The Twelve Holy Brothers, martyrs",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00ab [III] Daily Mass for the Dead",
-    "date": "2026-11-06"
+    "date": "2026-09-01",
+    "summary": "The Twelve Holy Brothers, martyrs",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] The Blessed Virgin Mary on Saturday",
-    "date": "2026-11-07"
+    "date": "2026-09-01",
+    "summary": "Saint Giles, abbot",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00ab [III] Daily Mass for the Dead",
-    "date": "2026-11-07"
+    "date": "2026-09-02",
+    "summary": "Saint Stephen, king and confessor",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [II] Resumed 5\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Epiphany",
-    "date": "2026-11-08"
+    "date": "2026-09-03",
+    "summary": "Saint Pius X, pope and confessor",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [II] The Dedication of the Archbasilica of the Most Holy Saviour",
-    "date": "2026-11-09"
+    "date": "2026-09-04",
+    "summary": "Feria: 14\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Andrew Avellino, confessor",
-    "date": "2026-11-10"
+    "date": "2026-09-05",
+    "summary": "Saint Laurence Justinian, bishop and confessor",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Martin, bishop and confessor",
-    "date": "2026-11-11"
+    "date": "2026-09-06",
+    "summary": "15\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saint Martin I, pope and martyr",
-    "date": "2026-11-12"
+    "date": "2026-09-07",
+    "summary": "Feria: 15\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Didacus, confessor",
-    "date": "2026-11-13"
+    "date": "2026-09-08",
+    "summary": "The Nativity of the Blessed Virgin Mary",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saint Josaphat, bishop and martyr",
-    "date": "2026-11-14"
+    "date": "2026-09-08",
+    "summary": "Saint Adrian, martyr",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [II] Resumed 6\u00e1\u00b5\u0097\u00ca\u00b0 Sunday after Epiphany",
-    "date": "2026-11-15"
+    "date": "2026-09-09",
+    "summary": "Feria: 15\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Gertrude, virgin",
-    "date": "2026-11-16"
+    "date": "2026-09-09",
+    "summary": "Saint Gorgonius, martyr",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Gregory Thaumaturgus, bishop and confessor",
-    "date": "2026-11-17"
+    "date": "2026-09-09",
+    "summary": "Saint Gorgonius, martyr",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] The Dedication of the Basilicas of Saints Peter and Paul",
-    "date": "2026-11-18"
+    "date": "2026-09-10",
+    "summary": "Saint Nicholas of Tolentino, confessor",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Elizabeth, widow",
-    "date": "2026-11-19"
+    "date": "2026-09-11",
+    "summary": "Feria: 15\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Felix of Valois, confessor",
-    "date": "2026-11-20"
+    "date": "2026-09-11",
+    "summary": "Saints Protus and Hyacinth, martyrs",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] The Presentation of the Blessed Virgin Mary",
-    "date": "2026-11-21"
+    "date": "2026-09-11",
+    "summary": "Saints Protus and Hyacinth, martyrs",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [II] Last Sunday after Pentecost",
-    "date": "2026-11-22"
+    "date": "2026-09-12",
+    "summary": "The Most Holy Name of Mary",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saint Clement I, pope and martyr",
-    "date": "2026-11-23"
+    "date": "2026-09-13",
+    "summary": "16\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint John of the Cross, confessor and doctor of the Church",
-    "date": "2026-11-24"
+    "date": "2026-09-14",
+    "summary": "The Exaltation of the Holy Cross",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saint Catherine, virgin and martyr",
-    "date": "2026-11-25"
+    "date": "2026-09-15",
+    "summary": "The Seven Sorrows of the Blessed Virgin Mary",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Sylvester, abbot",
-    "date": "2026-11-26"
+    "date": "2026-09-15",
+    "summary": "Saint Nicomedes, martyr",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a2 [IV] Feria: Last Sunday after Pentecost",
-    "date": "2026-11-27"
+    "date": "2026-09-16",
+    "summary": "Saints Cornelius, pope, and Cyprian, bishop, martyrs",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [IV] The Blessed Virgin Mary on Saturday",
-    "date": "2026-11-28"
+    "date": "2026-09-16",
+    "summary": "Saints Euphemia, virgin, Lucy and Geminianus, martyrs",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [I] 1\u00cb\u00a2\u00e1\u00b5\u0097 Sunday of Advent",
-    "date": "2026-11-29"
+    "date": "2026-09-17",
+    "summary": "Feria: 16\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [II] Saint Andrew, apostle",
-    "date": "2026-11-30"
+    "date": "2026-09-17",
+    "summary": "The Imprinting of the Holy Stigmata on Saint Francis, confessor",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Feria: 1\u00cb\u00a2\u00e1\u00b5\u0097 Sunday of Advent",
-    "date": "2026-12-01"
+    "date": "2026-09-17",
+    "summary": "The Imprinting of the Holy Stigmata on Saint Francis, confessor",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [III] Saint Bibiana, virgin and martyr",
-    "date": "2026-12-02"
+    "date": "2026-09-18",
+    "summary": "Saint Joseph of Cupertino, confessor",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Francis Xavier, confessor",
-    "date": "2026-12-03"
+    "date": "2026-09-19",
+    "summary": "Saint Januarius, bishop, and his companions, martyrs",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Peter Chrysologus, bishop, confessor and doctor of the Church",
-    "date": "2026-12-04"
+    "date": "2026-09-20",
+    "summary": "17\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Feria: 1\u00cb\u00a2\u00e1\u00b5\u0097 Sunday of Advent",
-    "date": "2026-12-05"
+    "date": "2026-09-21",
+    "summary": "Saint Matthew, apostle and evangelist",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [I] 2\u00e2\u0081\u00bf\u00e1\u00b5\u0088 Sunday of Advent",
-    "date": "2026-12-06"
+    "date": "2026-09-22",
+    "summary": "Saint Thomas of Villanova, bishop and confessor",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Ambrose, bishop, confessor and doctor of the Church",
-    "date": "2026-12-07"
+    "date": "2026-09-22",
+    "summary": "Saints Maurice and his companions, martyrs",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [I] The Immaculate Conception of the Blessed Virgin Mary",
-    "date": "2026-12-08"
+    "date": "2026-09-23",
+    "summary": "Ember Wednesday",
+    "season": "After Pentecost",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Feria: 2\u00e2\u0081\u00bf\u00e1\u00b5\u0088 Sunday of Advent",
-    "date": "2026-12-09"
+    "date": "2026-09-23",
+    "summary": "Saint Linus, pope and martyr",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Feria: 2\u00e2\u0081\u00bf\u00e1\u00b5\u0088 Sunday of Advent",
-    "date": "2026-12-10"
+    "date": "2026-09-24",
+    "summary": "Feria: 17\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [III] Saint Damasus I, pope and confessor",
-    "date": "2026-12-11"
+    "date": "2026-09-24",
+    "summary": "Our Lady of Ransom",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Feria: 2\u00e2\u0081\u00bf\u00e1\u00b5\u0088 Sunday of Advent",
-    "date": "2026-12-12"
+    "date": "2026-09-24",
+    "summary": "Our Lady of Ransom",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [I] 3\u00ca\u00b3\u00e1\u00b5\u0088 Sunday of Advent (Gaudete)",
-    "date": "2026-12-13"
+    "date": "2026-09-25",
+    "summary": "Ember Friday",
+    "season": "After Pentecost",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Feria: 3\u00ca\u00b3\u00e1\u00b5\u0088 Sunday of Advent",
-    "date": "2026-12-14"
+    "date": "2026-09-26",
+    "summary": "Ember Saturday",
+    "season": "After Pentecost",
+    "color": "violet"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [III] Feria: 3\u00ca\u00b3\u00e1\u00b5\u0088 Sunday of Advent",
-    "date": "2026-12-15"
+    "date": "2026-09-26",
+    "summary": "Saints Cyprian, and Justina, virgin, martyrs",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [II] Ember Wednesday of Advent",
-    "date": "2026-12-16"
+    "date": "2026-09-27",
+    "summary": "18\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [II] Feria: 3\u00ca\u00b3\u00e1\u00b5\u0088 Sunday of Advent",
-    "date": "2026-12-17"
+    "date": "2026-09-28",
+    "summary": "Saint Wenceslaus, duke and martyr",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [II] Ember Friday of Advent",
-    "date": "2026-12-18"
+    "date": "2026-09-29",
+    "summary": "The Dedication of Saint Michael, archangel",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [II] Ember Saturday of Advent",
-    "date": "2026-12-19"
+    "date": "2026-09-30",
+    "summary": "Saint Jerome, priest, confessor and doctor of the Church",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [I] 4\u00e1\u00b5\u0097\u00ca\u00b0 Sunday of Advent",
-    "date": "2026-12-20"
+    "date": "2026-10-01",
+    "summary": "Feria: 18\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [II] Saint Thomas, apostle",
-    "date": "2026-12-21"
+    "date": "2026-10-01",
+    "summary": "Saint Remigius, bishop and confessor",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [II] Feria: 4\u00e1\u00b5\u0097\u00ca\u00b0 Sunday of Advent",
-    "date": "2026-12-22"
+    "date": "2026-10-01",
+    "summary": "Saint Remigius, bishop and confessor",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u009f\u00a3 [II] Feria: 4\u00e1\u00b5\u0097\u00ca\u00b0 Sunday of Advent",
-    "date": "2026-12-23"
+    "date": "2026-10-02",
+    "summary": "The Holy Guardian Angels",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [I] Vigil of the Nativity of the Lord",
-    "date": "2026-12-24"
+    "date": "2026-10-03",
+    "summary": "Saint Teresa of the Child Jesus, virgin",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [I] The Nativity of the Lord (At Midnight)",
-    "date": "2026-12-25"
+    "date": "2026-10-04",
+    "summary": "19\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [I] The Nativity of the Lord (At Dawn)",
-    "date": "2026-12-25"
+    "date": "2026-10-05",
+    "summary": "Feria: 19\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [I] The Nativity of the Lord (During the Daytime)",
-    "date": "2026-12-25"
+    "date": "2026-10-05",
+    "summary": "Saints Placid and his companions, martyrs",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [II] Saint Stephen, protomartyr",
-    "date": "2026-12-26"
+    "date": "2026-10-05",
+    "summary": "Saints Placid and his companions, martyrs",
+    "season": "After Pentecost",
+    "color": "red"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [II] Sunday in the Octave of Christmas",
-    "date": "2026-12-27"
+    "date": "2026-10-06",
+    "summary": "Saint Bruno, confessor",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00f0\u009f\u0094\u00b4 [II] The Holy Innocents, martyrs",
-    "date": "2026-12-28"
+    "date": "2026-10-07",
+    "summary": "Our Lady of the Rosary",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [II] Day in the Octave of Christmas",
-    "date": "2026-12-29"
+    "date": "2026-10-07",
+    "summary": "Saint Mark, pope and confessor",
+    "season": "After Pentecost",
+    "color": null
   },
   {
-    "summary": "\u00e2\u009a\u00aa [II] Day in the Octave of Christmas",
-    "date": "2026-12-30"
+    "date": "2026-10-08",
+    "summary": "Saint Bridget, widow",
+    "season": "After Pentecost",
+    "color": "white"
   },
   {
-    "summary": "\u00e2\u009a\u00aa [II] Day in the Octave of Christmas",
-    "date": "2026-12-31"
+    "date": "2026-10-08",
+    "summary": "Saints Sergius, Bacchus, Marcellus and Apuleius, martyrs",
+    "season": "After Pentecost",
+    "color": null
+  },
+  {
+    "date": "2026-10-09",
+    "summary": "Saint John Leonard, confessor",
+    "season": "After Pentecost",
+    "color": "white"
+  },
+  {
+    "date": "2026-10-09",
+    "summary": "Saints Denis, bishop, Rusticus, priest, and Eleutherius, martyrs",
+    "season": "After Pentecost",
+    "color": null
+  },
+  {
+    "date": "2026-10-10",
+    "summary": "Saint Francis Borgia, confessor",
+    "season": "After Pentecost",
+    "color": "white"
+  },
+  {
+    "date": "2026-10-11",
+    "summary": "20\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
+  },
+  {
+    "date": "2026-10-11",
+    "summary": "The Motherhood of the Blessed Virgin Mary",
+    "season": "After Pentecost",
+    "color": null
+  },
+  {
+    "date": "2026-10-12",
+    "summary": "Feria: 20\u1d57\u02b0 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
+  },
+  {
+    "date": "2026-10-13",
+    "summary": "Saint Edward, king and confessor",
+    "season": "After Pentecost",
+    "color": "white"
+  },
+  {
+    "date": "2026-10-14",
+    "summary": "Saint Callistus I, pope and martyr",
+    "season": "After Pentecost",
+    "color": "red"
+  },
+  {
+    "date": "2026-10-15",
+    "summary": "Saint Teresa, virgin",
+    "season": "After Pentecost",
+    "color": "white"
+  },
+  {
+    "date": "2026-10-16",
+    "summary": "Saint Hedwig, widow",
+    "season": "After Pentecost",
+    "color": "white"
+  },
+  {
+    "date": "2026-10-17",
+    "summary": "Saint Margaret Mary Alacoque, virgin",
+    "season": "After Pentecost",
+    "color": "white"
+  },
+  {
+    "date": "2026-10-18",
+    "summary": "21\u02e2\u1d57 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
+  },
+  {
+    "date": "2026-10-18",
+    "summary": "Saint Luke, evangelist",
+    "season": "After Pentecost",
+    "color": null
+  },
+  {
+    "date": "2026-10-19",
+    "summary": "Saint Peter of Alcantara, confessor",
+    "season": "After Pentecost",
+    "color": "white"
+  },
+  {
+    "date": "2026-10-20",
+    "summary": "Saint John Cantius, confessor",
+    "season": "After Pentecost",
+    "color": "white"
+  },
+  {
+    "date": "2026-10-21",
+    "summary": "Feria: 21\u02e2\u1d57 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
+  },
+  {
+    "date": "2026-10-21",
+    "summary": "Saint Hilarion, abbot",
+    "season": "After Pentecost",
+    "color": null
+  },
+  {
+    "date": "2026-10-21",
+    "summary": "Saints Ursula and her companions, virgins and martyrs",
+    "season": "After Pentecost",
+    "color": null
+  },
+  {
+    "date": "2026-10-21",
+    "summary": "Saint Hilarion, abbot",
+    "season": "After Pentecost",
+    "color": "white"
+  },
+  {
+    "date": "2026-10-21",
+    "summary": "Saints Ursula and her companions, virgins and martyrs",
+    "season": "After Pentecost",
+    "color": null
+  },
+  {
+    "date": "2026-10-21",
+    "summary": "Saints Ursula and her companions, virgins and martyrs",
+    "season": "After Pentecost",
+    "color": "red"
+  },
+  {
+    "date": "2026-10-21",
+    "summary": "Saint Hilarion, abbot",
+    "season": "After Pentecost",
+    "color": null
+  },
+  {
+    "date": "2026-10-22",
+    "summary": "Feria: 21\u02e2\u1d57 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
+  },
+  {
+    "date": "2026-10-23",
+    "summary": "Saint Anthony Mary Claret, bishop and confessor",
+    "season": "After Pentecost",
+    "color": "white"
+  },
+  {
+    "date": "2026-10-24",
+    "summary": "Saint Raphael, archangel",
+    "season": "After Pentecost",
+    "color": "white"
+  },
+  {
+    "date": "2026-10-25",
+    "summary": "The Kingship of Our Lord Jesus Christ",
+    "season": "After Pentecost",
+    "color": "white"
+  },
+  {
+    "date": "2026-10-26",
+    "summary": "Feria: 22\u207f\u1d48 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
+  },
+  {
+    "date": "2026-10-26",
+    "summary": "Saint Evaristus, pope and martyr",
+    "season": "After Pentecost",
+    "color": null
+  },
+  {
+    "date": "2026-10-26",
+    "summary": "Saint Evaristus, pope and martyr",
+    "season": "After Pentecost",
+    "color": "red"
+  },
+  {
+    "date": "2026-10-27",
+    "summary": "Feria: 22\u207f\u1d48 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
+  },
+  {
+    "date": "2026-10-28",
+    "summary": "Saints Simon and Jude, apostles",
+    "season": "After Pentecost",
+    "color": "red"
+  },
+  {
+    "date": "2026-10-29",
+    "summary": "Feria: 22\u207f\u1d48 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
+  },
+  {
+    "date": "2026-10-30",
+    "summary": "Feria: 22\u207f\u1d48 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
+  },
+  {
+    "date": "2026-10-31",
+    "summary": "The Blessed Virgin Mary on Saturday",
+    "season": "After Pentecost",
+    "color": "white"
+  },
+  {
+    "date": "2026-11-01",
+    "summary": "All Saints",
+    "season": "After Pentecost",
+    "color": "white"
+  },
+  {
+    "date": "2026-11-01",
+    "summary": "23\u02b3\u1d48 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": null
+  },
+  {
+    "date": "2026-11-02",
+    "summary": "Commemoration of All Souls",
+    "season": "After Pentecost",
+    "color": "black"
+  },
+  {
+    "date": "2026-11-03",
+    "summary": "Feria: 23\u02b3\u1d48 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
+  },
+  {
+    "date": "2026-11-03",
+    "summary": "Daily Mass for the Dead",
+    "season": "After Pentecost",
+    "color": "black"
+  },
+  {
+    "date": "2026-11-04",
+    "summary": "Saint Charles, bishop and confessor",
+    "season": "After Pentecost",
+    "color": "white"
+  },
+  {
+    "date": "2026-11-04",
+    "summary": "Saints Vitalis and Agricola, martyrs",
+    "season": "After Pentecost",
+    "color": null
+  },
+  {
+    "date": "2026-11-04",
+    "summary": "Daily Mass for the Dead",
+    "season": "After Pentecost",
+    "color": "black"
+  },
+  {
+    "date": "2026-11-05",
+    "summary": "Feria: 23\u02b3\u1d48 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
+  },
+  {
+    "date": "2026-11-05",
+    "summary": "Daily Mass for the Dead",
+    "season": "After Pentecost",
+    "color": "black"
+  },
+  {
+    "date": "2026-11-06",
+    "summary": "Feria: 23\u02b3\u1d48 Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
+  },
+  {
+    "date": "2026-11-06",
+    "summary": "Daily Mass for the Dead",
+    "season": "After Pentecost",
+    "color": "black"
+  },
+  {
+    "date": "2026-11-07",
+    "summary": "The Blessed Virgin Mary on Saturday",
+    "season": "After Pentecost",
+    "color": "white"
+  },
+  {
+    "date": "2026-11-07",
+    "summary": "Daily Mass for the Dead",
+    "season": "After Pentecost",
+    "color": "black"
+  },
+  {
+    "date": "2026-11-08",
+    "summary": "Resumed 5\u1d57\u02b0 Sunday after Epiphany",
+    "season": "After Pentecost",
+    "color": "green"
+  },
+  {
+    "date": "2026-11-09",
+    "summary": "The Dedication of the Archbasilica of the Most Holy Saviour",
+    "season": "After Pentecost",
+    "color": "white"
+  },
+  {
+    "date": "2026-11-09",
+    "summary": "Saint Theodore, martyr",
+    "season": "After Pentecost",
+    "color": null
+  },
+  {
+    "date": "2026-11-10",
+    "summary": "Saint Andrew Avellino, confessor",
+    "season": "After Pentecost",
+    "color": "white"
+  },
+  {
+    "date": "2026-11-10",
+    "summary": "Saints Tryphon, Respicius and Nympha, martyrs",
+    "season": "After Pentecost",
+    "color": null
+  },
+  {
+    "date": "2026-11-11",
+    "summary": "Saint Martin, bishop and confessor",
+    "season": "After Pentecost",
+    "color": "white"
+  },
+  {
+    "date": "2026-11-11",
+    "summary": "Saint Mennas, martyr",
+    "season": "After Pentecost",
+    "color": null
+  },
+  {
+    "date": "2026-11-12",
+    "summary": "Saint Martin I, pope and martyr",
+    "season": "After Pentecost",
+    "color": "red"
+  },
+  {
+    "date": "2026-11-13",
+    "summary": "Saint Didacus, confessor",
+    "season": "After Pentecost",
+    "color": "white"
+  },
+  {
+    "date": "2026-11-14",
+    "summary": "Saint Josaphat, bishop and martyr",
+    "season": "After Pentecost",
+    "color": "red"
+  },
+  {
+    "date": "2026-11-15",
+    "summary": "Resumed 6\u1d57\u02b0 Sunday after Epiphany",
+    "season": "After Pentecost",
+    "color": "green"
+  },
+  {
+    "date": "2026-11-16",
+    "summary": "Saint Gertrude, virgin",
+    "season": "After Pentecost",
+    "color": "white"
+  },
+  {
+    "date": "2026-11-17",
+    "summary": "Saint Gregory Thaumaturgus, bishop and confessor",
+    "season": "After Pentecost",
+    "color": "white"
+  },
+  {
+    "date": "2026-11-18",
+    "summary": "The Dedication of the Basilicas of Saints Peter and Paul",
+    "season": "After Pentecost",
+    "color": "white"
+  },
+  {
+    "date": "2026-11-19",
+    "summary": "Saint Elizabeth, widow",
+    "season": "After Pentecost",
+    "color": "white"
+  },
+  {
+    "date": "2026-11-19",
+    "summary": "Saint Pontianus, pope and martyr",
+    "season": "After Pentecost",
+    "color": null
+  },
+  {
+    "date": "2026-11-20",
+    "summary": "Saint Felix of Valois, confessor",
+    "season": "After Pentecost",
+    "color": "white"
+  },
+  {
+    "date": "2026-11-21",
+    "summary": "The Presentation of the Blessed Virgin Mary",
+    "season": "After Pentecost",
+    "color": "white"
+  },
+  {
+    "date": "2026-11-22",
+    "summary": "Last Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
+  },
+  {
+    "date": "2026-11-23",
+    "summary": "Saint Clement I, pope and martyr",
+    "season": "After Pentecost",
+    "color": "red"
+  },
+  {
+    "date": "2026-11-23",
+    "summary": "Saint Felicitas, martyr",
+    "season": "After Pentecost",
+    "color": null
+  },
+  {
+    "date": "2026-11-24",
+    "summary": "Saint John of the Cross, confessor and doctor of the Church",
+    "season": "After Pentecost",
+    "color": "white"
+  },
+  {
+    "date": "2026-11-24",
+    "summary": "Saint Chrysogonus, martyr",
+    "season": "After Pentecost",
+    "color": null
+  },
+  {
+    "date": "2026-11-25",
+    "summary": "Saint Catherine, virgin and martyr",
+    "season": "After Pentecost",
+    "color": "red"
+  },
+  {
+    "date": "2026-11-26",
+    "summary": "Saint Sylvester, abbot",
+    "season": "After Pentecost",
+    "color": "white"
+  },
+  {
+    "date": "2026-11-26",
+    "summary": "Saint Peter of Alexandria, bishop and martyr",
+    "season": "After Pentecost",
+    "color": null
+  },
+  {
+    "date": "2026-11-27",
+    "summary": "Feria: Last Sunday after Pentecost",
+    "season": "After Pentecost",
+    "color": "green"
+  },
+  {
+    "date": "2026-11-28",
+    "summary": "The Blessed Virgin Mary on Saturday",
+    "season": "After Pentecost",
+    "color": "white"
+  },
+  {
+    "date": "2026-11-29",
+    "summary": "1\u02e2\u1d57 Sunday of Advent",
+    "season": "Advent",
+    "color": "violet"
+  },
+  {
+    "date": "2026-11-30",
+    "summary": "Saint Andrew, apostle",
+    "season": "Advent",
+    "color": "red"
+  },
+  {
+    "date": "2026-11-30",
+    "summary": "Feria: 1\u02e2\u1d57 Sunday of Advent",
+    "season": "Advent",
+    "color": null
+  },
+  {
+    "date": "2026-12-01",
+    "summary": "Feria: 1\u02e2\u1d57 Sunday of Advent",
+    "season": "Advent",
+    "color": "violet"
+  },
+  {
+    "date": "2026-12-02",
+    "summary": "Saint Bibiana, virgin and martyr",
+    "season": "Advent",
+    "color": "red"
+  },
+  {
+    "date": "2026-12-02",
+    "summary": "Feria: 1\u02e2\u1d57 Sunday of Advent",
+    "season": "Advent",
+    "color": null
+  },
+  {
+    "date": "2026-12-03",
+    "summary": "Saint Francis Xavier, confessor",
+    "season": "Advent",
+    "color": "white"
+  },
+  {
+    "date": "2026-12-03",
+    "summary": "Feria: 1\u02e2\u1d57 Sunday of Advent",
+    "season": "Advent",
+    "color": null
+  },
+  {
+    "date": "2026-12-04",
+    "summary": "Saint Peter Chrysologus, bishop, confessor and doctor of the Church",
+    "season": "Advent",
+    "color": "white"
+  },
+  {
+    "date": "2026-12-04",
+    "summary": "Feria: 1\u02e2\u1d57 Sunday of Advent",
+    "season": "Advent",
+    "color": null
+  },
+  {
+    "date": "2026-12-04",
+    "summary": "Saint Barbara, virgin and martyr",
+    "season": "Advent",
+    "color": null
+  },
+  {
+    "date": "2026-12-05",
+    "summary": "Feria: 1\u02e2\u1d57 Sunday of Advent",
+    "season": "Advent",
+    "color": "violet"
+  },
+  {
+    "date": "2026-12-05",
+    "summary": "Saint Sabbas, abbot",
+    "season": "Advent",
+    "color": null
+  },
+  {
+    "date": "2026-12-06",
+    "summary": "2\u207f\u1d48 Sunday of Advent",
+    "season": "Advent",
+    "color": "violet"
+  },
+  {
+    "date": "2026-12-07",
+    "summary": "Saint Ambrose, bishop, confessor and doctor of the Church",
+    "season": "Advent",
+    "color": "white"
+  },
+  {
+    "date": "2026-12-07",
+    "summary": "Feria: 2\u207f\u1d48 Sunday of Advent",
+    "season": "Advent",
+    "color": null
+  },
+  {
+    "date": "2026-12-08",
+    "summary": "The Immaculate Conception of the Blessed Virgin Mary",
+    "season": "Advent",
+    "color": "white"
+  },
+  {
+    "date": "2026-12-08",
+    "summary": "Feria: 2\u207f\u1d48 Sunday of Advent",
+    "season": "Advent",
+    "color": null
+  },
+  {
+    "date": "2026-12-09",
+    "summary": "Feria: 2\u207f\u1d48 Sunday of Advent",
+    "season": "Advent",
+    "color": "violet"
+  },
+  {
+    "date": "2026-12-10",
+    "summary": "Feria: 2\u207f\u1d48 Sunday of Advent",
+    "season": "Advent",
+    "color": "violet"
+  },
+  {
+    "date": "2026-12-10",
+    "summary": "Saint Melchiades, pope and martyr",
+    "season": "Advent",
+    "color": null
+  },
+  {
+    "date": "2026-12-11",
+    "summary": "Saint Damasus I, pope and confessor",
+    "season": "Advent",
+    "color": "white"
+  },
+  {
+    "date": "2026-12-11",
+    "summary": "Feria: 2\u207f\u1d48 Sunday of Advent",
+    "season": "Advent",
+    "color": null
+  },
+  {
+    "date": "2026-12-12",
+    "summary": "Feria: 2\u207f\u1d48 Sunday of Advent",
+    "season": "Advent",
+    "color": "violet"
+  },
+  {
+    "date": "2026-12-13",
+    "summary": "3\u02b3\u1d48 Sunday of Advent (Gaudete)",
+    "season": "Advent",
+    "color": "rose"
+  },
+  {
+    "date": "2026-12-14",
+    "summary": "Feria: 3\u02b3\u1d48 Sunday of Advent",
+    "season": "Advent",
+    "color": "violet"
+  },
+  {
+    "date": "2026-12-15",
+    "summary": "Feria: 3\u02b3\u1d48 Sunday of Advent",
+    "season": "Advent",
+    "color": "violet"
+  },
+  {
+    "date": "2026-12-16",
+    "summary": "Ember Wednesday of Advent",
+    "season": "Advent",
+    "color": "violet"
+  },
+  {
+    "date": "2026-12-16",
+    "summary": "Saint Eusebius, bishop and martyr",
+    "season": "Advent",
+    "color": null
+  },
+  {
+    "date": "2026-12-17",
+    "summary": "Feria: 3\u02b3\u1d48 Sunday of Advent",
+    "season": "Advent",
+    "color": "violet"
+  },
+  {
+    "date": "2026-12-18",
+    "summary": "Ember Friday of Advent",
+    "season": "Advent",
+    "color": "violet"
+  },
+  {
+    "date": "2026-12-19",
+    "summary": "Ember Saturday of Advent",
+    "season": "Advent",
+    "color": "violet"
+  },
+  {
+    "date": "2026-12-20",
+    "summary": "4\u1d57\u02b0 Sunday of Advent",
+    "season": "Advent",
+    "color": "violet"
+  },
+  {
+    "date": "2026-12-21",
+    "summary": "Saint Thomas, apostle",
+    "season": "Advent",
+    "color": "red"
+  },
+  {
+    "date": "2026-12-21",
+    "summary": "Feria: 4\u1d57\u02b0 Sunday of Advent",
+    "season": "Advent",
+    "color": null
+  },
+  {
+    "date": "2026-12-22",
+    "summary": "Feria: 4\u1d57\u02b0 Sunday of Advent",
+    "season": "Advent",
+    "color": "violet"
+  },
+  {
+    "date": "2026-12-23",
+    "summary": "Feria: 4\u1d57\u02b0 Sunday of Advent",
+    "season": "Advent",
+    "color": "violet"
+  },
+  {
+    "date": "2026-12-24",
+    "summary": "Vigil of the Nativity of the Lord",
+    "season": "Advent",
+    "color": "white"
+  },
+  {
+    "date": "2026-12-25",
+    "summary": "The Nativity of the Lord (At Midnight)",
+    "season": "Christmas",
+    "color": "white"
+  },
+  {
+    "date": "2026-12-25",
+    "summary": "The Nativity of the Lord (At Dawn)",
+    "season": "Christmas",
+    "color": "white"
+  },
+  {
+    "date": "2026-12-25",
+    "summary": "Saint Anastasia, martyr",
+    "season": "Christmas",
+    "color": null
+  },
+  {
+    "date": "2026-12-25",
+    "summary": "The Nativity of the Lord (During the Daytime)",
+    "season": "Christmas",
+    "color": "white"
+  },
+  {
+    "date": "2026-12-26",
+    "summary": "Saint Stephen, protomartyr",
+    "season": "Christmas",
+    "color": "red"
+  },
+  {
+    "date": "2026-12-26",
+    "summary": "Day in the Octave of Christmas",
+    "season": "Christmas",
+    "color": null
+  },
+  {
+    "date": "2026-12-27",
+    "summary": "Sunday in the Octave of Christmas",
+    "season": "Christmas",
+    "color": "white"
+  },
+  {
+    "date": "2026-12-27",
+    "summary": "Saint John, apostle and evangelist",
+    "season": "Christmas",
+    "color": null
+  },
+  {
+    "date": "2026-12-28",
+    "summary": "The Holy Innocents, martyrs",
+    "season": "Christmas",
+    "color": "red"
+  },
+  {
+    "date": "2026-12-28",
+    "summary": "Day in the Octave of Christmas",
+    "season": "Christmas",
+    "color": null
+  },
+  {
+    "date": "2026-12-29",
+    "summary": "Day in the Octave of Christmas",
+    "season": "Christmas",
+    "color": "white"
+  },
+  {
+    "date": "2026-12-29",
+    "summary": "Saint Thomas, bishop and martyr",
+    "season": "Christmas",
+    "color": null
+  },
+  {
+    "date": "2026-12-30",
+    "summary": "Day in the Octave of Christmas",
+    "season": "Christmas",
+    "color": "white"
+  },
+  {
+    "date": "2026-12-31",
+    "summary": "Day in the Octave of Christmas",
+    "season": "Christmas",
+    "color": "white"
+  },
+  {
+    "date": "2026-12-31",
+    "summary": "Saint Sylvester I, pope and confessor",
+    "season": "Christmas",
+    "color": null
   }
 ]

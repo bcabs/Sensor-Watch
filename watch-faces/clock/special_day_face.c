@@ -4,8 +4,14 @@
 #include "special_day_face.h"
 #include "watch.h"
 #include "watch_utility.h"
-#include "special_days.h"
 #include "movement.h"
+#include "movement_config.h"
+
+#if MOVEMENT_USE_TRADITIONAL_CALENDAR
+#include "special_days_alt.h"
+#else
+#include "special_days.h"
+#endif
 
 #define SPECIAL_DAY_FACE_MANUAL_SCROLL false
 #define SPECIAL_DAY_FACE_SCROLL_PAUSE_TICKS 2
@@ -126,6 +132,22 @@ void lookup_day(bool isActivated, special_day_state_t *state, bool advance) {
         case EASTER:
             buf[0] = 'E';
             buf[1] = 'A';
+            break;
+        case SEPTUAGESIMA:
+            buf[0] = 'S';
+            buf[1] = 'E';
+            break;
+        case PASSIONTIDE:
+            buf[0] = 'P';
+            buf[1] = 'A';
+            break;
+        case AFTER_EPIPHANY:
+            buf[0] = 'A';
+            buf[1] = 'E';
+            break;
+        case AFTER_PENTECOST:
+            buf[0] = 'A';
+            buf[1] = 'P';
             break;
         default:
             buf[0] = '?';

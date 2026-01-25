@@ -12,6 +12,10 @@ typedef enum {
     LENT,
     EASTER_TRIDUUM,
     EASTER,
+    SEPTUAGESIMA,
+    PASSIONTIDE,
+    AFTER_EPIPHANY,
+    AFTER_PENTECOST,
     UNKNOWN // for initialization or error
 } LiturgicalSeason;
 

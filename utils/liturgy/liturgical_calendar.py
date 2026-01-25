@@ -3,6 +3,156 @@ import json
 from datetime import datetime, date
 import os
 import argparse
+import re
+
+def get_season_and_week(summary, date_obj):
+    summary_lower = summary.lower()
+    
+    season = "Ordinary Time"
+    week = 1
+    
+    # Simple keyword matching for Season
+    if "advent" in summary_lower:
+        season = "Advent"
+    elif "lent" in summary_lower or "ash wednesday" in summary_lower:
+        season = "Lent"
+    elif "easter" in summary_lower or "pascha" in summary_lower or "resurrection" in summary_lower:
+        season = "Easter"
+    elif "christmas" in summary_lower or "nativity" in summary_lower:
+        season = "Christmas"
+    elif "epiphany" in summary_lower:
+        season = "Christmas" # Usually considered part of Christmas season
+    
+    # Try to extract week number
+    match = re.search(r'(\d+)(?:st|nd|rd|th)', summary_lower)
+    if match:
+        week = int(match.group(1))
+    else:
+        words = {
+            "first": 1, "second": 2, "third": 3, "fourth": 4, "fifth": 5,
+            "sixth": 6, "seventh": 7, "eighth": 8, "ninth": 9, "tenth": 10,
+            "eleventh": 11, "twelfth": 12, "thirteenth": 13, "fourteenth": 14,
+            "fifteenth": 15, "sixteenth": 16, "seventeenth": 17, "eighteenth": 18,
+            "nineteenth": 19, "twentieth": 20, "twenty-first": 21, "twenty-second": 22,
+            "twenty-third": 23, "twenty-fourth": 24, "twenty-fifth": 25, "twenty-sixth": 26,
+            "twenty-seventh": 27
+        }
+        for word, num in words.items():
+            if word in summary_lower:
+                week = num
+                break
+                
+    return season, week
+
+def parse_traditional_data(data):
+    calendar_data = {}
+    
+    for item in data:
+        date_str = item.get("date")
+        raw_summary = item.get("summary", "")
+        
+        # 1. Clean up summary (remove emoji, brackets, roman numerals)
+        if raw_summary.startswith("b'") and raw_summary.endswith("'"):
+            raw_summary = raw_summary[2:-1]
+
+        summary = raw_summary
+        if "[" in summary and "]" in summary:
+            parts = summary.split("[", 1)
+            after_bracket = parts[1]
+            roman_parts = after_bracket.split("]", 1)
+            summary = roman_parts[1].strip()
+            
+        clean_summary = summary.encode('ascii', 'ignore').decode('ascii').strip()
+        summary_lower = clean_summary.lower()
+
+        # 2. Filtering Logic
+        add_event = True
+        if "feria" in summary_lower or "ember" in summary_lower or "octave" in summary_lower:
+            add_event = False
+            
+        days_of_week = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+        allowed_exceptions = [
+            "ash wednesday", "good friday", "holy saturday", "palm sunday", 
+            "easter sunday", "pentecost sunday", "trinity sunday", "low sunday",
+            "rogations", "septuagesima", "sexagesima", "quinquagesima",
+            "sunday of advent", "sunday of lent", "sunday after easter", "sunday after pentecost", "sunday after epiphany"
+        ]
+        
+        has_day_name = any(day in summary_lower for day in days_of_week)
+        is_exception = any(exc in summary_lower for exc in allowed_exceptions)
+        
+        # Drop generic "Thursday in..." entries unless they are special exceptions
+        if has_day_name and not is_exception:
+            add_event = False
+
+        # 3. Determine Season and Week
+        d_obj = datetime.strptime(date_str, "%Y-%m-%d")
+        json_season = item.get('season', 'Unknown')
+        
+        # Normalize Season Names
+        if json_season == "Time after Epiphany": json_season = "After Epiphany"
+        if json_season == "Time after Pentecost": json_season = "After Pentecost"
+        
+        season = json_season
+        # If Unknown, try to guess (shouldn't happen with good scraping)
+        if season == "Unknown":
+             season, _ = get_season_and_week(clean_summary, d_obj)
+             
+        # Week number logic (still needs get_season_and_week or better scraping)
+        _, week = get_season_and_week(clean_summary, d_obj)
+        
+        # 4. Fasting Logic
+        is_fast = False
+        weekday = d_obj.weekday() # 0=Mon, 6=Sun
+        
+        # All Fridays are fast days (abstinence)
+        if weekday == 4: 
+            is_fast = True
+            
+        # Lent: Fasting on all weekdays (Mon-Sat)
+        if season == "Lent" and weekday != 6:
+            is_fast = True
+            
+        # Ember Days (Wed, Fri, Sat)
+        if "ember" in summary_lower:
+             is_fast = True
+             
+        # 5. Holy Day of Obligation Logic (Simplified)
+        is_hdo = False
+        if weekday == 6: # Sunday
+            is_hdo = True
+        # Add specific HDOs if needed (Christmas, Ascension, etc.)
+        if "christmas" in summary_lower and "day" in summary_lower and "octave" not in summary_lower:
+             is_hdo = True
+        if "ascension" in summary_lower:
+             is_hdo = True
+        if "assumption" in summary_lower:
+             is_hdo = True
+        if "all saints" in summary_lower:
+             is_hdo = True
+        if "immaculate conception" in summary_lower:
+             is_hdo = True
+
+        # 6. Create Event List
+        events = []
+        if add_event:
+            # Create Event Key (CamelCase)
+            event_key = "".join(x for x in clean_summary.title() if x.isalnum())
+            events.append((event_key, clean_summary))
+        
+        # Store in calendar_data (overwriting if multiple entries for same day, usually fine as we want the main one)
+        # Or check if exists?
+        if date_str not in calendar_data or add_event: # Prioritize entries with events
+            calendar_data[date_str] = {
+                "season": season,
+                "day_of_week": d_obj.strftime("%A"),
+                "week_of_season": week,
+                "events": events,
+                "holy_day_of_obligation": is_hdo,
+                "fast": is_fast
+            }
+            
+    return calendar_data
 
 def parse_liturgical_data(data):
         
@@ -73,6 +223,10 @@ def parse_liturgical_data(data):
         
         season = item.get("liturgical_season_lcl", "N/A")
         
+        # Override Easter Sunday to be part of the Triduum per user request
+        if event_key == "Easter":
+            season = "Easter Triduum"
+            
         is_fast = False
         if item.get("day_of_the_week_long", "") == "Friday":
             is_fast = True
@@ -99,6 +253,11 @@ def parse_liturgical_data(data):
                 # This logic might need refinement if the source JSON doesn't provide enough context
                 # to differentiate between OT periods. For now, a simple increment.
                 season_weeks[season] += 1 # Increment as if a new period, then reset if first week
+                
+                # Special adjustment per user request: Increase week by one when restarting Ordinary Time after Easter
+                if current_season and "Easter" in current_season:
+                    season_weeks[season] += 1
+                    
             if season not in season_weeks:
                 season_weeks[season] = 1
             current_season = season
@@ -224,6 +383,10 @@ def generate_c_struct_output(calendar_data):
         "Lent": "LENT",
         "Easter Triduum": "EASTER_TRIDUUM",
         "Easter": "EASTER",
+        "Septuagesima": "SEPTUAGESIMA",
+        "Passiontide": "PASSIONTIDE",
+        "After Epiphany": "AFTER_EPIPHANY",
+        "After Pentecost": "AFTER_PENTECOST",
     }
     
     now = datetime.now()
@@ -317,20 +480,34 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Fetch and display liturgical calendar data.")
     parser.add_argument("--raw", action="store_true", help="Display raw JSON data.")
     parser.add_argument("--c-struct", action="store_true", help="Generate C struct array.")
+    parser.add_argument("--traditional", action="store_true", help="Use traditional calendar data from utils/liturgy/traditional/out.json")
     args = parser.parse_args()
 
     full_calendar_data = {}
     
-    current_year = datetime.now().year
-    for year_offset in range(10):
-        year_to_fetch = current_year + year_offset
-        calendar_data = get_liturgical_calendar(year_to_fetch)
-        if args.c_struct:
-            full_calendar_data.update(calendar_data)
-        elif args.raw:
-            print_raw_calendar_data(calendar_data, year_to_fetch)
-        else:
-            print_formatted_calendar_data(calendar_data, year_to_fetch)
+    if args.traditional:
+        try:
+            with open("traditional/out.json", 'r') as f:
+                trad_data = json.load(f)
+                full_calendar_data = parse_traditional_data(trad_data)
+        except FileNotFoundError:
+            print("Error: utils/liturgy/traditional/out.json not found.")
+            exit(1)
+    else:
+        current_year = datetime.now().year
+        for year_offset in range(10):
+            year_to_fetch = current_year + year_offset
+            calendar_data = get_liturgical_calendar(year_to_fetch)
+            if args.c_struct:
+                full_calendar_data.update(calendar_data)
+            elif args.raw:
+                print_raw_calendar_data(calendar_data, year_to_fetch)
+            else:
+                print_formatted_calendar_data(calendar_data, year_to_fetch)
     
     if args.c_struct:
         generate_c_struct_output(full_calendar_data)
+    elif args.traditional and args.raw: # Handle raw print for traditional
+         print(json.dumps(full_calendar_data, indent=2))
+    elif args.traditional:
+         print_formatted_calendar_data(full_calendar_data, "Traditional")
