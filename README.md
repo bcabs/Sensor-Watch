@@ -2,20 +2,24 @@
 
 This is a customized fork of the [Movement](https://github.com/joeycastillo/Sensor-Watch) firmware for [Sensor Watch](https://www.sensorwatch.net), specifically tailored for the Catholic Liturgical Calendar.
 
-## Overall Concept
+## Overview
 This version of Movement is designed to help the wearer live the Liturgical Year. It repurposes the standard watch indicators to provide at-a-glance information about the current day's liturgical and civil significance, and includes dedicated faces for browsing the calendar.
 
 ### The Indicator System
 In this edition, the standard LCD indicators are used to signal the status of "Today" and "Tomorrow":
 
-| Indicator | Meaning | Source |
-| :--- | :--- | :--- |
-| **Bell** (Alarm) | **Feast Day / Special Liturgy**: Today is a significant feast or special liturgical day. | Liturgical Calendar |
-| **LAP** | **Fast / Abstinence**: Today is a day of prescribed fasting or abstinence (e.g., Lent, Fridays). | Liturgical Calendar |
-| **Signal** (WiFi) | **Special Day**: Today is a civil holiday or special anniversary (e.g., New Year, Mother's Day). | Special Days |
-| **24H** | **Vigil / Anticipation**: Tomorrow is either a Liturgical Feast or a Special Day. | Combined |
+| Indicator | Meaning |
+| :--- | :--- |
+| **Bell** (Alarm) | **Feast Day / Special Liturgy**: Today is a significant feast or special liturgical day. | 
+| **LAP** | **Fast / Abstinence**: Today is a day of prescribed fasting or abstinence (e.g., Lent, Fridays). | 
+| **Signal** | **Special Day**: Today is a civil holiday or special anniversary (e.g., New Year, Mother's Day). | 
+| **24H** | **Vigil / Anticipation**: Tomorrow is either a Liturgical Feast or a Special Day. | 
 
 *Note: The **24H** indicator is automatically ORed; it will illuminate if either the Liturgical Calendar OR the Special Days face detects a significant event occurring tomorrow.*
+
+*Note: The **LAP** indicator also turns on when the battery is low.*
+
+*Note: The liturgical calendar information is pre-loaded for the next couple years. A future improvement would be to calculate the calendar within the watch itself.*
 
 ---
 
