@@ -284,6 +284,9 @@ typedef struct {
     // backup register stuff
     uint8_t next_available_backup_register;
 
+    bool liturgical_calendar_indicator_24h;
+    bool special_days_indicator_24h;
+
     // temporary alarm enabled boolean, until we implement this in advisories
     bool alarm_enabled;
     bool lap_enabled;
@@ -382,6 +385,8 @@ void movement_set_lap_enabled(bool value);
 
 bool movement_24h_indicator_enabled(void);
 void movement_set_24h_indicator_enabled(bool value);
+void movement_set_liturgical_calendar_indicator_24h(bool value);
+void movement_set_special_days_indicator_24h(bool value);
 
 bool movement_time_signal_enabled(void);
 void movement_set_time_signal_enabled(bool value);

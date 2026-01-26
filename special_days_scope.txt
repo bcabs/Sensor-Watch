@@ -1,0 +1,15 @@
+alright - were gonna impl a new face called "special days" face. 
+
+- it will appear after the liturgical_calendar face
+- it will have a corresponding special_days.h data structure file similar to liturgical_days.h but with some key differences
+	 - it will just be a mapping of month+day to a string
+	 - there will not be an entry for every single day
+- when this watch face is activated 
+	- if there is an entry in it special_days.h for the current day - it will display the text in the bottom text
+	- if not - it will display nothing
+	- it will display the day of week and day of month in the top rows (like clock_face.h)
+- when pressing the alarm button - the day is advanced and the next possible day is shown
+- when the current day is a special day - the "signal" indicator is illuminated in special_days.h as well as on clock_face.c 
+- when the next day is going to be a special day, the "24" indicator should be illuminated too - just like how liturgical_calendar does it.
+	- be certain to allow either the liturgical_Calendar or the special_days face to illuminate the 24hr indicator - it should not matter that one is setting 24hr and the the other is not
+- prefill special_days.h with some common holidays - including mother's day

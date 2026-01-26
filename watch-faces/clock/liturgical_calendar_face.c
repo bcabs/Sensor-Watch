@@ -5,7 +5,6 @@
 #include "watch.h"
 #include "watch_utility.h"
 #include "movement.h"
-#include "movement_config.h"
 #include "liturgical_calendar.h"
 #include "liturgical_calendar_alt.h"
 
@@ -74,9 +73,6 @@ void liturgical_calendar_face_setup(uint8_t watch_face_index, void ** context_pt
         state->manual_offset = 0;
         state->tick_count = 0;
         state->use_alt_calendar = false; // Default to Normal
-        #if defined(MOVEMENT_USE_TRADITIONAL_CALENDAR) && MOVEMENT_USE_TRADITIONAL_CALENDAR
-        state->use_alt_calendar = true;
-        #endif
         state->mode_display_ticks = 0;
     }
 }
@@ -100,7 +96,7 @@ void lookup_day(bool isActivated, liturgical_calendar_state_t *state, bool advan
     
     movement_set_alarm_enabled(actual_day->alarm);
     movement_set_lap_enabled(actual_day->fast);
-    movement_set_24h_indicator_enabled(actual_next_day->alarm);
+    movement_set_liturgical_calendar_indicator_24h(actual_next_day->alarm);
 
     if (!isActivated) {
         return;
@@ -203,28 +199,28 @@ void lookup_day(bool isActivated, liturgical_calendar_state_t *state, bool advan
         text_buf[j] = '\0';
 
         int len = strlen(text_buf);
-        int offset = 0;
-        if (len > 6) {
-            // Scrolling logic
-            if (advance) {
-                state->scroll_step++;
-                int reset_val = LITURGICAL_CALENDAR_FACE_MANUAL_SCROLL ? 0 : -LITURGICAL_CALENDAR_FACE_SCROLL_PAUSE_TICKS;
-                if (state->scroll_step > (len - 6 + LITURGICAL_CALENDAR_FACE_SCROLL_PAUSE_TICKS)) {
-                    state->scroll_step = reset_val;
-                }
-            }
-
-            offset = state->scroll_step;
-            if (offset < 0) offset = 0;
-            if (offset > len - 6) offset = len - 6;
-        }
-
         char display_buf[7];
         memset(display_buf, ' ', 6);
         display_buf[6] = '\0';
-        int to_copy = len - offset;
-        if (to_copy > 6) to_copy = 6;
-        if (to_copy > 0) memcpy(display_buf, text_buf + offset, to_copy);
+
+        if (len > 6) {
+            int period = len + 2;
+            if (advance) {
+                state->scroll_step++;
+                if (state->scroll_step >= period) {
+                    state->scroll_step = LITURGICAL_CALENDAR_FACE_MANUAL_SCROLL ? 0 : -LITURGICAL_CALENDAR_FACE_SCROLL_PAUSE_TICKS;
+                }
+            }
+
+            int offset = (state->scroll_step < 0) ? 0 : state->scroll_step;
+            for (int i = 0; i < 6; i++) {
+                int pos = (offset + i) % period;
+                if (pos < len) display_buf[i] = text_buf[pos];
+                else display_buf[i] = ' ';
+            }
+        } else {
+            memcpy(display_buf, text_buf, len);
+        }
         
         watch_display_text_with_fallback(WATCH_POSITION_BOTTOM, display_buf, display_buf);
     } else {

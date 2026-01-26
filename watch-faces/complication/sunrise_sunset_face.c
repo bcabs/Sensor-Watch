@@ -68,7 +68,7 @@ static void _sunrise_sunset_face_update(sunrise_sunset_state_t *state) {
     double rise, set, minutes, seconds;
     bool show_next_match = false;
     movement_location_t movement_location;
-    if (state->longLatToUse == 0 || _location_count <= 1)
+    if (state->longLatToUse == 0 && strcmp(longLatPresets[0].name, "  ") == 0)
         movement_location = load_location_from_filesystem();
     else{
         movement_location.bit.latitude = longLatPresets[state->longLatToUse].latitude;
@@ -152,7 +152,7 @@ static void _sunrise_sunset_face_update(sunrise_sunset_state_t *state) {
                 watch_display_text_with_fallback(WATCH_POSITION_TOP_LEFT, "RIS", "rI");
                 sprintf(buf, "%2d", scratch_time.unit.day);
                 watch_display_text(WATCH_POSITION_TOP_RIGHT, buf);
-                sprintf(buf, "%2d%02d%2s", scratch_time.unit.hour, scratch_time.unit.minute,longLatPresets[state->longLatToUse].name);
+                sprintf(buf, "%2d%02d  ", scratch_time.unit.hour, scratch_time.unit.minute);
                 watch_display_text(WATCH_POSITION_BOTTOM, buf);
                 return;
             } else {
@@ -191,7 +191,7 @@ static void _sunrise_sunset_face_update(sunrise_sunset_state_t *state) {
                 watch_display_text_with_fallback(WATCH_POSITION_TOP_LEFT, "SET", "SE");
                 sprintf(buf, "%2d", scratch_time.unit.day);
                 watch_display_text(WATCH_POSITION_TOP_RIGHT, buf);
-                sprintf(buf, "%2d%02d%2s", scratch_time.unit.hour, scratch_time.unit.minute,longLatPresets[state->longLatToUse].name);
+                sprintf(buf, "%2d%02d  ", scratch_time.unit.hour, scratch_time.unit.minute);
                 watch_display_text(WATCH_POSITION_BOTTOM, buf);
                 return;
             } else {

@@ -45,7 +45,6 @@
 #include "delay.h"
 #include "thermistor_driver.h"
 
-#define MOVEMENT_C_
 #include "movement_config.h"
 
 #include "movement_custom_signal_tunes.h"
@@ -265,6 +264,9 @@ bool movement_default_loop_handler(movement_event_t event) {
             } else {
                 movement_move_to_face(0);
             }
+            break;
+        case EVENT_TIMEOUT:
+            movement_move_to_face(0);
             break;
         default:
             break;
@@ -521,11 +523,19 @@ void movement_set_lap_enabled(bool value) {
 }
 
 bool movement_24h_indicator_enabled(void) {
-    return movement_state.indicator_24h_enabled;
+    return movement_state.indicator_24h_enabled || movement_state.liturgical_calendar_indicator_24h || movement_state.special_days_indicator_24h;
 }
 
 void movement_set_24h_indicator_enabled(bool value) {
     movement_state.indicator_24h_enabled = value;
+}
+
+void movement_set_liturgical_calendar_indicator_24h(bool value) {
+    movement_state.liturgical_calendar_indicator_24h = value;
+}
+
+void movement_set_special_days_indicator_24h(bool value) {
+    movement_state.special_days_indicator_24h = value;
 }
 
 bool movement_time_signal_enabled(void) {
@@ -688,13 +698,6 @@ void app_init(void) {
         movement_state.settings.bit.led_duration = MOVEMENT_DEFAULT_LED_DURATION;
 
         movement_store_settings();
-    }
-
-    if (!filesystem_file_exists("location.u32")) {
-        movement_location_t default_location = {0};
-        default_location.bit.latitude = MOVEMENT_DEFAULT_LATITUDE;
-        default_location.bit.longitude = MOVEMENT_DEFAULT_LONGITUDE;
-        filesystem_write_file("location.u32", (char *) &default_location.reg, sizeof(movement_location_t));
     }
 
     watch_date_time_t date_time = watch_rtc_get_date_time();

@@ -5,6 +5,11 @@
 #define LITURGICAL_CALENDAR_FACE_H_
 #include "movement.h"
 
+/* Set to true to use the traditional liturgical calendar (liturgical_calendar_alt.h)
+ * instead of the standard one (liturgical_calendar.h).
+ */
+#define MOVEMENT_USE_TRADITIONAL_CALENDAR false
+
 typedef enum {
     ADVENT,
     CHRISTMAS,

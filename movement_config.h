@@ -27,21 +27,19 @@
 
 #include "movement_faces.h"
 
-#ifdef MOVEMENT_C_
 const watch_face_t watch_faces[] = {
     clock_face,
     liturgical_calendar_face,
+    // special_day_face,
     moon_phase_face,
     sunrise_sunset_face,
     fast_stopwatch_face,
     tally_face,
     voltage_face,
-    settings_face,
     set_time_face
 };
 
 #define MOVEMENT_NUM_FACES (sizeof(watch_faces) / sizeof(watch_face_t))
-#endif
 
 /* Determines what face to go to from the first face on long press of the Mode button.
  * Also excludes these faces from the normal rotation.
@@ -76,7 +74,7 @@ const watch_face_t watch_faces[] = {
  * 2: 5 minutes
  * 3: 30 minutes
  */
-#define MOVEMENT_DEFAULT_TIMEOUT_INTERVAL 3
+#define MOVEMENT_DEFAULT_TIMEOUT_INTERVAL 1
 
 /* Set the timeout before switching to low energy mode
  * Valid values are:
@@ -89,7 +87,7 @@ const watch_face_t watch_faces[] = {
  * 6: 1 day
  * 7: 7 days
  */
-#define MOVEMENT_DEFAULT_LOW_ENERGY_INTERVAL 2
+#define MOVEMENT_DEFAULT_LOW_ENERGY_INTERVAL 1
 
 /* Set the led duration
  * Valid values are:
@@ -98,22 +96,6 @@ const watch_face_t watch_faces[] = {
  * 2: 3 seconds
  * 3: 5 seconds
  */
-#define MOVEMENT_DEFAULT_LED_DURATION 1
-
-/* Set the default location for the watch
- * These are in hundredths of a degree.
- * Latitude is positive for North, negative for South.
- * Longitude is positive for East, negative for West.
- * e.g. 40.7128° N, 74.0060° W would be:
- * #define MOVEMENT_DEFAULT_LATITUDE 4071
- * #define MOVEMENT_DEFAULT_LONGITUDE -7401
- */
-#define MOVEMENT_DEFAULT_LATITUDE 4233
-#define MOVEMENT_DEFAULT_LONGITUDE -8817
-
-/* Set to true to use the traditional liturgical calendar (liturgical_calendar_alt.h)
- * instead of the standard one (liturgical_calendar.h).
- */
-#define MOVEMENT_USE_TRADITIONAL_CALENDAR false
+#define MOVEMENT_DEFAULT_LED_DURATION 3
 
 #endif // MOVEMENT_CONFIG_H_
