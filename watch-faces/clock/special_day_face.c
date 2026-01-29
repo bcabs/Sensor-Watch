@@ -98,7 +98,8 @@ static void find_next_special_day(uint16_t start_year, uint8_t start_month, uint
 static void lookup_day(special_day_state_t *state, bool advance) {
     char buf[14];
     
-    sprintf(buf, "%2d", state->current_view_month);
+    if (state->current_view_month < 10) sprintf(buf, "%d ", state->current_view_month);
+    else sprintf(buf, "%2d", state->current_view_month);
     watch_display_text(WATCH_POSITION_TOP_LEFT, buf);
     sprintf(buf, "%2d", state->current_view_day);
     watch_display_text(WATCH_POSITION_TOP_RIGHT, buf);

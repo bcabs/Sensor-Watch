@@ -11,6 +11,10 @@ typedef struct {
 
 static const SpecialDayDefinition special_days_list[] = {
     {1, 1, "New Year"},
+    {2, 1, "first"},
+    {4, 1, "second"},
+    {11, 1, "third"},
+    {12, 1, "fourth"},
     // Add your special days here
     // {1, 11, "My Birthday"},
 };

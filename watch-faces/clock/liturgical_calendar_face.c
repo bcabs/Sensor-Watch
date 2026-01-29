@@ -106,7 +106,7 @@ void lookup_day(bool isActivated, liturgical_calendar_state_t *state, bool advan
     if (state->mode_display_ticks > 0) {
         watch_clear_display();
         if (state->use_alt_calendar) {
-            watch_display_text(WATCH_POSITION_BOTTOM, "Trad  ");
+            watch_display_text(WATCH_POSITION_BOTTOM, " Trad ");
         } else {
             watch_display_text(WATCH_POSITION_BOTTOM, "Normal");
         }
