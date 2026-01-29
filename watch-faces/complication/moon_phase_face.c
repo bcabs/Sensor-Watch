@@ -87,7 +87,7 @@ static void _update(moon_phase_state_t *state, uint32_t offset) {
     watch_display_text(WATCH_POSITION_BOTTOM, bottom_buf);
 
     char top_buf[3] = "  ";
-    if (currentfrac < 0.5) top_buf[0] = '+';
+    if (currentfrac < 0.5) top_buf[0] = '*';
     else top_buf[0] = '-';
     watch_display_text(WATCH_POSITION_TOP_LEFT, top_buf);
 }
